@@ -323,12 +323,92 @@ function Home({ onFormTypeSelect }) {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [searchHistory, setSearchHistory] = useState([]);
   const [isSearchingAllCategories, setIsSearchingAllCategories] = useState(false);
+  const [recentForms, setRecentForms] = useState([]);
+  const [showRecentForms, setShowRecentForms] = useState(false);
   const searchInputRef = useRef(null);
 
   const handleFormTypeClick = (formType) => {
-    if (onFormTypeSelect) {
-      onFormTypeSelect(formType);
+    console.log('=== FORM CLICK START ===');
+    console.log('Form type clicked:', formType);
+    console.log('Current recentForms before:', recentForms);
+    
+    // Add to recent forms
+    addToRecentForms(formType);
+    
+    console.log('After addToRecentForms call');
+    
+    // Small delay to ensure state update completes
+    setTimeout(() => {
+      if (onFormTypeSelect) {
+        console.log('Calling onFormTypeSelect with:', formType);
+        onFormTypeSelect(formType);
+      } else {
+        console.log('onFormTypeSelect is not provided');
+      }
+    }, 100);
+    
+    console.log('=== FORM CLICK END ===');
+  };
+
+  // Add form type to recent forms
+  const addToRecentForms = (formType) => {
+    console.log('Adding to recent forms:', formType);
+    console.log('Available categories:', Object.keys(categories));
+    
+    setRecentForms(prev => {
+      // Remove if already exists
+      const filtered = prev.filter(form => form.type !== formType);
+      
+      // Find the form details
+      let formDetails = null;
+      for (const category of Object.keys(categories)) {
+        const found = categories[category].find(form => form.type === formType);
+        if (found) {
+          formDetails = { ...found, category };
+          console.log('Found in category:', category);
+          break;
+        }
+      }
+      
+      if (formDetails) {
+        // Add timestamp
+        formDetails.lastUsed = new Date().toISOString();
+        console.log('Form details found:', formDetails);
+        // Add to beginning and limit to 8 items
+        const newRecentForms = [formDetails, ...filtered].slice(0, 8);
+        console.log('Updated recent forms:', newRecentForms);
+        return newRecentForms;
+      } else {
+        console.log('Form details not found for:', formType);
+        console.log('Available form types in categories:');
+        Object.keys(categories).forEach(cat => {
+          console.log(`${cat}:`, categories[cat].map(f => f.type));
+        });
+      }
+      
+      return prev;
+    });
+  };
+
+  // Remove form from recent forms
+  const removeFromRecentForms = (formType) => {
+    setRecentForms(prev => prev.filter(form => form.type !== formType));
+  };
+
+  // Clear all recent forms
+  const clearRecentForms = () => {
+    if (window.confirm('Are you sure you want to clear all recent forms? This action cannot be undone.')) {
+      setRecentForms([]);
+      localStorage.removeItem('recentForms');
+      console.log('Recent forms cleared by user');
     }
+  };
+
+  // Clear corrupted data and refresh
+  const clearCorruptedData = () => {
+    localStorage.removeItem('recentForms');
+    setRecentForms([]);
+    window.location.reload(); // Refresh to ensure clean state
   };
 
   // Get all form types across all categories for global search
@@ -446,6 +526,54 @@ function Home({ onFormTypeSelect }) {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Load recent forms from localStorage on component mount
+  useEffect(() => {
+    const savedRecentForms = localStorage.getItem('recentForms');
+    if (savedRecentForms) {
+      try {
+        const parsed = JSON.parse(savedRecentForms);
+        
+        // Validate that it's an array and has the correct structure
+        if (Array.isArray(parsed)) {
+          const validForms = parsed.filter(form => 
+            form && 
+            typeof form === 'object' && 
+            form.type && 
+            form.description && 
+            form.category && 
+            form.lastUsed
+          );
+          
+          if (validForms.length > 0) {
+            setRecentForms(validForms);
+          } else {
+            // Clear corrupted data
+            localStorage.removeItem('recentForms');
+            setRecentForms([]);
+          }
+        } else {
+          // Clear invalid data
+          localStorage.removeItem('recentForms');
+          setRecentForms([]);
+        }
+      } catch (error) {
+        console.error('Error loading recent forms:', error);
+        // Clear corrupted data
+        localStorage.removeItem('recentForms');
+        setRecentForms([]);
+      }
+    }
+  }, []);
+
+  // Save recent forms to localStorage whenever it changes
+  useEffect(() => {
+    console.log('recentForms changed:', recentForms);
+    if (recentForms.length > 0) {
+      localStorage.setItem('recentForms', JSON.stringify(recentForms));
+      console.log('Saved to localStorage:', recentForms);
+    }
+  }, [recentForms]);
+
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
     // Scroll to top when page changes
@@ -465,6 +593,44 @@ function Home({ onFormTypeSelect }) {
       ) : part
     );
   };
+
+  // Format relative time
+  const formatRelativeTime = (timestamp) => {
+    if (!timestamp) return 'Unknown time';
+    
+    try {
+      const now = new Date();
+      const time = new Date(timestamp);
+      
+      // Check if the date is valid
+      if (isNaN(time.getTime())) {
+        return 'Unknown time';
+      }
+      
+      const diffInMinutes = Math.floor((now - time) / (1000 * 60));
+      
+      if (diffInMinutes < 1) return 'Just now';
+      if (diffInMinutes < 60) return `${diffInMinutes} minutes ago`;
+      
+      const diffInHours = Math.floor(diffInMinutes / 60);
+      if (diffInHours < 24) return `${diffInHours} hours ago`;
+      
+      const diffInDays = Math.floor(diffInHours / 24);
+      if (diffInDays < 7) return `${diffInDays} days ago`;
+      
+      const diffInWeeks = Math.floor(diffInDays / 7);
+      if (diffInWeeks < 4) return `${diffInWeeks} weeks ago`;
+      
+      const diffInMonths = Math.floor(diffInDays / 30);
+      return `${diffInMonths} months ago`;
+    } catch (error) {
+      return 'Unknown time';
+    }
+  };
+
+  // Debug: Log current state
+  console.log('Current recentForms state:', recentForms);
+  console.log('recentForms.length:', recentForms.length);
 
   const renderPaginationButtons = () => {
     const buttons = [];
@@ -594,7 +760,7 @@ function Home({ onFormTypeSelect }) {
                           {suggestion.category}
                         </div>
                         <div className="suggestion-description">
-                          {suggestion.description.substring(0, 80)}...
+                          {suggestion.description ? suggestion.description.substring(0, 80) + '...' : 'No description available'}
                         </div>
                       </div>
                     </div>
@@ -621,6 +787,111 @@ function Home({ onFormTypeSelect }) {
           </div>
         )}
       </div>
+
+      {/* Recent Forms Section */}
+      {showRecentForms && !searchTerm && (
+        <div className="recent-forms-section" key={`recent-forms-${recentForms.length}`}>
+          <div className="recent-forms-header">
+            <h2 className="recent-forms-title">
+              <span className="recent-icon">🕒</span>
+              Recently Used
+            </h2>
+            <div className="recent-forms-actions">
+              <button 
+                className="toggle-recent-btn"
+                onClick={() => setShowRecentForms(false)}
+                title="Hide recent forms"
+              >
+                ✕
+              </button>
+              {recentForms.length > 0 && (
+                <button 
+                  className="clear-recent-btn"
+                  onClick={clearRecentForms}
+                  title="Clear all recent forms"
+                >
+                  Clear All
+                </button>
+              )}
+              <button 
+                className="clear-recent-btn"
+                onClick={clearCorruptedData}
+                title="Clear corrupted data and refresh app"
+                style={{ backgroundColor: '#dc3545', color: 'white' }}
+              >
+                Fix Corrupted Data
+              </button>
+            </div>
+          </div>
+          
+          {recentForms.length > 0 ? (
+            <div className="recent-forms-grid">
+              {recentForms.map((form, index) => (
+                <div key={`recent-form-${form.type}-${index}`} className="recent-form-card">
+                  <div className="recent-form-header">
+                    <div className="recent-form-category">
+                      📁 {form.category}
+                    </div>
+                    <button 
+                      className="remove-recent-btn"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        removeFromRecentForms(form.type);
+                      }}
+                      title="Remove from recent"
+                    >
+                      ×
+                    </button>
+                  </div>
+                  
+                  <h3 className="recent-form-type">
+                    {form.type}
+                  </h3>
+                  <p className="recent-form-description">
+                    {form.description ? form.description.substring(0, 60) + '...' : 'No description available'}
+                  </p>
+                  
+                  <div className="recent-form-footer">
+                    <span className="recent-form-time">
+                      {formatRelativeTime(form.lastUsed)}
+                    </span>
+                    <button
+                      className="recent-continue-btn"
+                      onClick={() => handleFormTypeClick(form.type)}
+                    >
+                      Use Again
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="recent-forms-empty">
+              <div className="empty-message">
+                <span className="empty-icon">📝</span>
+                <h3>No Recent Forms</h3>
+                <p>Start using forms to see them appear here for quick access!</p>
+                <div className="empty-suggestions">
+                  <p>Try clicking on any form type below to add it to your recent list.</p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Show Recent Forms Toggle */}
+      {!showRecentForms && !searchTerm && (
+        <div className="show-recent-toggle">
+          <button 
+            className="show-recent-btn"
+            onClick={() => setShowRecentForms(true)}
+          >
+            <span className="recent-icon">🕒</span>
+            Show Recent Forms {recentForms.length > 0 && `(${recentForms.length})`}
+          </button>
+        </div>
+      )}
 
       {/* Category Tabs */}
       <div className="category-tabs">
