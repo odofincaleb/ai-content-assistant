@@ -318,6 +318,8 @@ const categoryNames = Object.keys(categories);
 function Home({ onFormTypeSelect }) {
   const [activeCategory, setActiveCategory] = useState('All Scripts');
   const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(12); // Show 12 items per page
 
   const handleFormTypeClick = (formType) => {
     if (onFormTypeSelect) {
@@ -330,12 +332,95 @@ function Home({ onFormTypeSelect }) {
     form.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredFormTypes.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentFormTypes = filteredFormTypes.slice(startIndex, endIndex);
+
+  // Reset to first page when category or search changes
+  React.useEffect(() => {
+    setCurrentPage(1);
+  }, [activeCategory, searchTerm]);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    // Scroll to top when page changes
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const renderPaginationButtons = () => {
+    const buttons = [];
+    const maxVisibleButtons = 5;
+
+    // Always show first page
+    buttons.push(
+      <button
+        key={1}
+        className={`pagination-button ${currentPage === 1 ? 'active' : ''}`}
+        onClick={() => handlePageChange(1)}
+      >
+        1
+      </button>
+    );
+
+    // Calculate start and end of visible buttons
+    let startPage = Math.max(2, currentPage - Math.floor(maxVisibleButtons / 2));
+    let endPage = Math.min(totalPages - 1, startPage + maxVisibleButtons - 3);
+    
+    if (endPage - startPage < maxVisibleButtons - 3) {
+      startPage = Math.max(2, endPage - maxVisibleButtons + 3);
+    }
+
+    // Add ellipsis if needed
+    if (startPage > 2) {
+      buttons.push(
+        <span key="ellipsis1" className="pagination-ellipsis">...</span>
+      );
+    }
+
+    // Add middle pages
+    for (let i = startPage; i <= endPage; i++) {
+      buttons.push(
+        <button
+          key={i}
+          className={`pagination-button ${currentPage === i ? 'active' : ''}`}
+          onClick={() => handlePageChange(i)}
+        >
+          {i}
+        </button>
+      );
+    }
+
+    // Add ellipsis if needed
+    if (endPage < totalPages - 1) {
+      buttons.push(
+        <span key="ellipsis2" className="pagination-ellipsis">...</span>
+      );
+    }
+
+    // Always show last page if there's more than one page
+    if (totalPages > 1) {
+      buttons.push(
+        <button
+          key={totalPages}
+          className={`pagination-button ${currentPage === totalPages ? 'active' : ''}`}
+          onClick={() => handlePageChange(totalPages)}
+        >
+          {totalPages}
+        </button>
+      );
+    }
+
+    return buttons;
+  };
+
   return (
     <div className="home-container">
       {/* Search Bar */}
       <div className="search-container">
         <div className="search-bar">
-          <span className="search-icon">��</span>
+          <span className="search-icon">🔍</span>
           <input
             type="text"
             placeholder="What script do you want to create?"
@@ -362,11 +447,14 @@ function Home({ onFormTypeSelect }) {
       {/* Category Title */}
       <div className="category-title">
         <h1>{activeCategory}</h1>
+        <p className="results-count">
+          Showing {startIndex + 1}-{Math.min(endIndex, filteredFormTypes.length)} of {filteredFormTypes.length} results
+        </p>
       </div>
 
       {/* Form Type Grid */}
       <div className="form-grid">
-        {filteredFormTypes.map((form, index) => (
+        {currentFormTypes.map((form, index) => (
           <div key={index} className="form-card">
             <h3 className="form-type">{form.type}</h3>
             <p className="form-description">{form.description}</p>
@@ -379,6 +467,37 @@ function Home({ onFormTypeSelect }) {
           </div>
         ))}
       </div>
+
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="pagination-container">
+          <div className="pagination-controls">
+            <button
+              className="pagination-button"
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+            >
+              ← Previous
+            </button>
+            
+            <div className="pagination-numbers">
+              {renderPaginationButtons()}
+            </div>
+            
+            <button
+              className="pagination-button"
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+            >
+              Next →
+            </button>
+          </div>
+          
+          <div className="pagination-info">
+            Page {currentPage} of {totalPages}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
