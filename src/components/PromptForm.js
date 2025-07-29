@@ -61,7 +61,9 @@ const formConfigs = {
       'Example: busy professionals, students',
       'Example: casual, confident'
     ],
-    template: 'Write an engaging introduction for a blog or article titled {1}, aimed at {2}. The introduction should be written in a {3} tone, capturing the reader\'s attention and providing a compelling reason to continue reading.'
+    template: 'Write an engaging introduction for a blog or article titled {1}, aimed at {2}. The introduction should be written in a {3} tone, capturing the reader\'s attention and providing a compelling reason to continue reading.',
+    tones: toneOptions,
+    toneQuestionIndex: 2
   },
   'BLOG/ARTICLE OUTLINES': {
     questions: [
@@ -1204,7 +1206,9 @@ const formConfigs = {
         '4',
         'Casual, confident'
       ],
-      template: 'Create a detailed outline for a YouTube video on the topic of {1} targeted at the audience of {2}. The outline should have {3} sections and adopt a {4} tone or style. Each section should cover a different aspect of the main topic and be designed to guide the video creation process, resulting in a well-organized, informative, and engaging video for the viewers. The outline should also ensure that the content flows smoothly, keeping the audience captivated and encouraging them to watch the entire video.'
+      template: 'Create a detailed outline for a YouTube video on the topic of {1} targeted at the audience of {2}. The outline should have {3} sections and adopt a {4} tone or style. Each section should cover a different aspect of the main topic and be designed to guide the video creation process, resulting in a well-organized, informative, and engaging video for the viewers. The outline should also ensure that the content flows smoothly, keeping the audience captivated and encouraging them to watch the entire video.',
+      tones: toneOptions,
+      toneQuestionIndex: 3
     },
     'YOUTUBE SHORTS': {
       questions: [
@@ -1219,7 +1223,9 @@ const formConfigs = {
         'Casual, Creative',
         '16'
       ],
-      template: 'Create a captivating script for a YouTube Short on the topic of {1} targeted at the audience of {2}. The script should adopt a {3} tone or style and be approximately {4} seconds long. Ensure the content is engaging and attention-grabbing, keeping in mind the short format and time constraint of YouTube Shorts. The script should be concise, conveying the main message quickly and effectively to keep viewers interested and encourage them to watch more of your content.'
+      template: 'Create a captivating script for a YouTube Short on the topic of {1} targeted at the audience of {2}. The script should adopt a {3} tone or style and be approximately {4} seconds long. Ensure the content is engaging and attention-grabbing, keeping in mind the short format and time constraint of YouTube Shorts. The script should be concise, conveying the main message quickly and effectively to keep viewers interested and encourage them to watch more of your content.',
+      tones: toneOptions,
+      toneQuestionIndex: 2
     },
     'TIKTOK VIDEO SCRIPT': {
       questions: [
@@ -1234,7 +1240,9 @@ const formConfigs = {
         'Casual, Creative',
         '30'
       ],
-      template: 'Create an engaging script for a TikTok video on the topic of {1} targeted at the audience of {2}. The script should adopt a {3} tone or style and be approximately {4} seconds long. Make sure the content is captivating and attention-grabbing, considering the short format and time constraint of TikTok videos. The script should be concise, conveying the main message quickly and effectively to keep viewers interested and encourage them to follow your account for more content.'
+      template: 'Create an engaging script for a TikTok video on the topic of {1} targeted at the audience of {2}. The script should adopt a {3} tone or style and be approximately {4} seconds long. Make sure the content is captivating and attention-grabbing, considering the short format and time constraint of TikTok videos. The script should be concise, conveying the main message quickly and effectively to keep viewers interested and encourage them to follow your account for more content.',
+      tones: toneOptions,
+      toneQuestionIndex: 2
     },
     'TIKTOK VIDEO HOOKS': {
       questions: [
@@ -1247,7 +1255,9 @@ const formConfigs = {
         'Aspiring dancers',
         'Casual, confident'
       ],
-      template: 'Create a compelling hook for a TikTok video on the topic of {1} targeted at the audience of {2}. The hook should adopt a {3} tone or style, instantly grabbing the viewer\'s attention and making them want to watch the entire video. The hook should be concise and intriguing, effectively setting the stage for the rest of the content and encouraging viewers to engage with your TikTok account.'
+      template: 'Create a compelling hook for a TikTok video on the topic of {1} targeted at the audience of {2}. The hook should adopt a {3} tone or style, instantly grabbing the viewer\'s attention and making them want to watch the entire video. The hook should be concise and intriguing, effectively setting the stage for the rest of the content and encouraging viewers to engage with your TikTok account.',
+      tones: toneOptions,
+      toneQuestionIndex: 2
     },
     'TIKTOK VIDEO IDEAS': {
       questions: [
@@ -1262,7 +1272,9 @@ const formConfigs = {
         '10',
         'Casual, Creative'
       ],
-      template: 'Generate {3} unique and captivating TikTok video ideas in the theme or category of {1}, targeted at the audience of {2}. The video ideas should adopt a {4} tone or style, ensuring that they are attention-grabbing and appealing to the target audience. These ideas should inspire viewers to engage with your TikTok account, providing a variety of content that keeps them interested and entertained. Consider current trends and popular topics within the chosen theme or category to maximize the potential for virality and growth on the platform.'
+      template: 'Generate {3} unique and captivating TikTok video ideas in the theme or category of {1}, targeted at the audience of {2}. The video ideas should adopt a {4} tone or style, ensuring that they are attention-grabbing and appealing to the target audience. These ideas should inspire viewers to engage with your TikTok account, providing a variety of content that keeps them interested and entertained. Consider current trends and popular topics within the chosen theme or category to maximize the potential for virality and growth on the platform.',
+      tones: toneOptions,
+      toneQuestionIndex: 3
     },
     'DIGITAL PRODUCT VIDEO': {
       questions: [
@@ -1279,7 +1291,9 @@ const formConfigs = {
         'Confident, creative',
         'Python programming, learn python, coding courses'
       ],
-      template: 'Create a {3}-second video script to promote the digital product {1}, targeted at the audience of {2}. The script should adopt a {4} tone of voice and incorporate the keywords or phrases {5} to effectively convey the benefits and features of the digital product. The video should be engaging, attention-grabbing, and clearly explain how the product can help the target audience solve a specific problem or improve their skills. Use a compelling call-to-action to encourage viewers to explore the product further or make a purchase.'
+      template: 'Create a {3}-second video script to promote the digital product {1}, targeted at the audience of {2}. The script should adopt a {4} tone of voice and incorporate the keywords or phrases {5} to effectively convey the benefits and features of the digital product. The video should be engaging, attention-grabbing, and clearly explain how the product can help the target audience solve a specific problem or improve their skills. Use a compelling call-to-action to encourage viewers to explore the product further or make a purchase.',
+      tones: toneOptions,
+      toneQuestionIndex: 3
     },
     'PHYSICAL PRODUCT VIDEO': {
       questions: [
@@ -1296,7 +1310,9 @@ const formConfigs = {
         'Casual, Confident',
         'phone case, battery case, smartphone accessories'
       ],
-      template: 'Create a {3}-second video script to promote the physical product {1}, targeted at the audience of {2}. The script should adopt a {4} tone of voice and incorporate the keywords or phrases {5} to effectively showcase the benefits and features of the physical product. The video should be engaging, attention-grabbing, and clearly demonstrate how the product can improve the user\'s experience or solve a specific problem. Use a compelling call-to-action to encourage viewers to explore the product further or make a purchase.'
+      template: 'Create a {3}-second video script to promote the physical product {1}, targeted at the audience of {2}. The script should adopt a {4} tone of voice and incorporate the keywords or phrases {5} to effectively showcase the benefits and features of the physical product. The video should be engaging, attention-grabbing, and clearly demonstrate how the product can improve the user\'s experience or solve a specific problem. Use a compelling call-to-action to encourage viewers to explore the product further or make a purchase.',
+      tones: toneOptions,
+      toneQuestionIndex: 3
     },
     'SHORT AD VIDEO': {
       questions: [
@@ -1313,7 +1329,9 @@ const formConfigs = {
         'Casual, Confident',
         'noise-canceling, wireless, comfortable'
       ],
-      template: 'Create a {3}-second short ad video script to promote the product or service {1}, targeted at the audience of {2}. The script should adopt a {4} tone of voice and incorporate the keywords or phrases {5} to effectively highlight the benefits and features of the product or service. The video should be engaging, attention-grabbing, and persuasive, using a clear call-to-action to encourage viewers to explore the product or service further or make a purchase.'
+      template: 'Create a {3}-second short ad video script to promote the product or service {1}, targeted at the audience of {2}. The script should adopt a {4} tone of voice and incorporate the keywords or phrases {5} to effectively highlight the benefits and features of the product or service. The video should be engaging, attention-grabbing, and persuasive, using a clear call-to-action to encourage viewers to explore the product or service further or make a purchase.',
+      tones: toneOptions,
+      toneQuestionIndex: 3
     },
     'TUTORIAL VIDEO': {
       questions: [
@@ -1330,7 +1348,9 @@ const formConfigs = {
         'Instructive, friendly',
         'microphone, audio interface, software'
       ],
-      template: 'Create an explainer-style tutorial video script on the topic of {1} for the target audience of {2}. The tutorial should be organized into {3} clear steps or sections, adopting a {4} tone of voice. Make sure to incorporate the keywords or phrases {5} to effectively explain the process, ensuring the content is engaging, informative, and easy to follow. The tutorial should empower viewers to confidently perform the task or learn the skill being demonstrated, leaving them with a sense of accomplishment.'
+      template: 'Create an explainer-style tutorial video script on the topic of {1} for the target audience of {2}. The tutorial should be organized into {3} clear steps or sections, adopting a {4} tone of voice. Make sure to incorporate the keywords or phrases {5} to effectively explain the process, ensuring the content is engaging, informative, and easy to follow. The tutorial should empower viewers to confidently perform the task or learn the skill being demonstrated, leaving them with a sense of accomplishment.',
+      tones: toneOptions,
+      toneQuestionIndex: 3
     },
     'INFORMATIONAL VIDEO': {
       questions: [
@@ -1347,7 +1367,9 @@ const formConfigs = {
         'casual, creative',
         'ARPANET, World Wide Web, Tim Berners-Lee'
       ],
-      template: 'Create an informative video script on the topic of {1} for the target audience of {2}. The script should be organized into {3} main points or sections, adopting a {4} tone of voice. Make sure to incorporate the keywords or phrases {5} to effectively present the information, ensuring the content is engaging, informative, and easy to understand. The video should provide the viewers with valuable knowledge and insights into the topic, leaving them with a deeper understanding and appreciation of the subject matter.'
+      template: 'Create an informative video script on the topic of {1} for the target audience of {2}. The script should be organized into {3} main points or sections, adopting a {4} tone of voice. Make sure to incorporate the keywords or phrases {5} to effectively present the information, ensuring the content is engaging, informative, and easy to understand. The video should provide the viewers with valuable knowledge and insights into the topic, leaving them with a deeper understanding and appreciation of the subject matter.',
+      tones: toneOptions,
+      toneQuestionIndex: 3
     },
     'ANNOUNCEMENT VIDEO': {
       questions: [
@@ -1364,7 +1386,9 @@ const formConfigs = {
         'Product features, release date, special offers',
         'call to action, website link'
       ],
-      template: 'Create an announcement video script about {1} targeted at the audience of {2}. The script should adopt a {3} tone of voice and include all the key details and information such as {4}. At the end of the video, make sure to include the call to action or any additional information {5} to encourage the viewers to take the desired action or learn more about the announcement. The script should effectively convey the excitement and importance of the announcement while engaging the viewers and encouraging them to take action.'
+      template: 'Create an announcement video script about {1} targeted at the audience of {2}. The script should adopt a {3} tone of voice and include all the key details and information such as {4}. At the end of the video, make sure to include the call to action or any additional information {5} to encourage the viewers to take the desired action or learn more about the announcement. The script should effectively convey the excitement and importance of the announcement while engaging the viewers and encouraging them to take action.',
+      tones: toneOptions,
+      toneQuestionIndex: 2
     },
     'FACEBOOK AD VIDEO': {
       questions: [
@@ -1381,7 +1405,9 @@ const formConfigs = {
         'Key features, benefits, limited-time offer',
         'Visit our website, download the app'
       ],
-      template: 'Create a Facebook ad video script promoting {1} targeted at the audience of {2}. The script should adopt a {3} tone of voice and highlight the key selling points and benefits of the product or service such as {4}. At the end of the video, make sure to include a clear call to action {5} to encourage the viewers to take the desired action. The script should be engaging, persuasive, and optimized for social media to capture the attention of the target audience and drive results.'
+      template: 'Create a Facebook ad video script promoting {1} targeted at the audience of {2}. The script should adopt a {3} tone of voice and highlight the key selling points and benefits of the product or service such as {4}. At the end of the video, make sure to include a clear call to action {5} to encourage the viewers to take the desired action. The script should be engaging, persuasive, and optimized for social media to capture the attention of the target audience and drive results.',
+      tones: toneOptions,
+      toneQuestionIndex: 2
     },
     'EMAIL SUBJECT LINES': {
       questions: [
@@ -1396,7 +1422,9 @@ const formConfigs = {
         'Limited-time discount, upcoming event, new product',
         '3'
       ],
-      template: 'Create {4} email subject lines that grab the attention of the recipient and encourage them to open the email. The subject lines should be aligned with the purpose of the email {1} and adopt a {2} tone of voice. Make sure to include the main highlight "{3}" or offer to create a sense of urgency and entice the recipient to read the email. The subject lines should be catchy, relevant, and optimized for driving open rates.'
+      template: 'Create {4} email subject lines that grab the attention of the recipient and encourage them to open the email. The subject lines should be aligned with the purpose of the email {1} and adopt a {2} tone of voice. Make sure to include the main highlight "{3}" or offer to create a sense of urgency and entice the recipient to read the email. The subject lines should be catchy, relevant, and optimized for driving open rates.',
+      tones: toneOptions,
+      toneQuestionIndex: 1
     },
     'PRODUCT OR SERVICE PROMOTION': {
       questions: [
@@ -1436,7 +1464,9 @@ const formConfigs = {
         'Our loyal customers, industry partners, investors',
         'www.example.com/new-product'
       ],
-      template: 'Compose a news announcement email that informs the target audience {4} about the main news or announcement {1}. The email should have a captivating headline {2} and adopt a {3} tone of voice. Make sure to highlight the key points and provide any relevant link or call to action {5} to encourage the recipients to learn more about the announcement. Keep the email concise, informative, and engaging to pique the readers\' interest.'
+      template: 'Compose a news announcement email that informs the target audience {4} about the main news or announcement {1}. The email should have a captivating headline {2} and adopt a {3} tone of voice. Make sure to highlight the key points and provide any relevant link or call to action {5} to encourage the recipients to learn more about the announcement. Keep the email concise, informative, and engaging to pique the readers\' interest.',
+      tones: toneOptions,
+      toneQuestionIndex: 2
     },
     'PRODUCT UPDATES EMAIL': {
       questions: [
@@ -1453,7 +1483,9 @@ const formConfigs = {
         'Our loyal customers, users of our software, subscribers',
         'www.example.com/updates'
       ],
-      template: 'Compose a product updates email that informs the target audience {4} about the main updates or improvements to the product {1}. The email should highlight specific changes or updates {2} and adopt a {3} tone of voice. Make sure to emphasize the benefits of the updates and provide any relevant link or call to action {5} to encourage the recipients to explore the new features or improvements. Keep the email concise, informative, and engaging to pique the readers\' interest.'
+      template: 'Compose a product updates email that informs the target audience {4} about the main updates or improvements to the product {1}. The email should highlight specific changes or updates {2} and adopt a {3} tone of voice. Make sure to emphasize the benefits of the updates and provide any relevant link or call to action {5} to encourage the recipients to explore the new features or improvements. Keep the email concise, informative, and engaging to pique the readers\' interest.',
+      tones: toneOptions,
+      toneQuestionIndex: 2
     },
     'INFORMATIONAL EMAIL': {
       questions: [
@@ -1470,7 +1502,9 @@ const formConfigs = {
         'www.example.com/blog/cybersecurity',
         'Three key points about cybersecurity, Five benefits of meditation'
       ],
-      template: 'Compose an informational email that educates the target audience {3} on the main topic or subject {1}. The email should convey the key points or pieces of information {5} in a {2} tone of voice. Make sure to present the information in a clear, engaging, and informative manner. Include any relevant link or call to action {4} to encourage the recipients to learn more about the topic or take a desired action. Keep the email concise and focused on delivering value to the readers.'
+      template: 'Compose an informational email that educates the target audience {3} on the main topic or subject {1}. The email should convey the key points or pieces of information {5} in a {2} tone of voice. Make sure to present the information in a clear, engaging, and informative manner. Include any relevant link or call to action {4} to encourage the recipients to learn more about the topic or take a desired action. Keep the email concise and focused on delivering value to the readers.',
+      tones: toneOptions,
+      toneQuestionIndex: 1
     },
     'COLD OUTREACH EMAILS': {
       questions: [
@@ -1487,7 +1521,9 @@ const formConfigs = {
         'A case study, A free consultation',
         'www.example.com/services/content marketing'
       ],
-      template: 'Compose a cold outreach email that targets {2} and offers {1} in a {3} tone of voice. The email should clearly present the main value proposition or incentive {4} to entice the recipients to learn more about the product or service. Include any relevant link or call to action {5} to encourage the recipients to explore your offering or take the desired action. Keep the email concise, personalized, and focused on demonstrating how your product or service can solve a specific problem or provide a unique benefit to the target audience.'
+      template: 'Compose a cold outreach email that targets {2} and offers {1} in a {3} tone of voice. The email should clearly present the main value proposition or incentive {4} to entice the recipients to learn more about the product or service. Include any relevant link or call to action {5} to encourage the recipients to explore your offering or take the desired action. Keep the email concise, personalized, and focused on demonstrating how your product or service can solve a specific problem or provide a unique benefit to the target audience.',
+      tones: toneOptions,
+      toneQuestionIndex: 2
     },
     'AUTORESPONDER SERIES': {
       questions: [
@@ -1504,7 +1540,9 @@ const formConfigs = {
         'Casual, Confident',
         'www.example.com/products, www.example.com/contact'
       ],
-      template: 'Create a {2}-email autoresponder series for the purpose of {1}. The series should be in a {4} tone of voice and convey the key messages or actions {3}. Each email should be concise, engaging, and focused on nudging the reader towards taking the desired action. Include any specific links or call to actions {5} where appropriate to encourage the reader to explore your offering or take the next step. Ensure that the series is well-structured and flows smoothly from one email to the next, maintaining the reader\'s interest and building trust throughout.'
+      template: 'Create a {2}-email autoresponder series for the purpose of {1}. The series should be in a {4} tone of voice and convey the key messages or actions {3}. Each email should be concise, engaging, and focused on nudging the reader towards taking the desired action. Include any specific links or call to actions {5} where appropriate to encourage the reader to explore your offering or take the next step. Ensure that the series is well-structured and flows smoothly from one email to the next, maintaining the reader\'s interest and building trust throughout.',
+      tones: toneOptions,
+      toneQuestionIndex: 3
     },
     'GENERAL SUPPORT SCRIPT': {
       questions: [
@@ -1622,7 +1660,9 @@ const formConfigs = {
         'The weather was sunny and warm, making it a perfect day for a picnic',
         'Formal, casual'
       ],
-      template: 'Change the tone of the given text: {1} to be {2}.'
+      template: 'Change the tone of the given text: {1} to be {2}.',
+      tones: toneOptions,
+      toneQuestionIndex: 1
     },
     'SONG LYRICS': {
       questions: [
@@ -2063,7 +2103,9 @@ const formConfigs = {
         'Beginners looking to practice mindfulness',
         'casual, confident'
       ],
-      template: 'Write an engaging introduction for the ebook titled {1} that is focused on the {2} topic. The introduction should be written in a {4} tone, appealing to the target audience of {3}. It should capture the essence of the ebook and provide a brief overview of the content, while enticing readers to dive into the chapters that follow.'
+      template: 'Write an engaging introduction for the ebook titled {1} that is focused on the {2} topic. The introduction should be written in a {4} tone, appealing to the target audience of {3}. It should capture the essence of the ebook and provide a brief overview of the content, while enticing readers to dive into the chapters that follow.',
+      tones: toneOptions,
+      toneQuestionIndex: 3
     },
     'FIND A NICHE': {
       questions: [
@@ -2136,7 +2178,9 @@ const formConfigs = {
         'Casual, Creative',
         '30'
       ],
-      template: 'Create an engaging script for a TikTok video on the topic of {1} targeted at the audience of {2}. The script should adopt a {3} tone or style and be approximately {4} seconds long. Make sure the content is captivating and attention-grabbing, considering the short format and time constraint of TikTok videos. The script should be concise, conveying the main message quickly and effectively to keep viewers interested and encourage them to follow your account for more content.'
+      template: 'Create an engaging script for a TikTok video on the topic of {1} targeted at the audience of {2}. The script should adopt a {3} tone or style and be approximately {4} seconds long. Make sure the content is captivating and attention-grabbing, considering the short format and time constraint of TikTok videos. The script should be concise, conveying the main message quickly and effectively to keep viewers interested and encourage them to follow your account for more content.',
+      tones: toneOptions,
+      toneQuestionIndex: 2
     },
     'YOUTUBE DESCRIPTIONS': {
       questions: [
@@ -2184,11 +2228,13 @@ const formConfigs = {
       ],
       examples: [
         '10 travel hacks',
-        'Beginners travelers',
+        'Beginner travelers',
         '4',
         'Casual, confident'
       ],
-      template: 'Create a detailed outline for a YouTube video on the topic of {1} targeted at the audience of {2}. The outline should have {3} sections and adopt a {4} tone or style. Each section should cover a different aspect of the main topic and be designed to guide the video creation process, resulting in a well-organized, informative, and engaging video for the viewers. The outline should also ensure that the content flows smoothly, keeping the audience captivated and encouraging them to watch the entire video.'
+      template: 'Create a detailed outline for a YouTube video on the topic of {1} targeted at the audience of {2}. The outline should have {3} sections and adopt a {4} tone or style. Each section should cover a different aspect of the main topic and be designed to guide the video creation process, resulting in a well-organized, informative, and engaging video for the viewers. The outline should also ensure that the content flows smoothly, keeping the audience captivated and encouraging them to watch the entire video.',
+      tones: toneOptions,
+      toneQuestionIndex: 3
     },
     'YOUTUBE SHORTS': {
       questions: [
@@ -2203,7 +2249,9 @@ const formConfigs = {
         'Casual, Creative',
         '16'
       ],
-      template: 'Create a captivating script for a YouTube Short on the topic of {1} targeted at the audience of {2}. The script should adopt a {3} tone or style and be approximately {4} seconds long. Ensure the content is engaging and attention-grabbing, keeping in mind the short format and time constraint of YouTube Shorts. The script should be concise, conveying the main message quickly and effectively to keep viewers interested and encourage them to watch more of your content.'
+      template: 'Create a captivating script for a YouTube Short on the topic of {1} targeted at the audience of {2}. The script should adopt a {3} tone or style and be approximately {4} seconds long. Ensure the content is engaging and attention-grabbing, keeping in mind the short format and time constraint of YouTube Shorts. The script should be concise, conveying the main message quickly and effectively to keep viewers interested and encourage them to watch more of your content.',
+      tones: toneOptions,
+      toneQuestionIndex: 2
     },
     'YOUTUBE TAGS': {
       questions: [
@@ -2229,7 +2277,26 @@ const formConfigs = {
         'Casual, creative',
         'working from home, time management'
       ],
-      template: 'Generate {2} click-magnet YouTube video titles for videos focusing on the topic of {1}. The main purpose or tone of the videos should be {3}. Make sure to include the keywords or phrases {4} in the titles to help them rank higher on YouTube. The titles should be engaging, attention-grabbing, and encourage viewers to click on the videos.'
+      template: 'Generate {2} click-magnet YouTube video titles for videos focusing on the topic of {1}. The main purpose or tone of the videos should be {3}. Make sure to include the keywords or phrases {4} in the titles to help them rank higher on YouTube. The titles should be engaging, attention-grabbing, and encourage viewers to click on the videos.',
+      tones: toneOptions,
+      toneQuestionIndex: 2
+    },
+    'PHYSICAL PRODUCT VIDEO': {
+      questions: [
+        'What is the physical product you want to promote in the video?',
+        'Who is the target audience for your physical product?',
+        'How many seconds do you want the video scripts to be?',
+        'What tone of voice do you want for the video script?',
+        'What are some keywords or phrases to include in the video script?'
+      ],
+      examples: [
+        'Smartphone case with a built-in battery',
+        'Smartphone users',
+        '90',
+        'Casual, Confident',
+        'phone case, battery case, smartphone accessories'
+      ],
+      template: 'Create a {3}-second video script to promote the physical product {1}, targeted at the audience of {2}. The script should adopt a {4} tone of voice and incorporate the keywords or phrases {5} to effectively showcase the benefits and features of the physical product. The video should be engaging, attention-grabbing, and clearly demonstrate how the product can improve the user\'s experience or solve a specific problem. Use a compelling call-to-action to encourage viewers to explore the product further or make a purchase.'
     },
   };
 
