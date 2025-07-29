@@ -1,0 +1,389 @@
+import React, { useState } from 'react';
+import './Home.css';
+
+// Categories and their form types (all 132 forms with engaging descriptions)
+const categories = {
+  'All Scripts': [
+    { type: 'Linkedin ads', description: 'Crush your B2B competition with laser-targeted professional ad copy that converts executives into customers' },
+    { type: 'Blog/Article Titles', description: 'Generate viral headlines that skyrocket your click-through rates and dominate search rankings' },
+    { type: 'Paragraph Script', description: 'Create compelling paragraphs that hook readers and boost your SEO rankings instantly' },
+    { type: 'BLOG/ARTICLE IDEAS', description: 'Unlock endless content ideas that will keep your audience engaged and coming back for more' },
+    { type: 'BLOG/ARTICLE INTRO', description: 'Write irresistible introductions that grab attention and force readers to continue reading' },
+    { type: 'BLOG/ARTICLE OUTLINES', description: 'Structure your content like a pro with detailed outlines that flow perfectly' },
+    { type: 'SHORT BLOG/ARTICLE', description: 'Create concise, powerful articles that deliver maximum impact in minimum words' },
+    { type: 'GUARANTEES', description: 'Build unshakeable trust with compelling guarantee statements that eliminate customer hesitation' },
+    { type: 'COMPANY BIO', description: 'Tell your brand story in a way that connects emotionally and drives customer loyalty' },
+    { type: 'CONCLUSION SCRIPT', description: 'End your content with powerful conclusions that inspire action and leave lasting impressions' },
+    { type: 'FACEBOOK ADS', description: 'Create Facebook ads that stop the scroll and convert browsers into buyers instantly' },
+    { type: 'GOOGLE ADS', description: 'Write Google ads that dominate search results and drive qualified traffic to your offers' },
+    { type: 'GENERAL ADVERTISEMENT', description: 'Craft versatile ad copy that works across all platforms and media channels' },
+    { type: 'LinkedIn Post', description: 'Generate LinkedIn posts that establish thought leadership and grow your professional network' },
+    { type: 'Apps and SMS Notification', description: 'Create notifications that users can\'t ignore and drive immediate engagement' },
+    { type: 'Social Media Content Plan', description: 'Plan your entire social media strategy with content that builds your brand' },
+    { type: 'INSTAGRAM CAPTION', description: 'Write Instagram captions that increase engagement and grow your following organically' },
+    { type: 'INSTAGRAM REELS', description: 'Create Reels scripts that go viral and skyrocket your Instagram reach' },
+    { type: 'TWITTER TWEET', description: 'Craft tweets that trend and amplify your message across the Twitterverse' },
+    { type: 'TWITTER SERIES', description: 'Build Twitter threads that keep followers engaged and boost your authority' },
+    { type: 'TRENDING INSTAGRAM HASHTAGS', description: 'Discover trending hashtags that put your content in front of millions' },
+    { type: 'TRENDING TWITTER HASHTAGS', description: 'Find viral hashtags that make your tweets discoverable and shareable' },
+    { type: 'PINTEREST PIN TITLE AND DESCRIPTION', description: 'Create Pinterest content that drives traffic and converts visitors into customers' },
+    { type: 'QUORA ANSWERS', description: 'Write Quora answers that establish expertise and drive targeted traffic to your business' },
+    { type: 'PERSONAL BIO', description: 'Craft personal bios that showcase your expertise and attract opportunities' },
+    { type: 'LONG SALES COPY', description: 'Write long-form sales copy that converts prospects into paying customers' },
+    { type: 'SHORT SALES COPY', description: 'Create concise sales copy that closes deals quickly and efficiently' },
+    { type: 'OPTIN PAGES', description: 'Build opt-in pages that capture leads and grow your email list rapidly' },
+    { type: 'CALL TO ACTIONS', description: 'Create CTAs that compel action and skyrocket your conversion rates' },
+    { type: 'FEATURE/BENEFIT LIST', description: 'Transform features into irresistible benefits that sell your products' },
+    { type: 'HEADLINES', description: 'Write headlines that grab attention and force people to read your content' },
+    { type: 'SUBHEADLINES', description: 'Create subheadlines that guide readers through your content and boost engagement' },
+    { type: 'UNIQUE VALUE PROPOSITION', description: 'Define your UVP in a way that makes competitors irrelevant' },
+    { type: 'FAQ GENERATOR', description: 'Generate FAQs that address customer concerns and boost conversion rates' },
+    { type: 'PRODUCT DESCRIPTION', description: 'Write product descriptions that sell features and benefits effectively' },
+    { type: 'PRODUCT TITLES', description: 'Create product titles that grab attention and improve search rankings' },
+    { type: 'PRODUCT FEATURES/ BULLETS', description: 'Transform product features into compelling bullet points that sell' },
+    { type: 'AMAZON SPONSORED BRAND ADS HEADLINE', description: 'Write Amazon ad headlines that dominate search results and drive sales' },
+    { type: 'AMAZON PRODUCT TITLES', description: 'Create Amazon product titles that rank higher and convert better' },
+    { type: 'PERSONAL LETTER', description: 'Write personal letters that strengthen relationships and build connections' },
+    { type: 'BUSINESS LETTER', description: 'Craft professional business letters that get results and maintain relationships' },
+    { type: 'COVER LETTER', description: 'Write cover letters that land interviews and advance your career' },
+    { type: 'REFERENCE/RECOMMENDATION LETTER', description: 'Create recommendation letters that open doors and create opportunities' },
+    { type: 'RESIGNATION LETTER', description: 'Write resignation letters that maintain relationships and leave on good terms' },
+    { type: 'THANK YOU LETTER', description: 'Express gratitude with letters that strengthen relationships and build loyalty' },
+    { type: 'APOLOGY LETTER', description: 'Write apology letters that repair relationships and restore trust' },
+    { type: 'COMPLAINT LETTER', description: 'Craft complaint letters that get results and resolve issues effectively' },
+    { type: 'INVITATION LETTER', description: 'Create invitation letters that increase attendance and build excitement' },
+    { type: 'CONTENT REWRITER', description: 'Rewrite content to create fresh, engaging pieces that rank better' },
+    { type: 'REWRITE WITH KEYWORDS', description: 'Optimize content with keywords while maintaining readability and flow' },
+    { type: 'NICHE IDEAS', description: 'Discover profitable niche ideas that align with your expertise and passion' },
+    { type: 'ANALYZE GIVEN CONTENT', description: 'Analyze content to identify strengths, weaknesses, and improvement opportunities' },
+    { type: 'INVESTIGATE A PARTICULAR NICHE', description: 'Research niches to understand market opportunities and competition' },
+    { type: 'GENERATE BUSINESS IDEAS', description: 'Create innovative business ideas that solve real problems and generate revenue' },
+    { type: 'GENERATE DIGITAL PRODUCT IDEAS', description: 'Develop digital product ideas that leverage technology and scale easily' },
+    { type: 'GENERATE PHYSICAL PRODUCT IDEAS', description: 'Invent physical products that meet market needs and create value' },
+    { type: 'GENERATE DOMAIN NAME IDEAS', description: 'Find domain names that are memorable, brandable, and available' },
+    { type: 'KEYWORD RESEARCH', description: 'Conduct keyword research to optimize content and improve search rankings' },
+    { type: 'GENERATE A BUSINESS PLAN', description: 'Create comprehensive business plans that attract investors and guide growth' },
+    { type: 'CREATE CHAPTERS AND TOC', description: 'Structure books and ebooks with logical chapters and table of contents' },
+    { type: 'CREATE CHAPTERS', description: 'Write detailed chapters that engage readers and deliver value' },
+    { type: 'EBOOK CONCLUSION', description: 'End ebooks with powerful conclusions that inspire action and build authority' },
+    { type: 'CREATE A DISCLAIMER', description: 'Write disclaimers that protect your business and build trust' },
+    { type: 'EBOOK CALL TO ACTION', description: 'Create CTAs throughout ebooks that drive engagement and conversions' },
+    { type: 'EBOOK AUTHOR BIO', description: 'Write author bios that establish credibility and connect with readers' },
+    { type: 'SEO META TAGS', description: 'Optimize meta tags to improve search rankings and click-through rates' },
+    { type: 'SEO META DESCRIPTIONS', description: 'Write meta descriptions that entice clicks and improve search visibility' },
+    { type: 'PODCAST SCRIPT', description: 'Create podcast scripts that engage listeners and deliver valuable content' },
+    { type: 'PODCAST INTERVIEW QUESTIONS', description: 'Develop interview questions that extract insights and entertain audiences' },
+    { type: 'DIGITAL PRODUCT REVIEW', description: 'Write comprehensive reviews that help customers make informed decisions' },
+    { type: 'PHYSICAL PRODUCT REVIEW', description: 'Create detailed product reviews that build trust and drive sales' },
+    { type: 'MINI-VSL (VIDEO SALES LETTER)', description: 'Write video sales letters that convert viewers into customers' },
+    { type: 'YOUTUBE SCRIPT', description: 'Create YouTube scripts that engage viewers and grow your channel' },
+    { type: 'YOUTUBE TITLES', description: 'Generate YouTube titles that increase views and improve search rankings' },
+    { type: 'YOUTUBE HOOKS', description: 'Create YouTube hooks that grab attention in the first 5 seconds' },
+    { type: 'YOUTUBE OUTLINES', description: 'Structure YouTube videos with outlines that keep viewers engaged' },
+    { type: 'YOUTUBE SHORTS', description: 'Write YouTube Shorts scripts that go viral and grow your audience' },
+    { type: 'TIKTOK VIDEO SCRIPT', description: 'Create TikTok scripts that trend and build your following' },
+    { type: 'TIKTOK VIDEO HOOKS', description: 'Write TikTok hooks that stop the scroll and increase watch time' },
+    { type: 'TIKTOK VIDEO IDEAS', description: 'Generate TikTok video ideas that resonate with your target audience' },
+    { type: 'DIGITAL PRODUCT VIDEO', description: 'Create video scripts that showcase digital products and drive sales' },
+    { type: 'PHYSICAL PRODUCT VIDEO', description: 'Write video scripts that demonstrate physical products effectively' },
+    { type: 'SHORT AD VIDEO', description: 'Create short ad videos that deliver your message quickly and effectively' },
+    { type: 'TUTORIAL VIDEO', description: 'Write tutorial scripts that educate and engage your audience' },
+    { type: 'INFORMATIONAL VIDEO', description: 'Create informational video scripts that build authority and trust' },
+    { type: 'ANNOUNCEMENT VIDEO', description: 'Write announcement scripts that create excitement and drive engagement' },
+    { type: 'FACEBOOK AD VIDEO', description: 'Create Facebook video ad scripts that convert and drive results' },
+    { type: 'EMAIL SUBJECT LINES', description: 'Write email subject lines that increase open rates and drive engagement' },
+    { type: 'PRODUCT OR SERVICE PROMOTION', description: 'Create promotional emails that convert subscribers into customers' },
+    { type: 'NEWS ANNOUNCEMENT EMAIL', description: 'Write announcement emails that inform and engage your audience' },
+    { type: 'PRODUCT UPDATES EMAIL', description: 'Create update emails that keep customers informed and engaged' },
+    { type: 'INFORMATIONAL EMAIL', description: 'Write informational emails that educate and build relationships' },
+    { type: 'COLD OUTREACH EMAILS', description: 'Create cold outreach emails that get responses and generate leads' },
+    { type: 'AUTORESPONDER SERIES', description: 'Build email sequences that nurture leads and drive conversions' },
+    { type: 'GENERAL SUPPORT SCRIPT', description: 'Create support scripts that provide excellent customer service' },
+    { type: 'PRODUCT/SERVICE ACCESS', description: 'Write access scripts that help customers use your products effectively' },
+    { type: 'SUPPORT SOLUTION FOR A PROBLEM', description: 'Create solution scripts that resolve customer issues quickly' },
+    { type: 'SUPPORT AUTORESPONDER MESSAGE', description: 'Write autoresponder messages that reassure customers and set expectations' },
+    { type: 'ENGAGING QUESTIONS', description: 'Generate questions that spark conversations and increase engagement' },
+    { type: 'CREATIVE STORY', description: 'Write creative stories that entertain and connect with your audience' },
+    { type: 'SUMMARIZE TEXT', description: 'Create concise summaries that capture key points and save time' },
+    { type: 'CITATIONS GENERATOR', description: 'Generate citations in various formats for academic and professional use' },
+    { type: 'QUOTES GENERATOR', description: 'Create inspiring quotes that motivate and engage your audience' },
+    { type: 'TONE CHANGER', description: 'Transform text tone to match your audience and communication goals' },
+    { type: 'SONG LYRICS', description: 'Write song lyrics that connect emotionally and create memorable content' },
+    { type: 'REAL ESTATE LISTING DESCRIPTIONS', description: 'Create property descriptions that attract buyers and close deals' },
+    { type: 'PAS FRAMEWORK', description: 'Use the Pain-Agitate-Solution framework to create compelling sales copy' },
+    { type: 'REVIEW RESPONDER', description: 'Write review responses that build trust and improve your reputation' },
+    { type: 'AIDA FRAMEWORK', description: 'Create AIDA copy that guides prospects through the sales funnel' },
+    { type: 'PRODUCT NAMES', description: 'Generate product names that are memorable, brandable, and marketable' },
+    { type: 'ANALOGY MAKER', description: 'Create analogies that simplify complex concepts and improve understanding' },
+    { type: 'GROWTH IDEAS', description: 'Generate growth strategies that scale your business and increase revenue' },
+    { type: 'KEYWORD EXTRACTOR', description: 'Extract keywords from content to improve SEO and content strategy' },
+    { type: 'LISTICLE IDEAS', description: 'Create listicle ideas that attract readers and drive engagement' },
+    { type: 'STARTUP IDEAS', description: 'Generate startup ideas that solve real problems and create value' },
+    { type: 'TRANSLATE', description: 'Translate content to reach global audiences and expand your market' },
+    { type: 'MAKE IT EASY-TO-READ', description: 'Simplify complex content to improve readability and accessibility' },
+    { type: 'POEM GENERATOR', description: 'Create poems that inspire, entertain, and connect with your audience' },
+    { type: 'GENERAL NEWS RELEASE', description: 'Write press releases that generate media coverage and build credibility' },
+    { type: 'EVENT PRESS RELEASE', description: 'Create event press releases that attract attendees and media attention' },
+    { type: 'PRODUCT LAUNCH PRESS RELEASE', description: 'Write launch press releases that create buzz and drive sales' },
+    { type: 'PARTNERSHIP OR COLLABORATION PRESS RELEASE', description: 'Create partnership announcements that build credibility and expand reach' },
+    { type: 'AWARD ANNOUNCEMENT PRESS RELEASE', description: 'Write award press releases that build reputation and attract opportunities' },
+    { type: 'CRISIS OR ISSUE PRESS RELEASE', description: 'Create crisis communication that protects reputation and maintains trust' },
+    { type: 'FINANCIAL OR EARNINGS PRESS RELEASE', description: 'Write financial press releases that inform stakeholders and build confidence' },
+    { type: 'STAFF OR EXECUTIVE ANNOUNCEMENT PRESS RELEASE', description: 'Create staff announcement press releases that build team morale and attract talent' },
+    { type: 'CHARITY OR COMMUNITY INVOLVEMENT PRESS RELEASE', description: 'Write community involvement press releases that build brand reputation and social impact' },
+    { type: 'LEGAL OR REGULATORY PRESS RELEASE', description: 'Create legal press releases that maintain transparency and protect reputation' },
+    { type: 'CONTENT WRITER', description: 'Rewrite content to create fresh, engaging pieces that rank better' },
+    { type: 'EBOOK HEADLINES AND SUBHEADLINE', description: 'Create captivating ebook headlines that grab attention and drive sales' },
+    { type: 'EBOOK INTRODUCTION', description: 'Write engaging introductions that hook readers and set expectations' },
+    { type: 'FIND A NICHE', description: 'Discover profitable niche markets that align with your expertise and passion' },
+    { type: 'GET AN EBOOK IDEA', description: 'Generate compelling ebook concepts that attract wide audiences and deliver value' },
+    { type: 'PRODUCT FEATURES/BULLETS', description: 'Transform product features into compelling bullet points that sell' },
+    { type: 'REFERENCE/ RECOMMENDATION LETTER', description: 'Create recommendation letters that open doors and create opportunities' },
+    { type: 'YOUTUBE DESCRIPTIONS', description: 'Write search-optimized YouTube descriptions that increase views and engagement' },
+    { type: 'YOUTUBE HASTAGS', description: 'Generate trending hashtags that boost YouTube video visibility and reach' },
+    { type: 'YOUTUBE TAGS', description: 'Create effective tags that improve YouTube search rankings and discoverability' },
+    { type: 'PHYSICAL PRODUCT TEXT TO VIDEO', description: 'Create professional text-to-video prompts for physical products with hype and affirmative tone' },
+    { type: 'PHYSICAL PRODUCT PROMOTION VIDEO WITH VEO 3', description: 'Generate 8-second scene segments for Google Veo3 that create continuous promotional videos for physical products' },
+    { type: 'PHYSICAL PRODUCT SCENE-BY-SCENE NARRATIVE PROMOTION VIDEO WITH VEO 3', description: 'Create detailed scene-by-scene narrative scripts for physical product promotion videos optimized for Veo3' }
+  ],
+  'Advertisements': [
+    { type: 'Linkedin ads', description: 'Crush your B2B competition with laser-targeted professional ad copy that converts executives into customers' },
+    { type: 'FACEBOOK ADS', description: 'Create Facebook ads that stop the scroll and convert browsers into buyers instantly' },
+    { type: 'GOOGLE ADS', description: 'Write Google ads that dominate search results and drive qualified traffic to your offers' },
+    { type: 'GENERAL ADVERTISEMENT', description: 'Craft versatile ad copy that works across all platforms and media channels' },
+    { type: 'Apps and SMS Notification', description: 'Create notifications that users can\'t ignore and drive immediate engagement' },
+    { type: 'AMAZON SPONSORED BRAND ADS HEADLINE', description: 'Write Amazon ad headlines that dominate search results and drive sales' },
+    { type: 'AMAZON PRODUCT TITLES', description: 'Create Amazon product titles that rank higher and convert better' },
+    { type: 'SHORT AD VIDEO', description: 'Create short ad videos that deliver your message quickly and effectively' },
+    { type: 'FACEBOOK AD VIDEO', description: 'Create Facebook video ad scripts that convert and drive results' }
+  ],
+  'Articles and Blogs': [
+    { type: 'Blog/Article Titles', description: 'Generate viral headlines that skyrocket your click-through rates and dominate search rankings' },
+    { type: 'Paragraph Script', description: 'Create compelling paragraphs that hook readers and boost your SEO rankings instantly' },
+    { type: 'BLOG/ARTICLE IDEAS', description: 'Unlock endless content ideas that will keep your audience engaged and coming back for more' },
+    { type: 'BLOG/ARTICLE INTRO', description: 'Write irresistible introductions that grab attention and force readers to continue reading' },
+    { type: 'BLOG/ARTICLE OUTLINES', description: 'Structure your content like a pro with detailed outlines that flow perfectly' },
+    { type: 'SHORT BLOG/ARTICLE', description: 'Create concise, powerful articles that deliver maximum impact in minimum words' },
+    { type: 'CONCLUSION SCRIPT', description: 'End your content with powerful conclusions that inspire action and leave lasting impressions' },
+    { type: 'CONTENT REWRITER', description: 'Rewrite content to create fresh, engaging pieces that rank better' },
+    { type: 'REWRITE WITH KEYWORDS', description: 'Optimize content with keywords while maintaining readability and flow' },
+    { type: 'ANALYZE GIVEN CONTENT', description: 'Analyze content to identify strengths, weaknesses, and improvement opportunities' },
+    { type: 'KEYWORD RESEARCH', description: 'Conduct keyword research to optimize content and improve search rankings' },
+    { type: 'KEYWORD EXTRACTOR', description: 'Extract keywords from content to improve SEO and content strategy' },
+    { type: 'LISTICLE IDEAS', description: 'Create listicle ideas that attract readers and drive engagement' },
+    { type: 'MAKE IT EASY-TO-READ', description: 'Simplify complex content to improve readability and accessibility' }
+  ],
+  'Social Media': [
+    { type: 'LinkedIn Post', description: 'Generate LinkedIn posts that establish thought leadership and grow your professional network' },
+    { type: 'Social Media Content Plan', description: 'Plan your entire social media strategy with content that builds your brand' },
+    { type: 'INSTAGRAM CAPTION', description: 'Write Instagram captions that increase engagement and grow your following organically' },
+    { type: 'INSTAGRAM REELS', description: 'Create Reels scripts that go viral and skyrocket your Instagram reach' },
+    { type: 'TWITTER TWEET', description: 'Craft tweets that trend and amplify your message across the Twitterverse' },
+    { type: 'TWITTER SERIES', description: 'Build Twitter threads that keep followers engaged and boost your authority' },
+    { type: 'TRENDING INSTAGRAM HASHTAGS', description: 'Discover trending hashtags that put your content in front of millions' },
+    { type: 'TRENDING TWITTER HASHTAGS', description: 'Find viral hashtags that make your tweets discoverable and shareable' },
+    { type: 'PINTEREST PIN TITLE AND DESCRIPTION', description: 'Create Pinterest content that drives traffic and converts visitors into customers' },
+    { type: 'QUORA ANSWERS', description: 'Write Quora answers that establish expertise and drive targeted traffic to your business' },
+    { type: 'ENGAGING QUESTIONS', description: 'Generate questions that spark conversations and increase engagement' }
+  ],
+  'Video Content': [
+    { type: 'MINI-VSL (VIDEO SALES LETTER)', description: 'Write video sales letters that convert viewers into customers' },
+    { type: 'YOUTUBE SCRIPT', description: 'Create YouTube scripts that engage viewers and grow your channel' },
+    { type: 'YOUTUBE TITLES', description: 'Generate YouTube titles that increase views and improve search rankings' },
+    { type: 'YOUTUBE HOOKS', description: 'Create YouTube hooks that grab attention in the first 5 seconds' },
+    { type: 'YOUTUBE OUTLINES', description: 'Structure YouTube videos with outlines that keep viewers engaged' },
+    { type: 'YOUTUBE SHORTS', description: 'Write YouTube Shorts scripts that go viral and grow your audience' },
+    { type: 'YOUTUBE DESCRIPTIONS', description: 'Write search-optimized YouTube descriptions that increase views and engagement' },
+    { type: 'YOUTUBE HASTAGS', description: 'Generate trending hashtags that boost YouTube video visibility and reach' },
+    { type: 'YOUTUBE TAGS', description: 'Create effective tags that improve YouTube search rankings and discoverability' },
+    { type: 'TIKTOK VIDEO SCRIPT', description: 'Create TikTok scripts that trend and build your following' },
+    { type: 'TIKTOK VIDEO HOOKS', description: 'Write TikTok hooks that stop the scroll and increase watch time' },
+    { type: 'TIKTOK VIDEO IDEAS', description: 'Generate TikTok video ideas that resonate with your target audience' },
+    { type: 'DIGITAL PRODUCT VIDEO', description: 'Create video scripts that showcase digital products and drive sales' },
+    { type: 'PHYSICAL PRODUCT VIDEO', description: 'Write video scripts that demonstrate physical products effectively' },
+    { type: 'SHORT AD VIDEO', description: 'Create short ad videos that deliver your message quickly and effectively' },
+    { type: 'TUTORIAL VIDEO', description: 'Write tutorial scripts that educate and engage your audience' },
+    { type: 'INFORMATIONAL VIDEO', description: 'Create informational video scripts that build authority and trust' },
+    { type: 'ANNOUNCEMENT VIDEO', description: 'Write announcement scripts that create excitement and drive engagement' },
+    { type: 'FACEBOOK AD VIDEO', description: 'Create Facebook video ad scripts that convert and drive results' },
+    { type: 'PODCAST SCRIPT', description: 'Create podcast scripts that engage listeners and deliver valuable content' },
+    { type: 'PODCAST INTERVIEW QUESTIONS', description: 'Develop interview questions that extract insights and entertain audiences' },
+    { type: 'PHYSICAL PRODUCT TEXT TO VIDEO', description: 'Create professional text-to-video prompts for physical products with hype and affirmative tone' },
+    { type: 'PHYSICAL PRODUCT PROMOTION VIDEO WITH VEO 3', description: 'Generate 8-second scene segments for Google Veo3 that create continuous promotional videos for physical products' },
+    { type: 'PHYSICAL PRODUCT SCENE-BY-SCENE NARRATIVE PROMOTION VIDEO WITH VEO 3', description: 'Create detailed scene-by-scene narrative scripts for physical product promotion videos optimized for Veo3' }
+  ],
+  'Email Marketing': [
+    { type: 'EMAIL SUBJECT LINES', description: 'Write email subject lines that increase open rates and drive engagement' },
+    { type: 'PRODUCT OR SERVICE PROMOTION', description: 'Create promotional emails that convert subscribers into customers' },
+    { type: 'NEWS ANNOUNCEMENT EMAIL', description: 'Write announcement emails that inform and engage your audience' },
+    { type: 'PRODUCT UPDATES EMAIL', description: 'Create update emails that keep customers informed and engaged' },
+    { type: 'INFORMATIONAL EMAIL', description: 'Write informational emails that educate and build relationships' },
+    { type: 'COLD OUTREACH EMAILS', description: 'Create cold outreach emails that get responses and generate leads' },
+    { type: 'AUTORESPONDER SERIES', description: 'Build email sequences that nurture leads and drive conversions' }
+  ],
+  'Sales and Marketing': [
+    { type: 'LONG SALES COPY', description: 'Write long-form sales copy that converts prospects into paying customers' },
+    { type: 'SHORT SALES COPY', description: 'Create concise sales copy that closes deals quickly and efficiently' },
+    { type: 'OPTIN PAGES', description: 'Build opt-in pages that capture leads and grow your email list rapidly' },
+    { type: 'CALL TO ACTIONS', description: 'Create CTAs that compel action and skyrocket your conversion rates' },
+    { type: 'FEATURE/BENEFIT LIST', description: 'Transform features into irresistible benefits that sell your products' },
+    { type: 'HEADLINES', description: 'Write headlines that grab attention and force people to read your content' },
+    { type: 'SUBHEADLINES', description: 'Create subheadlines that guide readers through your content and boost engagement' },
+    { type: 'UNIQUE VALUE PROPOSITION', description: 'Define your UVP in a way that makes competitors irrelevant' },
+    { type: 'PRODUCT DESCRIPTION', description: 'Write product descriptions that sell features and benefits effectively' },
+    { type: 'PRODUCT TITLES', description: 'Create product titles that grab attention and improve search rankings' },
+    { type: 'PRODUCT FEATURES/ BULLETS', description: 'Transform product features into compelling bullet points that sell' },
+    { type: 'PAS FRAMEWORK', description: 'Use the Pain-Agitate-Solution framework to create compelling sales copy' },
+    { type: 'AIDA FRAMEWORK', description: 'Create AIDA copy that guides prospects through the sales funnel' },
+    { type: 'REVIEW RESPONDER', description: 'Write review responses that build trust and improve your reputation' }
+  ],
+  'Business and Professional': [
+    { type: 'COMPANY BIO', description: 'Tell your brand story in a way that connects emotionally and drives customer loyalty' },
+    { type: 'PERSONAL BIO', description: 'Craft personal bios that showcase your expertise and attract opportunities' },
+    { type: 'PERSONAL LETTER', description: 'Write personal letters that strengthen relationships and build connections' },
+    { type: 'BUSINESS LETTER', description: 'Craft professional business letters that get results and maintain relationships' },
+    { type: 'COVER LETTER', description: 'Write cover letters that land interviews and advance your career' },
+    { type: 'REFERENCE/RECOMMENDATION LETTER', description: 'Create recommendation letters that open doors and create opportunities' },
+    { type: 'REFERENCE/ RECOMMENDATION LETTER', description: 'Create recommendation letters that open doors and create opportunities' },
+    { type: 'RESIGNATION LETTER', description: 'Write resignation letters that maintain relationships and leave on good terms' },
+    { type: 'THANK YOU LETTER', description: 'Express gratitude with letters that strengthen relationships and build loyalty' },
+    { type: 'APOLOGY LETTER', description: 'Write apology letters that repair relationships and restore trust' },
+    { type: 'COMPLAINT LETTER', description: 'Craft complaint letters that get results and resolve issues effectively' },
+    { type: 'INVITATION LETTER', description: 'Create invitation letters that increase attendance and build excitement' },
+    { type: 'GENERATE A BUSINESS PLAN', description: 'Create comprehensive business plans that attract investors and guide growth' },
+    { type: 'GENERATE BUSINESS IDEAS', description: 'Create innovative business ideas that solve real problems and generate revenue' },
+    { type: 'STARTUP IDEAS', description: 'Generate startup ideas that solve real problems and create value' },
+    { type: 'GROWTH IDEAS', description: 'Generate growth strategies that scale your business and increase revenue' }
+  ],
+  'Content Creation': [
+    { type: 'GUARANTEES', description: 'Build unshakeable trust with compelling guarantee statements that eliminate customer hesitation' },
+    { type: 'FAQ GENERATOR', description: 'Generate FAQs that address customer concerns and boost conversion rates' },
+    { type: 'DIGITAL PRODUCT REVIEW', description: 'Write comprehensive reviews that help customers make informed decisions' },
+    { type: 'PHYSICAL PRODUCT REVIEW', description: 'Create detailed product reviews that build trust and drive sales' },
+    { type: 'CREATIVE STORY', description: 'Write creative stories that entertain and connect with your audience' },
+    { type: 'SONG LYRICS', description: 'Write song lyrics that connect emotionally and create memorable content' },
+    { type: 'POEM GENERATOR', description: 'Create poems that inspire, entertain, and connect with your audience' },
+    { type: 'QUOTES GENERATOR', description: 'Create inspiring quotes that motivate and engage your audience' },
+    { type: 'TONE CHANGER', description: 'Transform text tone to match your audience and communication goals' },
+    { type: 'SUMMARIZE TEXT', description: 'Create concise summaries that capture key points and save time' },
+    { type: 'TRANSLATE', description: 'Translate content to reach global audiences and expand your market' },
+    { type: 'CITATIONS GENERATOR', description: 'Generate citations in various formats for academic and professional use' }
+  ],
+  'Customer Service': [
+    { type: 'GENERAL SUPPORT SCRIPT', description: 'Create support scripts that provide excellent customer service' },
+    { type: 'PRODUCT/SERVICE ACCESS', description: 'Write access scripts that help customers use your products effectively' },
+    { type: 'SUPPORT SOLUTION FOR A PROBLEM', description: 'Create solution scripts that resolve customer issues quickly' },
+    { type: 'SUPPORT AUTORESPONDER MESSAGE', description: 'Write autoresponder messages that reassure customers and set expectations' }
+  ],
+  'Ecommerce': [
+    { type: 'AMAZON SPONSORED BRAND ADS HEADLINE', description: 'Write Amazon ad headlines that dominate search results and drive sales' },
+    { type: 'AMAZON PRODUCT TITLES', description: 'Create Amazon product titles that rank higher and convert better' },
+    { type: 'PRODUCT NAMES', description: 'Generate product names that are memorable, brandable, and marketable' },
+    { type: 'REAL ESTATE LISTING DESCRIPTIONS', description: 'Create property descriptions that attract buyers and close deals' }
+  ],
+  'Research and Analysis': [
+    { type: 'NICHE IDEAS', description: 'Discover profitable niche ideas that align with your expertise and passion' },
+    { type: 'INVESTIGATE A PARTICULAR NICHE', description: 'Research niches to understand market opportunities and competition' },
+    { type: 'GENERATE DIGITAL PRODUCT IDEAS', description: 'Develop digital product ideas that leverage technology and scale easily' },
+    { type: 'GENERATE PHYSICAL PRODUCT IDEAS', description: 'Invent physical products that meet market needs and create value' },
+    { type: 'GENERATE DOMAIN NAME IDEAS', description: 'Find domain names that are memorable, brandable, and available' },
+    { type: 'ANALOGY MAKER', description: 'Create analogies that simplify complex concepts and improve understanding' },
+    { type: 'FIND A NICHE', description: 'Discover profitable niche markets that align with your expertise and passion' },
+    { type: 'GET AN EBOOK IDEA', description: 'Generate compelling ebook concepts that attract wide audiences and deliver value' }
+  ],
+  'Publishing': [
+    { type: 'CREATE CHAPTERS AND TOC', description: 'Structure books and ebooks with logical chapters and table of contents' },
+    { type: 'CREATE CHAPTERS', description: 'Write detailed chapters that engage readers and deliver value' },
+    { type: 'EBOOK CONCLUSION', description: 'End ebooks with powerful conclusions that inspire action and build authority' },
+    { type: 'CREATE A DISCLAIMER', description: 'Write disclaimers that protect your business and build trust' },
+    { type: 'EBOOK CALL TO ACTION', description: 'Create CTAs throughout ebooks that drive engagement and conversions' },
+    { type: 'EBOOK AUTHOR BIO', description: 'Write author bios that establish credibility and connect with readers' },
+    { type: 'EBOOK HEADLINES AND SUBHEADLINE', description: 'Create captivating ebook headlines that grab attention and drive sales' },
+    { type: 'EBOOK INTRODUCTION', description: 'Write engaging introductions that hook readers and set expectations' }
+  ],
+  'SEO and Analytics': [
+    { type: 'SEO META TAGS', description: 'Optimize meta tags to improve search rankings and click-through rates' },
+    { type: 'SEO META DESCRIPTIONS', description: 'Write meta descriptions that entice clicks and improve search visibility' }
+  ],
+  'Press Releases': [
+    { type: 'GENERAL NEWS RELEASE', description: 'Write press releases that generate media coverage and build credibility' },
+    { type: 'EVENT PRESS RELEASE', description: 'Create event press releases that attract attendees and media attention' },
+    { type: 'PRODUCT LAUNCH PRESS RELEASE', description: 'Write launch press releases that create buzz and drive sales' },
+    { type: 'PARTNERSHIP OR COLLABORATION PRESS RELEASE', description: 'Create partnership announcements that build credibility and expand reach' },
+    { type: 'AWARD ANNOUNCEMENT PRESS RELEASE', description: 'Write award press releases that build reputation and attract opportunities' },
+    { type: 'CRISIS OR ISSUE PRESS RELEASE', description: 'Create crisis communication that protects reputation and maintains trust' },
+    { type: 'FINANCIAL OR EARNINGS PRESS RELEASE', description: 'Write financial press releases that inform stakeholders and build confidence' },
+    { type: 'STAFF OR EXECUTIVE ANNOUNCEMENT PRESS RELEASE', description: 'Create staff announcement press releases that build team morale and attract talent' },
+    { type: 'CHARITY OR COMMUNITY INVOLVEMENT PRESS RELEASE', description: 'Write community involvement press releases that build brand reputation and social impact' },
+    { type: 'LEGAL OR REGULATORY PRESS RELEASE', description: 'Create legal press releases that maintain transparency and protect reputation' }
+  ]
+};
+
+const categoryNames = Object.keys(categories);
+
+function Home({ onFormTypeSelect }) {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleFormTypeClick = (formType) => {
+    onFormTypeSelect(formType);
+  };
+
+  const filteredFormTypes = categories['All Scripts'].filter(form =>
+    form.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    form.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  return (
+    <div className="home-container">
+      {/* Search Bar */}
+      <div className="search-container">
+        <div className="search-bar">
+          <span className="search-icon">��</span>
+          <input
+            type="text"
+            placeholder="What script do you want to create?"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="search-input"
+          />
+        </div>
+      </div>
+
+      {/* Category Tabs */}
+      <div className="category-tabs">
+        {categoryNames.map(category => (
+          <button
+            key={category}
+            className={`category-tab ${category === 'All Scripts' ? 'active' : ''}`}
+            onClick={() => {}} // No state change for category, so no onClick
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      {/* Category Title */}
+      <div className="category-title">
+        <h1>All Scripts</h1>
+      </div>
+
+      {/* Form Type Grid */}
+      <div className="form-grid">
+        {filteredFormTypes.map((form, index) => (
+          <div key={index} className="form-card">
+            <h3 className="form-type">{form.type}</h3>
+            <p className="form-description">{form.description}</p>
+            <button
+              className="continue-button"
+              onClick={() => handleFormTypeClick(form.type)}
+            >
+              Continue
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default Home;

@@ -1,0 +1,494 @@
+.settings {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #333;
+}
+
+.settings-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.settings-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.settings-header p {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+}
+
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.settings-section {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.settings-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+.service-card {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 4px solid #3498db;
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.service-card p {
+  color: #7f8c8d;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.api-input-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.api-input-group .help-link {
+  margin-top: 0;
+  margin-left: auto;
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  background: rgba(52, 152, 219, 0.1);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.api-input-group .help-link:hover {
+  background: rgba(52, 152, 219, 0.2);
+  transform: translateY(-1px);
+}
+
+.api-input-group label {
+  font-weight: 600;
+  color: #2c3e50;
+  min-width: 80px;
+}
+
+.api-input {
+  flex: 1;
+  min-width: 300px;
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.api-input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.test-btn {
+  padding: 12px 20px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+
+.test-btn:hover:not(:disabled) {
+  background: #229954;
+}
+
+.test-btn:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.service-info {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.service-info span {
+  background: #ecf0f1;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.preference-group {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.preference-group label {
+  font-weight: 600;
+  color: #2c3e50;
+  min-width: 150px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.preference-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #3498db;
+}
+
+.preference-select {
+  padding: 10px 15px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: white;
+  min-width: 200px;
+  transition: border-color 0.3s;
+}
+
+.preference-select:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.help-card {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.help-card h3 {
+  color: #856404;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.help-card ol {
+  color: #856404;
+  line-height: 1.6;
+}
+
+.help-card a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.help-card a:hover {
+  text-decoration: underline;
+}
+
+.help-link {
+  color: #3498db;
+  text-decoration: underline;
+  font-weight: 600;
+  margin-top: 10px;
+  display: inline-block;
+}
+.help-link:hover {
+  color: #217dbb;
+}
+
+.settings-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.save-btn {
+  padding: 15px 30px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.save-btn:hover:not(:disabled) {
+  background: #2980b9;
+  transform: translateY(-2px);
+}
+
+.save-btn:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.reset-btn {
+  padding: 15px 30px;
+  background: transparent;
+  color: #e74c3c;
+  border: 2px solid #e74c3c;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.reset-btn:hover {
+  background: #e74c3c;
+  color: white;
+}
+
+.save-status {
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  margin-top: 20px;
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.save-status.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Settings Tabs */
+.settings-tabs {
+  display: flex;
+  border-bottom: 2px solid #e0e0e0;
+  margin-bottom: 30px;
+  background: #f8f9fa;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+.settings-tabs .tab {
+  flex: 1;
+  padding: 15px 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6c757d;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+}
+
+.settings-tabs .tab:hover {
+  background: #e9ecef;
+  color: #495057;
+}
+
+.settings-tabs .tab.active {
+  background: #007bff;
+  color: white;
+  border-bottom-color: #0056b3;
+}
+
+/* WordPress Settings Styles */
+.wordpress-add-form {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  border: 1px solid #e9ecef;
+}
+
+.wordpress-add-form h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 18px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+}
+
+.form-input {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.wordpress-logins-list {
+  margin-top: 30px;
+}
+
+.wordpress-logins-list h3 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 18px;
+}
+
+.no-logins {
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+  padding: 40px 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 2px dashed #dee2e6;
+}
+
+.logins-table {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.logins-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.logins-table th {
+  background: #f8f9fa;
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #dee2e6;
+  font-size: 14px;
+}
+
+.logins-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.logins-table tr:hover {
+  background: #f8f9fa;
+}
+
+.logins-table tr:last-child td {
+  border-bottom: none;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+
+.btn-sm:last-child {
+  margin-right: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .settings {
+    padding: 15px;
+  }
+  
+  .api-input-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .api-input-group .help-link {
+    margin-left: 0;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .api-input {
+    min-width: auto;
+  }
+  
+  .service-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .preference-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .settings-actions {
+    flex-direction: column;
+  }
+
+  .settings-tabs {
+    flex-direction: column;
+  }
+  
+  .settings-tabs .tab {
+    border-bottom: 1px solid #e0e0e0;
+    border-right: none;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .logins-table {
+    font-size: 12px;
+  }
+  
+  .logins-table th,
+  .logins-table td {
+    padding: 8px 10px;
+  }
+} 

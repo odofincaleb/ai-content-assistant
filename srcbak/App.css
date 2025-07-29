@@ -1,0 +1,267 @@
+body, html, #root, .app-container {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f5f6fa;
+  overflow: hidden;
+}
+
+.app-root-row-3col {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  align-items: flex-start;
+}
+
+.app-sidebar-col {
+  width: 220px;
+  min-width: 180px;
+  max-width: 260px;
+  background: #f8f9fb;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1.5px solid #e3e7ee;
+  flex-shrink: 0;
+}
+
+/* Standalone components that take full remaining space */
+.app-root-row-3col > .script-editor,
+.app-root-row-3col > .text-to-speech,
+.app-root-row-3col > .humanizer {
+  flex: 1;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure these components override any browser styling */
+.app-root-row-3col > .script-editor {
+  background: #f5f5f5;
+}
+
+.app-root-row-3col > .text-to-speech {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  overflow-y: auto;
+}
+
+.app-root-row-3col > .humanizer {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  overflow-y: auto;
+}
+
+/* Ensure content within standalone components fits properly */
+.app-root-row-3col > .humanizer .humanizer-container,
+.app-root-row-3col > .text-to-speech .tts-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.app-form-col {
+  width: 500px;
+  min-width: 400px;
+  max-width: 600px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1.5px solid #e3e7ee;
+  padding: 0;
+  align-items: flex-start;
+}
+
+.app-tutorials-col {
+  flex: 1;
+  min-width: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  overflow: auto;
+  padding: 24px 12px 0 12px;
+}
+
+.app-browser-col {
+  flex: 1;
+  min-width: 400px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  overflow: hidden;
+}
+
+.sidebar {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  margin-top: 12px;
+}
+
+.sidebar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1976d2;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.sidebar-nav li {
+  padding: 12px 24px;
+  color: #23272f;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 4px;
+  transition: background 0.2s;
+}
+
+.sidebar-nav li:hover, .sidebar-nav li.active {
+  background: #e3e7ee;
+  color: #1976d2;
+}
+
+.prompt-form-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #e3e7ee;
+  padding: 18px 8px 18px 8px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 8px rgba(30,40,90,0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  font-size: 0.97rem;
+}
+
+.form-title-dropdown {
+  width: 100%;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1.5px solid #e3e7ee;
+  background: #f8f9fb;
+  color: #23272f;
+  font-weight: bold;
+}
+
+.form-label {
+  font-weight: bold;
+  color: #23272f;
+  margin-bottom: 6px;
+  font-size: 0.98rem;
+}
+
+.form-group {
+  background: #4f4fff;
+  border-radius: 14px;
+  padding: 14px 12px 10px 12px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 4px rgba(30,40,90,0.04);
+}
+
+.form-input {
+  padding: 10px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  font-size: 0.97rem;
+  background: #fff;
+  color: #23272f;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #1976d2;
+}
+
+.button-row button {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-weight: bold;
+  font-size: 0.97rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.button-row button:hover {
+  background: #125ea7;
+}
+
+.browser-url-bar-top-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #f8f9fb;
+  border-bottom: 1.5px solid #e3e7ee;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.browser-url-bar-top {
+  width: 80%;
+  max-width: 700px;
+  min-width: 320px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 0 10px 0;
+  background: #f8f9fb;
+}
+
+.browser-url-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1.5px solid #e3e7ee;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+  color: #23272f;
+}
+
+.browser-url-load-btn {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.browser-url-load-btn:hover {
+  background: #125ea7;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #23255a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6a5af9;
+  border-radius: 8px;
+} 

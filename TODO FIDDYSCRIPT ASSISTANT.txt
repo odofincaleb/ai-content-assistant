@@ -1,0 +1,11 @@
+
+Let's go to settings Page
+
+Put Get Api Key Help beside each Api because the one up only links to a dead link for only  elevenlab
+Below is the link to use for each
+
+1. Get Eleven labs api key - link to https://help.elevenlabs.io/hc/en-us/articles/14599447207697-How-do-I-authorize-myself-using-an-API-key
+
+2. Google Cloud Text-to-Speech api key:  https://fideantech.com/get-google-cloud-text-to-speech-api   (TODO COPY https://sonaar.io/docs/how-to-get-google-cloud-text-to-speech-api-key/)
+
+

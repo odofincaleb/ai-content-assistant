@@ -1,0 +1,483 @@
+FORM TYPE: Linkedin ads
+
+FORM QUESTIONS
+1. What is the produt or service being advertised?
+2. What is the target audience for this ads?
+3. What is the call-to-action for this ad?
+4. What tone of voice should the ad use?
+5. What are the top 3 features or benefits of the product/services?
+
+
+PROMPT
+Write an attention-grabbing LinkedIn ad for the product or service {1}, targeted at the audience of {2}. The ad should adopt a {4} tone of voice and highlight the top 3 features or benefits: {5}. Make sure to include the call-to-action {3} to encourage viewers to take the desired action.
+
+
+============================================================================
+
+FORM TYPE: Blog/Article Titles
+
+FORM QUESTIONS
+1. What is the main topic?  (Example: online marketing)
+2. How many titles to generate? (Example: 10)
+
+
+PROMPT
+Generate a list of {2} creative and captivating blog/article titles related to the main topic of {1}. Make sure the titles are engaging, thought-provoking, and tailored to attract the target audience's interest. Each title should reflect a unique aspect or perspective of the main topic, offering diverse content ideas for readers to explore.
+
+
+============================================================
+
+FORM TYPE: Paragraph Script
+
+FORM QUESTIONS
+1. What is the topic?  (Examples: SEO is important for high rankings)
+2. Tone of voice?  (Casual,confident)
+3. Keywords you want to rank for. (separated y commas): (Examples: ranking websites, best seo services)
+4. How many words? ( Example: 400)
+
+PROMPT
+Write a {4}-word paragraph on the topic of {1} in a {2} tone of voice. Make sure to incorporate the following keywords to improve SEO ranking: {3}. The paragraph should present a clear and engaging idea or argument, supported by relevant facts, examples, or anecdotes. Seamlessly integrate the keywords into the paragraph without compromising the natural flow and readability of the content.
+
+
+=============================================================================
+
+
+FORM TYPE: BLOG/ARTICLE IDEAS
+
+FORM QUESTONS
+1. What is the main topic? (Example: Email marketing)
+2. What is the target audience? (Example: Small business owners)
+3. How many blog/article ideas would you like to generate? (Example: 5)
+
+PROMPT
+Generate a list of {3} unique and engaging blog/article ideas related to the main topic of {1} specifically tailored for the target audience of {2}. These ideas should be designed to generate traffic, leads, and sales by providing valuable information and insights to the readers. Each idea should cover a different aspect or angle of the main topic to offer a variety of content for readers to explore.
+
+
+==================================================================================
+
+
+
+FORM TYPE: BLOG/ARTICLE OUTLINES
+
+FORM QUESTIONS
+1. What is the main topic of the blog/article? (Examples: social media marketing)
+2. What is the target audience? (Example: start up founders)
+3. How many sections do you want in the outlines? (Examples: 4)
+4. Tone of voice? (Casual, Confident)
+5. What keywords do you want the article to rank for? (Examples: social media strategy, startup social media, social media tips)
+
+PROMPT
+Create a detailed outline for a blog/article on the topic of {1} targeted at the audience of {2}. The outline should have {3} sections and adopt a {4} tone of voice. Make sure to incorporate the keywords {5} throughout the outline, ensuring the final piece is optimized for search engines. Each section should cover a different aspect of the main topic and be designed to guide the content creation process, resulting in a well-organized, informative, and engaging article for the readers.
+
+
+======================================================================================
+
+
+
+FORM TYPE: SHORT BLOG/ARTICLE
+
+FORM QUESTIONS
+1. Blog/Article main topic (Example: keyword research software)
+2. Your Main Niche Audience (Example:online marketers)
+
+PROMPT
+Write a compelling and engaging blog article on the topic of {1}, providing valuable insights and actionable tips for my readers. Make sure to include a strong introduction that grabs the reader's attention, well-researched points with relevant examples, and a conclusion that leaves a lasting impression. The tone should be informative, persuasive, and approachable. The audience is {2}. Please ensure the article is SEO-friendly and incorporates relevant keywords and phrases to enhance its online discoverability. In addition, suggest an SEO friendly title for the article.
+
+======================================================================================
+
+
+FORM TYPE: BLOG/ARTICLE INTRO
+
+FORM QUESTION
+1. What is the main topic of the blog/article? (Example:content marketing strategies)
+2. What is the target audience? (Example: digital marketing professionals)
+3. What is the purpose of the article? (Informative, educational)
+4. Tone of voice? (casual, creative)
+5. What problem or challenge is the article addressing for the reader? (Example: how to create an effective content marketing strategy)
+
+PROMPT
+Write an attention-grabbing intro for a blog/article on the topic of {1} targeted at the audience of {2}. The intro should adopt {4}tone of voice and align with the {3} purpose of the article. Make sure to address the problem or challenge of {5} in the intro, creating a sense of intrigue and anticipation that encourages the reader to continue reading the rest of the article.
+
+======================================================================================
+
+FORM TYPE: CONCLUSION SCRIPT
+
+FORM QUESTION
+1. Enter content you would like a conclusion about:
+
+PROMPT
+Write a powerful conclusion based on the content provided: {1}. The conclusion should summarize the key takeaways or benefits, and if applicable, create a compelling call-to-action encouraging the reader to take further steps related to the topic. 
+
+=====================================================================================
+
+FORM TYPE:FACEBOOK ADS
+
+FORM QUESTION
+1. What is the product or service being advertised? (Example: fitness app)
+2. What is the target audience for this ad? (Example:people interested in fitness and exercise)
+3. What is the call-to-action for this ad? (Example: download the app and start your fitness and exercise) 
+4. What tone of voice should the ad use? (Casual, creative)
+5. What are the top 3 features or benefits of the product/service? (Example: easy-to-use, personalized plans, progress tracking)
+
+PROMPT
+Write a captivating Facebook ad for the product or service {1}, targeted at the audience of {2}. The ad should adopt a {4} tone of voice and highlight the top 3 features or benefits: {5}. Make sure to include the call-to-action {3} to encourage viewers to take the desired action.
+
+
+======================================================================================
+
+FORM TYPE:GOOGLE ADS
+
+FORM QUESTION
+1. What is the product or service being advertise? (Example: online language learning platform)
+2. What is the target audience for this ad? (Example: individuals looking to learn a new language)
+3. What is the call-to-action for this ad? (Example: join now and unlock a world of languages)
+4. What tone of voice should the ad use? (casual, creative)
+5. What are the top 3 features or benefits of the product/service? (Example: interactive lessons, native speaker audio, progress tracking)
+
+PROMPT
+Write a compelling Google ad for the product or service {1}, targeted at the audience of {2}. The ad should adopt a {4} tone of voice and highlight the top 3 features or benefits: {5}. Make sure to include the call-to-action {3} to encourage viewers to take the desired action.
+
+
+======================================================================================
+
+FORM TYPE:GENERAL ADVERTISEMENT
+
+FORM QUESTION
+1. What is the product or service being advertised? (Example: fitness tracking app)
+2. What is the target audience for this ad? (Example: fitness enthusiasts and health-conscious individuals)
+3. What is the call-to-action for this ad? (Example:Download now and start your fitness journey today!)
+4. What tone of voice should the ad use? (Casual, creative)
+5. What are the top 3 features or benefits of the product/service? (Example; real-time activity tracking, personalized workout plans, social features)
+
+PROMPT
+Write a versatile advertisement for the product or service {1}, targeted at the audience of {2}. The ad should adopt a {4} tone of voice and highlight the top 3 features or benefits: {5}. Make sure to include the call-to-action {3} to encourage viewers to take the desired action. The final ad copy should be adaptable for use across various platforms and media.
+
+
+======================================================================================
+
+
+FORM TYPE:Apps and SMS Notification
+
+FORM QUESTION
+1. What is the app or service that sends the notification? (Example: workout app)
+2. What is the main purpose or message of the notification? (Example: new workout plan available)
+3. What tone of voice should be notification use? (casual, confident)
+4. What is the maximum character limit for the notification message (including spaces)? (Example: 50)
+
+PROMPT
+Write a concise and enticing notification message for the app or service {1}, with the main purpose or message of {2}. The notification should adopt a {3} tone of voice and stay within the character limit of {4} characters (including spaces). The message should be engaging and motivate users to interact with the app or service.
+
+
+======================================================================================
+
+
+FORM TYPE: Social Media Content Plan
+
+FORM QUESTION
+1. What social media platform do you want to create a content plan for? (facebook, instagram)
+2. Who is your target audience? (Example: fitness enthusiasts)
+3. What are the main content themes or topics you want to cover? (Example: workout tips, nutriton advice, motiational quotes)
+4. How many days do you want the content plan to cover? (Example: 30)
+5. What frequency do you want to post content? (daily, weekly)
+
+PROMPT
+Create a social media content plan for the {1} platform, tailored to the target audience of {2}. The plan should cover a period of {4} days and include content based on the themes or topics {3}. Ensure the content is engaging and relevant to the audience, and follows the {5} posting frequency.
+
+
+
+======================================================================================
+
+
+FORM TYPE:LinkedIn Post
+
+FORM QUESTION
+1. What is the main topic of the LinkedIn post? (Example: recent trends in AI)
+2. Who is the target audience for the post? (Example: tech professionals, data scientists)
+3. What is the purpose of the post? (informative, educational)
+4. What tone of voice should the post have? (casual, creative)
+5. Suggest an eye-catchng title or headline for the post. (Example: AI in 2023:What to Expect)
+
+PROMPT
+Write an engaging LinkedIn post on the topic of {1} targeted at the audience of {2}. The post should adopt a {4} tone of voice and align with the {3} purpose. Use the eye-catching title or headline {5} to grab the attention of your audience and encourage them to engage with your post.
+
+======================================================================================
+
+
+FORM TYPE: INSTAGRAM CAPTION
+
+FORM QUESTION
+1. What is the main subject or theme of te instagram photo? (Example: a beach vacation)
+2. Who is the target audience for the caption? (Example: travel enthusiasts, adventure seekers)
+3. What tone of voice should the caption have? (casual, engaging)
+4. Suggest relevant hashtags to include with the caption. (Example: #beachvibes #wanderlust)
+
+PROMPT
+Write an engaging Instagram caption for a photo with the main subject or theme of {1}, targeted at the audience of {2}. The caption should adopt a {3} tone of voice. Make sure to include the relevant hashtags {4} to increase the post's visibility and engagement. 
+
+
+======================================================================================
+
+
+FORM TYPE: INSTAGRAM REELS
+
+FORM QUESTION
+1. What is the main topic or theme of the Instagram Reel? (Example: Fashion tips)
+2. How many seconds should the Reel be? (Between 3-5 seconds)
+3. Describe the visual content or actions you want in the Reel. (Example: show a quick change from casual to evening wear)
+
+PROMPT
+Create an Instagram Reel of {2} seconds on the topic of {1}. It should feature {3}. The reel should be engaging and catchy, perfectly suited for social media scrolling.
+
+
+======================================================================================
+
+
+FORM TYPE: TWITTER TWEET
+
+FORM QUESTION
+1. What is the main topic or theme of the tweet? (Example: digital marketing trends)
+2. Whos is the target audience for the tweet? (Example:marketers, entrepreneurs)
+3. What tone of voice should the tweet have? (casual, engaging)
+4. Suggest relevant hashtags to include with the tweet.(Example: #digitalmarketing #trend)
+
+
+PROMPT
+Write an engaging and attention-grabbing tweet on the topic or theme of {1}, targeted at the audience of {2}. The tweet should adopt a {3} tone of voice. Make sure to include the relevant hashtags {4} to increase the post's visibility and engagement on Twitter.
+
+
+======================================================================================
+
+
+FORM TYPE:TWITTER SERIES
+
+FORM QUESTION
+1. What is the main topic or theme of tweet series? (Example: SEO techniques)
+2. Who is the target audience for the tweet series? (Example: SEO professionals, digital marketers)
+3. How many tweets do you want in the series? (Example: 5)
+4. What tone of voice should the tweet series have? (Encouraging, creative)
+5. Suggest relevant hash tags to include with the tweet series. (Example: #SEO #DigitalMarketing
+
+PROMPT
+Create a series of {3} engaging and attention-grabbing tweets on the topic or theme of {1}, targeted at the audience of {2}. The tweet series should adopt a {4} tone of voice. Make sure to include the relevant hashtags {5} to increase the post's visibility and engagement on Twitter. The series should be interconnected and create a sense of continuity to keep readers engaged and eager to read the next tweet in the series.
+
+
+======================================================================================
+
+
+FORM TYPE: TRENDING INSTAGRAM HASHTAGS
+
+FORM QUESTION
+1. What are the main topics or themes you want the hashtags to be related to? (Example: travel, adventure)
+2. How many trending hashtags do you want to generate? (Example: 10)
+
+
+PROMPT
+Generate a list of {2} trending Instagram hashtags related to the main topics or themes of {1}. The hashtags should be popular, relevant, and have the potential to attract a wider audience and boost engagement on Instagram posts featuring those topics or themes.
+
+======================================================================================
+
+
+FORM TYPE: TRENDING TWITTER HASHTAGS
+
+FORM QUESTION
+1. What are the main topics or themes you want the hastags to be related to? (Example: technology, innovation)
+2. How many trending hashtags do you want to generate? (Example: 10)
+
+PROMPT
+Generate a list of {2} trending Twitter hashtags related to the main topics or themes of {1}. The hashtags should be popular, relevant, and have the potential to attract a wider audience and boost engagement on Twitter posts featuring those topics or themes.
+
+
+======================================================================================
+
+
+FORM TYPE:PINTEREST PIN TITLE AND DESCRIPTION
+
+FORM QUESTION
+1. What is the main topic or theme of pinterest pin? (Example: DIY home decor)
+2. What is the target audience? (Example: crafters and DIY enthusiasts)
+3. What tone of voice do you want to use for the title and description? (casual, engaging)
+
+PROMPT
+Create a captivating Pinterest pin title and description for the topic {1} targeted at the audience of {2}. Adopt a {3} tone of voice and ensure the title and description are engaging, informative, and designed to encourage clicks, saves, and shares from Pinterest users interested in the main topic or theme.
+
+
+======================================================================================
+
+
+FORM TYPE: QUORA ANSWERS
+
+FORM QUESTION
+1. What is the Quora question you want to answer? (Example: What are the best content marketing strategies for small businesses?
+2. What is the target audence for your answer? (Example: small business owners and marketers)
+3. What is the purpose of your answer? (informative, educational)
+4. What tone of voice do you want to use for the answer? (casual, creative)
+
+PROMPT
+Write a thoughtful and engaging Quora answer to the question {1} targeted at the audience of {2}. The answer should adopt a {4} tone of voice and align with the {3} purpose. Make sure your response is informative, well-researched, and adds value to the discussion, positioning you as a knowledgeable and helpful contributor in the Quora community.
+
+
+======================================================================================
+
+FORM TYPE:PERSONAL BIO
+
+FORM QUESTION
+1. What is your full name? (Example: Jane Smith)
+2. What is your current job title or profession? (Example: content marketing specialist)
+3. How man years of experience do you have in your field? (Examples: 10 years)
+4. What are your areas of expertise or key skills? (Example: digital marketing, content creation, SEO)
+5. What is your personal or professional mission statement? (Example: helping businesses grow through engaging content)
+6. What tone of voice do you want for your bio? (casual, creative) 
+
+PROMPT
+Write a captivating personal bio for {1}, a {2} with {3} of experience in the field. The bio should highlight their expertise in {4} and emphasize their mission statement of {5}. Adopt a {6} tone of voice to make the bio stand out and leave a memorable impression on the reader.
+
+
+======================================================================================
+
+
+FORM TYPE:LONG SALES COPY
+
+FORM QUESTION
+1. What is the product or service being sold? (Example: online course on personal branding)
+2. What is th target audience? (Example: entrepreneurs and professionals)
+3. What are the top 3 benefits of the product or service? (Example: improved online presence, increased career opportunities, personal brand growth)
+4. What is the unique selling proposition (USP)? (Example: step-by-step guidance from industry experts)
+5. Tone of voice? (casual, creative)
+
+PROMPT
+Write a long-form sales copy for the {1} targeted at {2}. The sales copy should emphasize the top 3 benefits of the product or service: {3} and highlight the unique selling proposition: {4}. Adopt a {5} tone of voice throughout the copy to engage the readers and encourage them to take action by purchasing the product or service. The sales copy should be persuasive, informative, and create a sense of urgency that drives the readers towards the order button.
+
+
+======================================================================================
+
+
+FORM TYPE: SHORT SALES COPY
+
+FORM QUESTION
+1. What is the name of the product or service you are promoting? (Example: Superclean 3000)
+2. What is the unique selling proposition (USP) of the product or service? (Example: a revoluntary cleanin product)
+3. Who is the target audience? (Example: homeowners and cleaning profesionals)
+4. what tone of voice should the copy have? (casual, creative)
+5. What is the call to action (CTA) or desired outcome? (Example: an exclusive discount for a limited time)
+
+PROMPT
+Write a short, compelling sales copy for the {1}, which is {2}. The copy should target {3} and adopt a {4} tone of voice. Make sure to include a call to action, such as {5}, to encourage potential customers to take action and make a purchase.
+
+
+
+======================================================================================
+
+FORM TYPE:OPTIN PAGES
+
+FORM QUESTION
+1. What is the name of the offer or incentive for signing up? (Example:  Email Marketing Mastery)
+2. What is the format of the offer (e.g eBook, webinar, newsletter)? (a free eBook) 
+3. Who is the target audience? (Example: digital arketers and small business owners)
+4. What tone of voice should the copy have? (casual, confident)
+5. What is the call to action (CTA) or desired outcome? 
+
+PROMPT
+Write persuasive opt-in page copy for the {1}, which is {2}. The copy should target {3} and adopt a {4} tone of voice. Clearly outline the benefits of signing up for the offer and include a strong call to action, such as {5}, to encourage potential leads to take action and sign up. 
+
+
+======================================================================================
+
+
+
+FORM TYPE:CALL TO ACTIONS
+
+FORM QUESTION
+1. What is the desired action for the user to take? (Example: eBook download)
+2. What is the benefit or value of taking the action? (Example: Email marketing tips for small businesses)
+3. What tone should the call to action have? (casual, confident)
+4. Is there a time-sensitive aspect or urgency to the call to action? (Example: limited time offer)
+
+PROMPT
+Write a compelling call to action for users to {1}. Highlight the benefit or value of {2} and adopt a {3} tone. If applicable, include a sense of urgency like {4} to encourage users to take action promptly.
+
+
+
+======================================================================================
+
+
+FORM TYPE: FEATURE/BENEFIT LIST
+
+FORM QUESTION
+1. What is the product or service? (Example: online project management tool)
+2. How many features/benefits do you want to highlight? (Example: 5)
+3. list the features you want to highlight (separated by commas): (Example: time tracking, task management, team collaboration)
+4. List the corresponding benefits for each feature (separate by commas): (Example: save time, improve organization, enhance communication)
+
+
+PROMPT
+Create a feature/benefit list for the {1} product or service, highlighting {2} key features and their corresponding benefits. The features to be highlighted are {3} and the respective benefits are {4}. Craft a compelling and persuasive list that showcases the advantages of using the product or service, making it irresistible to potential customers.
+
+
+======================================================================================
+
+FORM TYPE:HEADLINES
+
+FORM QUESTION
+1.What is the product or services? (Example: Online language learning platform)
+2. Who is the target audience?  (Example: languag learners, sudents, profesionals)
+3. What type of headlines style do you prefer? (Informative)
+
+PROMPT
+Create a headline for the {1} that captures the attention of the target audience, which includes {2}. The headline should be in a {3} style, making it unique, engaging, and persuasive, encouraging potential customers to learn more about the product or service.
+
+
+======================================================================================
+
+FORM TYPE: SUBHEADLINES
+
+FORM QUESTION
+1. What is the productor service?  (Example: a new fitness app)
+2. Who is the target audience? (Example: fitness enthusiasts, athletes, beginners)
+3. How many subheadline style do you need? (Example: 5)
+4. What type of subheadline style do you prefer? (Informative)
+
+
+PROMPT
+Create {3} subheadlines for the {1} that cater to the target audience, which includes {2}. The subheadlines should be in a {4} style, making them engaging and persuasive, encouraging readers to dive deeper into the content and explore the product or service further.
+
+
+======================================================================================
+
+
+FORM TYPE: GUARANTEES
+
+FORM QUESTION
+1. What is the product or service? (Example: online language learning platform)
+2. Who is the target audience? (Example: language learners)
+3. What is the main guarantee you would like to offer? (Example: 30-day money-back guarantee)
+4. How many additional guarantees or assurance do you want to include? (Example: 3)   
+
+
+PROMPT
+Write a compelling guarantee statement for the {1} targeted at {2}. Start with the main guarantee, which is {3}, and then include {4} additional guarantees or assurances that will boost the confidence of potential customers, making them more likely to commit to the product or service.
+
+
+======================================================================================
+
+
+FORM TYPE:COMPANY BIO
+
+FORM QUESTION
+1. What is the name of the company? (Example: TechDynamics) 
+2. What is the company's main industry or focus? (Example: software development)
+3. In what year was the company founded? (Example: 2005)
+4. What is the company's mission or purpose? (Example: providing innovative software solutions)
+5. What is the target market or audience? (Example: global clientele)
+
+
+PROMPT
+Write an engaging company bio for {1}, a {2} company founded in {3}. The bio should highlight the company's mission, which is {4}, and be tailored to resonate with their target market, {5}. Craft a narrative that showcases the company's achievements, values, and unique selling points in a captivating and relatable manner.
+
+
+======================================================================================
+
+
+
+
+
+

@@ -1,0 +1,1039 @@
+FORM TYPE: YOUTUBE HOOKS 
+
+FORM QUESTION
+1. What is the main topic or theme of your YouTube video? (Example: Travel tips)
+2. Who is the target audience for your video? (Example: Beginner travelers)
+
+PROMPT
+Create a catchy and attention-grabbing hook for a YouTube video focusing on the topic of {1} and targeting 
+the audience of {2}. The hook should be compelling and make viewers eager to watch the video, ensuring they 
+stay engaged and continue watching your content. It should also give them a hint of what to expect from 
+the video, but without revealing too much, maintaining their curiosity and interest throughout.
+
+
+=========================================================================================================
+
+FORM TYPE: YOUTUBE OUTLINES
+
+FORM QUESTION
+1. What is the main topic of your YouTube video? (Example: 10 travel hacks)
+2. Who is the target audience for your video? (Example: Beginners travelers)
+3. How many sections do you want in the outline? (Example: 4)
+4. What tone or style do you want for your video? (Casual, confident)
+
+PROMPT
+Create a detailed outline for a YouTube video on the topic of {1} targeted at the audience of {2}. The 
+outline should have {3} sections and adopt a {4} tone or style. Each section should cover a different 
+aspect of the main topic and be designed to guide the video creation process, resulting in a 
+well-organized, informative, and engaging video for the viewers. The outline should also ensure that the 
+content flows smoothly, keeping the audience captivated and encouraging them to watch the entire video.
+
+==========================================================================================================
+
+FORM TYPE: YOUTUBE SHORTS
+
+FORM QUESTION
+1. What is the main topic of your YouTube Short? (Easy yoga poses)
+2. Who is the target audience for your short? (Example: Beginner yoga enthusiasts)
+3. What tone or style do you want for your short? (Casual, Creative)
+4. What is the desired length of your YouTube short in seconds? (Please choose a value between 1 and 60)
+(Example:16)
+
+PROMPT
+Create a captivating script for a YouTube Short on the topic of {1} targeted at the audience of {2}. The 
+script should adopt a {3} tone or style and be approximately {4} seconds long. Ensure the content is 
+engaging and attention-grabbing, keeping in mind the short format and time constraint of YouTube Shorts. 
+The script should be concise, conveying the main message quickly and effectively to keep viewers 
+interested and encourage them to watch more of your content.
+
+
+==========================================================================================================
+
+FORM TYPE: TIKTOK VIDEO SCRIPT
+
+FORM QUESTION
+1. What is the main topic of your TikTok video? (Example: Quick recipes)
+2. Who is the target audience for your video? (Example: Busy people who want to cook at home)
+3. What tone or style do you want for your video? (Casual, Creative)
+4. What is the desired length of your TikTok video in seconds? (Please choose a value between 1 and 60)
+(Example: 30)
+
+
+PROMPT
+Create an engaging script for a TikTok video on the topic of {1} targeted at the audience of {2}. The script 
+should adopt a {3} tone or style and be approximately {4} seconds long. Make sure the content is 
+captivating and attention-grabbing, considering the short format and time constraint of TikTok videos. 
+The script should be concise, conveying the main message quickly and effectively to keep viewers 
+interested and encourage them to follow your account for more content.
+
+==========================================================================================================
+
+FORM STYLE: TIKTOK VIDEO HOOKS 
+
+FORM QUESTION
+1. What is the main topic of your TikTok video? (Example: Dance tutorial)
+2. Who is the target audience for your video? (Example: aspiring dancers)
+3. Wha tone or style do you want for your video? (Casual, confident)
+
+
+PROMPT
+Create a compelling hook for a TikTok video on the topic of {1} targeted at the audience of {2}. The hook 
+should adopt a {3} tone or style, instantly grabbing the viewer's attention and making them want to 
+watch the entire video. The hook should be concise and intriguing, effectively setting the stage for the 
+rest of the content and encouraging viewers to engage with your TikTok account.
+
+
+==========================================================================================================
+
+FORM STYLE: TIKTOK VIDEO IDEAS 
+
+FORM QUESTION
+1. What is the main theme or category for your TikTok video ideas? ( Example: Fitness)
+2. Who is the target audience for your video ideas? (Example: Fitness enthusiasts)
+3. How many video ideas do you want to generate? (Example: 10)
+4. What tone or style do you want for your video ideas? (Casual, Creative)
+ 
+
+PROMPT
+Generate {3} unique and captivating TikTok video ideas in the theme or category of {1}, targeted at the 
+audience of {2}. The video ideas should adopt a {4} tone or style, ensuring that they are attention-grabbing 
+and appealing to the target audience. These ideas should inspire viewers to engage with your TikTok 
+account, providing a variety of content that keeps them interested and entertained. Consider current 
+trends and popular topics within the chosen theme or category to maximize the potential for virality and 
+growth on the platform.
+
+
+==========================================================================================================
+
+FORM STYLE: DIGITAL PRODUCT VIDEO 
+
+FORM QUESTION
+1. What is the digital product you want to promote in the video? (Example: Online course on python programming)
+2. Who is the target audience for your digital product? (Example: Beginner programmers)
+3. How many seconds do you want the video script to be? (Example: 120)
+4. What tone of voice do you want for the video script? (Confident, creative)
+5. What are some keywords or phrases to include in the video scripts? (Example: Python programming, learn
+python, coding courses)
+
+
+PROMPT
+Create a {3}-second video script to promote the digital product {1}, targeted at the audience of {2}. The 
+script should adopt a {4} tone of voice and incorporate the keywords or phrases {5} to effectively 
+convey the benefits and features of the digital product. The video should be engaging, attention-grabbing,
+ and clearly explain how the product can help the target audience solve a specific problem or improve 
+their skills. Use a compelling call-to-action to encourage viewers to explore the product further or make 
+a purchase.
+
+==========================================================================================================
+
+FORM STYLE: PHYSICAL PRODUCT VIDEO
+
+FORM QUESTION
+1. What is the physical product you want to promote in the video? (Example: Smartphone case with a built-in
+ battery)
+2. Who is the target audience for your physical product? (Example: Smartphone users)
+3. How many seconds do you want the video scripts to be? (Example: 90)
+4. What tone of voice do you want for the video script? (Casual, Confident)
+5. What are some keywords or phrases to include in the video script? (Example: phone case, battery case, 
+smartphone accessories)
+
+
+PROMPT
+Create a {3}-second video script to promote the physical product {1}, targeted at the audience of {2}. The 
+script should adopt a {4} tone of voice and incorporate the keywords or phrases {5} to effectively 
+showcase the benefits and features of the physical product. The video should be engaging, attention-grabbing, 
+and clearly demonstrate how the product can improve the user's experience or solve a specific problem. 
+Use a compelling call-to-action to encourage viewers to explore the product further or make a purchase.
+
+==========================================================================================================
+
+FORM STYLE: SHORT AD VIDEO
+
+FORM QUESTION
+1. What product or service are you promoting in the short ad video? (Example: Wireless noise-cancelling headpones)
+2. Who is the target audience for your product or service? (Example: Music enthusiasts, office workers)
+3. How many seconds do you want the short ad video script to be? (Example: 15)
+4. What tone of voice do you want for the short ad video script? (Casual, Confident)
+5. What are some keywords or phrases to include in the short ad video script? (Example: noise-canceling, 
+wireless, comfortable)
+
+
+PROMPT
+Create a {3}-second short ad video script to promote the product or service {1}, targeted at the audience of 
+{2}. The script should adopt a {4} tone of voice and incorporate the keywords or phrases {5} to effectively 
+highlight the benefits and features of the product or service. The video should be engaging, 
+attention-grabbing, and persuasive, using a clear call-to-action to encourage viewers to explore the 
+product or service further or make a purchase.
+
+===========================================================================================================
+
+FORM STYLE: TUTORIAL VIDEO
+
+FORM QUESTION
+1. What is the topic of the tutorial video? (Example: How to set up a home recording studio)
+2. Who is the target audience for the tutorial video? (Example: Beginner musicians, podcasters)
+3. How many steps or sections do you want to include in the tutorial? (Example: 3)
+4. What tone of voice should the tutorial video script have?
+5. What are some important keywords or phrases to include in the tutorial video script? (Example: microphone,
+audio interface, software)
+ 
+
+PROMPT
+Create an explainer-style tutorial video script on the topic of {1} for the target audience of {2}. The 
+tutorial should be organized into {3} clear steps or sections, adopting a {4} tone of voice. Make sure 
+to incorporate the keywords or phrases {5} to effectively explain the process, ensuring the content is 
+engaging, informative, and easy to follow. The tutorial should empower viewers to confidently perform 
+the task or learn the skill being demonstrated, leaving them with a sense of accomplishment.
+
+
+==========================================================================================================
+
+FORM STYLE: INFORMATIONAL VIDEO
+
+FORM QUESTION
+1. What is the topic of the informational video? (Example: The history of the internet)
+2. Who is the target audience for the informational video? (Example: Students, tech enthusiasts)
+3. How many main points or sections do you want to include in the informational video? (Example: 4)
+4. What tone of voice should the informational video script have? (casual, creative)
+5. What are some important keywords or phrases to include in the informational video script? (Example: ARPANET, 
+World Wide Web, Tim Berners-Lee)
+
+
+PROMPT
+Create an informative video script on the topic of {1} for the target audience of {2}. The script should be 
+organized into {3} main points or sections, adopting a {4} tone of voice. Make sure to incorporate the 
+keywords or phrases {5} to effectively present the information, ensuring the content is engaging, 
+informative, and easy to understand. The video should provide the viewers with valuable knowledge and 
+insights into the topic, leaving them with a deeper understanding and appreciation of the subject matter.
+
+==========================================================================================================
+
+FORM STYLE: ANNOUNCEMENT VIDEO
+
+FORM QUESTION
+1. What is the announcement about? (Example: New product launch)
+2. Who is the target audience for the announcement video? (Example: Customers, investors)
+3. What tone of voice should the announcement video script have? (Casual, Creative)
+4. What are the key details or information that need to be included in the announcement? (Example: Product 
+features, release date, special offers)
+5. Is there any call to action or additional information you want to provide at the end of the announcement 
+video? (Example: call to action, website link)
+
+
+PROMPT
+Create an announcement video script about {1} targeted at the audience of {2}. The script should adopt a 
+{3} tone of voice and include all the key details and information such as {4}. At the end of the video, 
+make sure to include the call to action or any additional information {5} to encourage the viewers to take 
+the desired action or learn more about the announcement. The script should effectively convey the 
+excitement and importance of the announcement while engaging the viewers and encouraging them to take 
+action.
+
+===========================================================================================================
+
+FORM STYLE: FACEBOOK AD VIDEO
+
+FORM QUESTION
+1. What product or service are you promoting in the Facebook ad video? (Example: Fitness app, Online course)
+2. Who is the target audience for Facebook ad video? (Example: Young professionals, stay-at-home parents)
+3. What tone of voice should the Facebook ad video script have? (Casual, Engaging)
+4. What are the key selling points or benefits of your product or service? (Example: Key features, benefits, 
+limited-time offer)
+5. What is the call to action for the Facebook ad video? (Example: Visit our website, download the app) 
+
+
+PROMPT
+Create a Facebook ad video script promoting {1} targeted at the audience of {2}. The script should adopt a 
+{3} tone of voice and highlight the key selling points and benefits of the product or service such as 
+{4}. At the end of the video, make sure to include a clear call to action {5} to encourage the viewers to 
+take the desired action. The script should be engaging, persuasive, and optimized for social media to 
+capture the attention of the target audience and drive results.
+
+===========================================================================================================
+
+
+FORM STYLE: EMAIL SUBJECT LINES
+
+FORM QUESTION
+1. What is the purpose of the email? (Example: Newsletter, product launch, special offer)
+2. What tone of voice should the email subject lines have? (Casual, Engaging)
+3. What is the main highlightor offer in the email? (Example: Limited-time-discount, upcoming event, new product)
+4. How many email subject lines would you like? (Example: 3)
+
+
+PROMPT
+Create {4} email subject lines that grab the attention of the recipient and encourage them to open the 
+email. The subject lines should be aligned with the purpose of the email {1} and adopt a {2} tone of 
+voice. Make sure to include the main highlight "{3}" or offer  to create a sense of urgency and entice the 
+recipient to read the email. The subject lines should be catchy, relevant, and optimized for driving open 
+rates.
+
+==========================================================================================================
+
+
+FORM STYLE: PRODUCT OR SERVICE PROMOTION 
+
+FORM QUESTION
+1. What is your product or service name? (Example: Website funnel builder 1000)
+2. What type of product? (Website building software)
+3. What is your niche audience? (Online and offline business owners)
+4. What are the main features or benefits? (Seperated by commas) (Example: Free hosting, simple user interface,
+save time, 1000's of templates to choose from)
+5. What is the promotion deadline? (Example: 72 hours)
+6. Maximum number of words. (Example: 250)
+7. Who is the email from? (Example: John Doe)
+8. Any other details to include? (Example: Also get a 30-day money back guarantee. Plus get 10 extra bonusues
+if you order today)
+
+PROMPT
+Write the body copy for a promotional email for a product titled {1} which is a {2} product. The email 
+should target a {3} audience and highlight these features: {4}. The email should be {6} words in length and it 
+would be nice to mention {8}. This promotion is will last for: {5}. The email is from {7}
+
+==========================================================================================================
+
+
+FORM STYLE: NEWS ANNOUNCEMENT EMAIL
+
+FORM QUESTION
+1. What is the main news or announcement you want to share? (Example: Launching a new product, announcing a 
+partnership, company update)
+2. What is the headline or main highlight of the announcement? (Example: Our new product, our patnership 
+with XYZ)
+3. What tone of voice should the email have? (Confident, casual)
+4. Who is the target audience for this email? (Example: Our loyal customer, industry partners, investors)
+5. Is there a relevant link or call to action you want to include? (Example: www.example.com/new-product)
+
+
+PROMPT
+Compose a news announcement email that informs the target audience {4} about the main news or announcement 
+{1}. The email should have a captivating headline {2} and adopt a {3} tone of voice. Make sure to 
+highlight the key points and provide any relevant link or call to action {5} to encourage the recipients 
+to learn more about the announcement. Keep the email concise, informative, and engaging to pique the 
+readers' interest.
+
+==========================================================================================================
+
+FORM STYLE: PRODUCT UPDATES EMAIL
+
+FORM QUESTION
+1. What are the main updates or improvements to the products? (Example: New features, bug fixes, performance 
+improvements)
+2. What are the specific changes or updates you want to highlight? (Example: Feature X, Bug Fix Y, Improved 
+performance Z)
+3. What tone of voice should the email have? (Casual, Encouraging)
+4. Who is the target audience for this email? (Example: Our loyal customers, users of our software, subscribers)
+5. Is there a relevant link or call to action you want to include? (Example: www.example.com/updates)
+
+
+PROMPT
+Compose a product updates email that informs the target audience {4} about the main updates or improvements 
+to the product {1}. The email should highlight specific changes or updates {2} and adopt a {3} tone of 
+voice. Make sure to emphasize the benefits of the updates and provide any relevant link or call to action 
+{5} to encourage the recipients to explore the new features or improvements. Keep the email concise, 
+informative, and engaging to pique the readers' interest.
+
+
+==========================================================================================================
+
+
+FORM STYLE: INFORMATIONAL EMAIL
+
+FORM QUESTION
+1. What is the main topic or subject of the informational email? (Example: The importance of cybersecurity, 
+The benefits of meditation)
+2. What tone of voice should the email have? (Casual, Creative)
+3. who is the target audience for this email? (Example: Our loyal customers, users of our software, subscribers)
+4. Is there a relevant link or call to action you want to include? (Example: www.example.com/blog/cybersecurity)
+5. What are the key points or pieces of information you want to share in the email? (Example: Three key points 
+about cybersecurity, Five benefits of meditation) 
+
+
+PROMPT
+Compose an informational email that educates the target audience {3} on the main topic or subject {1}. The 
+email should convey the key points or pieces of information {5} in a {2} tone of voice. Make sure to 
+present the information in a clear, engaging, and informative manner. Include any relevant link or call 
+to action {4} to encourage the recipients to learn more about the topic or take a desired action. Keep the 
+email concise and focused on delivering value to the readers.
+
+
+==========================================================================================================
+
+
+FORM STYLE: COLD OUTREACH EMAILS
+
+FORM QUESTION
+1. What product or service are you offering? (Example: Content marketing services, web development)
+2. Who is the target audience for this email? (Example: Marketing managers, Small business owners)
+3. What tone of voice should the email have? (Casual, Creative)
+4. What is the main value proposition or incentive you want to offer? (Example: A case study, A free consultation)
+5. Is there a relevant link or call to action you want to include? (Example: www.example.com/services/content marketing)
+
+
+PROMPT
+Compose a cold outreach email that targets {2} and offers {1} in a {3} tone of voice. The email should 
+clearly present the main value proposition or incentive {4} to entice the recipients to learn more about 
+the product or service. Include any relevant link or call to action {5} to encourage the recipients to 
+explore your offering or take the desired action. Keep the email concise, personalized, and focused on 
+demonstrating how your product or service can solve a specific problem or provide a unique benefit to the 
+target audience.
+
+
+=========================================================================================================
+
+
+FORM STYLE: AUTORESPONDER SERIES
+
+FORM QUESTION
+1. What is the purpose of this autoresponder series? (Example: Onboarding, Sales funnel)
+2. How many emails should be in this series? (Example: 5)
+3. What are the key messages or actions you want to convey in the series? (Example: Educate about the product,
+Offer a limited-time discount)
+4. What tone of voice should the emails have? (Casual, Confident)
+5. Are there any specific links or call to action you want to include in the emails? (Example: www.example.com/products,
+www.example.com/contact) 
+
+
+PROMPT
+Create a {2}-email autoresponder series for the purpose of {1}. The series should be in a {4} tone of 
+voice and convey the key messages or actions {3}. Each email should be concise, engaging, and focused on 
+nudging the reader towards taking the desired action. Include any specific links or call to actions {5} 
+where appropriate to encourage the reader to explore your offering or take the next step. Ensure that 
+the series is well-structured and flows smoothly from one email to the next, maintaining the reader's 
+interest and building trust throughout.
+
+==========================================================================================================
+
+
+FORM STYLE: GENERAL SUPPORT SCRIPT 
+
+FORM QUESTION
+1. What is the name of your business? (Example: Acme Company)
+
+PROMPT
+Please help me create a general support script for {1} that guides customers seeking assistance. The script 
+should be professional and provide clear instructions on how they can reach out to the support team or 
+access relevant resources. Thank you!
+
+
+==========================================================================================================
+
+
+FORM STYLE: PRODUCT/SERVICE ACCESS
+
+FORM QUESTION
+1. What is the product or service customers need access to? (Example: Acme Online Course)
+2. What is the URL or location where customers can access the product or service? (Example: https://acme.com/login
+
+
+PROMPT
+I need a customer support script for granting access to {1}. Please provide clear instructions on how 
+customers can access it using the link or location {2}. Additionally, include troubleshooting tips or 
+contact information for further assistance. Thank you!
+
+
+==============================================================================================================
+
+
+FORM STYLE: SUPPORT SOLUTION FOR A PROBLEM
+
+FORM QUESTION
+1. What is the problem the customer is facing? (Example: Unable to log in to account)
+2. Who is addressing the issue? (Example: Our support team)
+
+PROMPT
+I need a support script to help a customer who is facing an issue with 1. The script should be written 
+on behalf of 2. Please provide a clear and helpful solution for the customer, along with additional 
+resources or contact information they can use if they require further assistance. Thank you!
+
+==========================================================================================================
+
+
+FORM STYLE: SUPPORT AUTORESPONDER MESSAGE 
+
+FORM QUESTION
+1. What is the name of your business? (Example: Acme Company)
+2. What is the estimated response time for support inquiries? (Example: 24-48 hours)
+
+PROMPT
+I need a support autoresponder message for {1}. The message should reassure customers that their inquiry 
+has been received and provide an estimated response time of {2}. Additionally, include any helpful links 
+or resources that customers can access while they wait for a reply. Thank you!
+
+
+==========================================================================================================
+
+FORM STYLE: ENGAGING QUESTIONS
+
+FORM QUESTION
+1. What is the context for these engaging questions (e.g., social media post, blog post, event, podcast)?
+2. How many engaging questions do you want to generate? (Example: 5)
+3. What is the main topic or theme of the questions? (Example: marketing)
+
+
+PROMPT
+Create {2} engaging questions for a {1} related to the topic of {3} that will encourage audience interaction 
+and spark meaningful conversations.
+
+==========================================================================================================
+
+FORM STYLE: CREATIVE STORY
+
+FORM QUESTION
+1. What is the main theme of your story? (Example: A magical adventure)
+2. Who is the main character in your story? (Example: Alice)
+3. What is the setting of your story? (Example: A mystical forest)
+4. What is the story's point of view? (Example: First person)
+5. How many words do you want your story to be? (Example: 1000)
+
+PROMPT
+Please write a {5}-word creative story with the theme of "{1}". The story should feature the main character 
+{2} and take place in {3}. The story should be written in {4} person point of view.
+
+
+===========================================================================================================
+
+
+FORM STYLE: SUMMARIZE TEXT
+
+FORM QUESTION
+1. Please provide the text you'd like to summarize: (Example: In a word where magic and science coexist)
+2. How many words should the summary be? (Example: 100)
+
+PROMPT
+Summarize the following text in {2} words: {1}
+
+
+==========================================================================================================
+
+
+FORM STYLE: CITATIONS GENERATOR
+
+FORM QUESTION
+1. Please provide the source information: (Example: Smith J. (2020). The Art of Cooking: Mastering the Basics. 
+New york: Penguin Publishing.)
+2. Which citation style would you like to use? (Example: APA|MLA|Chicago|Harvard)
+
+
+PROMPT
+Generate a citation for the following source information in the {2} style: {1}
+
+
+==========================================================================================================
+
+FORM STYLE: QUOTES GENERATIOR
+
+FORM QUESTION
+1. What is the theme or topic of the quote? (Example: inspiration, love)
+2. What mood or tone do you want the quote to have? (Example: Upliftng, thoughtful)
+3. How many quotes would you like to generate? (Example: 10)
+
+PROMPT
+Generate {3} {2} quotes on the theme of {1}.
+
+
+
+===========================================================================================================
+
+
+FORM STYLE: TONE CHANGER
+
+FORM QUESTION
+1. What text do you want to change the tone of? (Example: The weather was sunny and warm, making it a perfect 
+day for a picnic)
+2. What tone would you like to apply to the text? (Example: Formal, casual)
+
+PROMPT
+Change the tone of the given text: {1} to be {2}.
+
+
+==========================================================================================================
+
+FORM STYLE: SONG LYRICS
+
+FORM QUESTION
+1. What is the main theme or subject of the song? (Example: Love)
+2. What is the genre of the song? (Example: Pop|Rap|Hip-hop|Electronic|Jazz|Folk)
+3. How many verses do you want in the song? (Example: 3)
+4. Do you want a chorus? (Yes/No) (Example: 3)
+5. If yes, how many times should the chorus appear? (Example: 2)
+6. Do you have a bridge? (Yes/No) (Example: yes)
+
+
+
+PROMPT
+Write a song in the {2} genre with the theme of {1}. The song should have {3} verses. <%q{4}=="Yes" ? "Include a 
+chorus that appears " + q{5} + " times." : "Do not include a chorus." %> <%q{6}=="Yes" ? "Include a bridge." 
+: "Do not include a bridge." %>
+
+
+==========================================================================================================
+
+FORM STYLE: REAL ESTATE LISTING DESCRIPTIONS
+
+FORM QUESTION
+1. How many bedrooms does the property have? (Example: 3)
+2. How many Bathrooms does the property have? (Example: 2)
+3. What is the square footage of the property? (Example: 1500)
+4. What type of property is it? (Example: Single-family home|Apartment|Condo|Townhouse)
+5. What are the key features of the property? (separated by commas)  (Example:Quiet neighborhood, close to 
+schools, large backyard)
+6. What is the address of the property? (Example: 123 Main st, Springfield, USA)
+7. What is the asking price for the property? (Example: 350000)
+
+PROMPT
+Create a real estate listing description for a {4} located at {6}. The property has {1} bedrooms, {2} bathrooms, 
+and is {3} square feet. The key features of the property include: {5}. The asking price is ${7}.
+
+
+
+===========================================================================================================
+
+FORM STYLE: PAS FRAMEWORK
+
+FORM QUESTION
+1. What is the main pain point your target audience is experiencing? (Example: Not having enough time to complete
+daily tasks)
+2. What emotions or consequences result from this pain point? (Example: Feeling overwhelmed, stressed, and 
+disorganized)
+3. What is your solution to this pain point? (Example: Time management app)
+4. What are the benefits of your solution? (Separated by commas),  (Example: Increase productivity, saves time, 
+reduces stress)
+
+
+PROMPT
+Use the PAS (Pain-Agitate-Solutions) framework to create sales copy addressing the pain point of {1}. 
+Describe the emotions and consequences related to this pain point: {2}. Introduce the solution: {3} and 
+highlight its benefits: {4}.
+
+
+==========================================================================================================
+
+FORM STYLE: REVIEW RESPONDER
+
+FORM QUESTION
+1. What is the name of the reviewer? (Example: Jane Doe)
+2. What is the star rating of the review? (1 to 5) (Example: 5)
+3. What is the content of the review? (I had a fantastic experience with this company. Their customer service 
+was top-notch and the product exceeded my expectations!)
+4. What is the name of your business or product? (Example: Acme Widgets)
+
+PROMPT
+Respond to a review from {1} who gave your business or product, {4}, a {2}-star rating. The review content is 
+as follows: {3}.
+
+
+=============================================================================================================
+
+FORM STYLE: AIDA FRAMEWORK
+
+FORM QUESTION
+1. What is the nae of the product or service you want to promote? (Example: Superclean 3000)
+2. What type of product or service is it? (Example: A vacuum cleaner)
+3. What are the key features or benefits of the product or service? (Separated by commas)  (Example: Efficient 
+cleaning, lightweight design, versatile attachments)
+4. What is the call to action or special offer? (Example: 10% off for a limited time)
+5. What is the maximum word count for the AIDA framework copy? (Example: 200)
+
+
+PROMPT
+Create an AIDA framework copy for {1}, a {2} with features such as {3}. The call to action or special offer is 
+{4}. The copy should not exceed {5} words.
+
+
+==========================================================================================================
+
+FORM STYLE: PRODUCT NAMES
+
+FORM QUESTION
+1. What is a brief description of the product or service? (Example: A high-performance electric skateboard)
+2. What is the target market or niche for this product or service? (separated by commas)  (Example: Outdoor 
+sports, transportation)
+3. What are the target features or benefits of the product or service? (separated by commas)  (Example: fast,
+reliable, eco-friendly)
+4. How many product name suggestions would you like? (Example: 5)
+
+
+PROMPT
+Generate {4} product name suggestions for a {1} targeting the {2} market. The key features or benefits of 
+this product or service are {3}.
+
+==========================================================================================================
+
+FORM STYLE: ANALOGY MAKER
+
+FORM QUESTION
+1. What is the concept or topic you'd like an analogy for?  (Example: Time management)
+2. What is a related concept or idea that could be used in the analogy? (Example: Budgeting money)
+3. How many analogies would you like? (Example: 1)
+
+PROMPT
+Generate {3} analogy(ies) comparing {1} to {2}.
+
+==========================================================================================================
+
+FORM STYLE: GROWTH IDEAS
+
+FORM QUESTION
+1. What type of business are you looking for growth ideas for? (Example: E-commerce)
+2. What are your primary goals for growth? (separated by commas)  (Example: Increase website traffic, improve
+conversation rate)
+3. How many growth ideas would you like? (Example: 5)
+  
+
+PROMPT
+Generate {3} growth ideas for an {1} business with the primary goals of {2}.
+
+==========================================================================================================
+
+FORM STYLE: KEYWORD EXTRACTOR
+
+FORM QUESTION
+1. Paste the content you want to extract keywords from:  (Example: In the world of digital marketing, search 
+engine optimization plays a crucial role in driving organic traffic to websites.)
+2. How many keywords would you like to extract? (Example: 10)
+
+
+PROMPT
+Extract {2} keywords from the following content: {1}.
+
+
+==========================================================================================================
+
+FORM STYLE: LISTICLE IDEAS
+
+FORM QUESTION
+1. What topic do you want the listicle ideas for?
+2. How many listicle ideas would you like? (Example: 5)
+
+
+PROMPT
+Generate {2} listicle ideas on the topic of {1}.
+
+
+===========================================================================================================
+
+
+FORM STYLE:STARTUP IDEAS
+
+FORM QUESTION
+1. What industry do you want the startup ideas for?  (Example: Healthcare)
+2. How many startup ideas would you like? (Example: 5)
+
+
+PROMPT
+Generate {2} startup ideas for the {1} industry.
+
+===========================================================================================================
+
+FORM STYLE: TRANSLATE
+
+FORM QUESTION
+1. What is the text you want to translate? (Example: Hello, how are you)
+2. What language do you want to translate the text into? (Example: Spanish)
+
+
+PROMPT
+Translate the following text from English to {2}: {1}
+
+
+==========================================================================================================
+
+
+FORM STYLE: MAKE IT EASY-TO-READ
+
+FORM QUESTION
+1. What is the text you want to make more reader-friendly?  (Example: The complexities of quantum mechanics 
+have befuddled even the most talented of scientists)
+2. What is the target reading grade level? (Example: 8)
+
+
+PROMPT
+Rewrite the following text to make it easier to read and target a {2}th-grade reading level: {1}
+
+
+==========================================================================================================
+
+
+FORM STYLE: POEM GENERATOR
+
+FORM QUESTION
+1. What is the theme of the poem? (Example: Nature)
+2. What type of poem do you want? (e.g., Haiku, Limerick, Sonnet, Free Verse)
+3. How many lines should the poem have? (If capable)  (Example: 12)
+
+PROMPT
+Create a {2} poem about {1} with {3} lines:
+
+==========================================================================================================
+
+FORM STYLE: GENERAL NEWS RELEASE
+
+FORM QUESTION
+1. What is the name of the company or Organization? (Example: XYZ tech solutions)
+2. What is the main headline or announcement? (Example: Launch of the new AI-powered software)
+3. Please provide a brief description or overview of the news. (Example: XYZ Tech solutions, a leader in AI
+software, Is thrilled to announce...)
+4. Who is the primary spokeperson or contact person for this news? (Example: John Doe, CEO of XYZ Tech solutions)
+5. Where is the company or organization based? (Example: New York, NY)
+6. What is the date of the announcement? (Example: October 5, 2023)
+
+
+PROMPT
+FOR IMMEDIATE RELEASE: {6}
+{2}
+{5} - {1} is excited to share a major update: {3}. For more details and inquiries regarding this announcement, 
+please contact {4}.
+
+==========================================================================================================
+
+
+FORM STYLE: EVENT PRESS RELEASE
+
+FORM QUESTION
+1. What is the name of the event? (Example: Tech Innovators Conference 2024)
+2. Who is the organizer or host of the event? (Example: XYZ Tech solutions)
+3. Where is the event taking place? (Example: Los Angeles Convention Center)
+4. What is the date for the event? (Example: April 10, 2024)
+5. What is the timing of the event? (Example: 9:00 AM to 5:00 PM)
+6. Provide a brief overview or description of the event. (Example: The Tech Innovators Conference 2024 
+promises to be the biggest gathering of tech enthusiasts, bringing together...)
+7. Who is the primary spokeperson or contact person for this event? (Example: Jane Smith, Event Coordinator)
+8. Do you have a website or registration link for the event? (Example: www.eventwebsite.com)
+
+PROMPT
+FOR IMMEDIATE RELEASE:
+{1}: A Must-Attend Event Hosted by {2} {3}, {4}, {5} {6} For more details, to RSVP, or to schedule an 
+interview about the event, please contact {7}. Event details and registration can also be found at {8}.
+
+
+===========================================================================================================
+
+FORM STYLE: PRODUCT LAUNCH PRESS RELEASE
+
+FORM QUESTION
+1. What is the name of the product/service being launched? (Example: Superclean Vacuum)
+2. Who is the manufacturer or provider of the product/service? (Example: ABC Home Appliances)
+3. Can you give a brief description of the product/service? (Example: A vacuum that uses AI to detect and 
+clean dirt effectively)
+4. What is the official launch date? (Example: April 20,2024) 
+5. Provide a detailed overviewed or features of the product/service. (Example: The SuperClean Vacuum not 
+only cleans efficiently, but its AI-driven sensors also ensure longer machine life...)
+6. Who is the primary spokeperson or contact person for this product launch? (Example: Jane Doe, Chief Marketing officer)
+7. Do you have a website or link with more information about the product/service? (Example: www.supercleanvacuum.com)
+
+
+PROMPT
+FOR IMMEDIATE RELEASE:
+
+Introducing the {1}: A Game-Changer in Home Cleaning
+Brought to you by {2}, the 1 is set to revolutionize home cleaning. Slated for release on {4}, this 
+innovative product offers: {3}. {5} For more details, inquiries, or to schedule an interview about the 
+product launch, please contact {6}. More information can also be found at {7}.
+
+==========================================================================================================
+
+FORM STYLE: PARTNERSHIP OR COLLABORATION PRESS RELEASE
+
+FORM QUESTION
+1. What is the name of the first entity involved in the partnership/collaboration? (Example: TechStream Ltd)
+2. What is the name of the second entity involved in the patnership/collaboration? (Example: GreenTech Innovations)
+3. Provide a detailed overview or purpose of the partnership/collaboration. (Example: The partnership 
+aims to develop sustainable AI solutions for the tech industry, focusing on energy-efficient algorithms 
+and eco-friendly hardware designs.)
+4. What is the official announcement or partnership date? (Example: June 15, 2024)
+5. Who is the primary spokesperson or contact person from the first entity?  (Example: John Smith, CEO of TechStream LTd)
+6. Who is the primary spokesperson or contact person from the secon entity? (Example: Jane Doe, CEO of Greentech Innovations)
+7. Do you have a website or link with more information about the partnership/collaboration? (Example: www.techstream-greentech-partnership.com) 
+
+PROMPT
+FOR IMMEDIATE RELEASE: 
+{1} Joins Forces with {2} to Shape the Future, We are excited to announce a 
+groundbreaking partnership between 1 and 2. Set to commence on {4}, this alliance aims to: {3}.
+For more insights, interviews, or details about this collaboration, interested parties can reach out to 
+{5} from 1 or {6} from 2. Further details about the partnership can be found at {7}.
+
+==========================================================================================================
+
+FORM STYLE:AWARD ANNOUNCEMENT PRESS RELEASE
+
+FORM QUESTION
+1. What is the name of the company or individual receiving the award? (Example: TechStream Ltd)
+2. what is the name/title of the award or recognition received? (Example: Best Innovative Tech Solution of 2024)
+3. Who/Which organization granted the award? (Example: The Global Tech Awards)
+4. Provide a brief description or reason for receiving the award. (Example: TechStream Ltd. has been 
+recognized for its innovative approach in developing sustainable AI solutions, leading the industry in 
+both creativity and eco-friendly initiatives.)
+5. What is the date of the award announcement or ceremony? (June 20, 2024)
+6. Who is the primary spokesperson or contact person from the company? (John Smith, CEO of Techstream Ltd)
+7. Do you have a website or link with more details about the award or the achievement? (Example: www.techstream-awards.com)
+
+
+PROMPT
+FOR IMMEDIATE RELEASE:
+
+{1} Clinches the Prestigious {2}
+
+In an outstanding acknowledgment of excellence, 1 has been honored with the 2 by 3. This accolade, 
+announced on {5}, recognizes 1 for {4}.
+For further insights or interviews related to this achievement, media can approach {6}. More details 
+about the award and the notable accomplishments of 1 can be accessed at {7}.
+
+
+==========================================================================================================
+
+
+FORM STYLE: CRISIS OR ISSUE PRESS RELEASE
+
+FORM QUESTION
+1. What is the name of the company or Organization addressing the crisis/issue?(Example: Clearwater Corp)
+2. can you provide a brief overview or issue at hand? (Example: On July 15, 2024, it was discovered that 
+a batch of our bottled water products showed traces of a non-harmful, yet undetected substance.)
+3. What action has the company taken in response to the crisi/issue? (Example: Upon immediate discovery, 
+ClearWater Corp. ceased all shipments of the concerned batch and initiated a rigorous internal 
+investigation.)
+4. What immediate next steps or solution are being provided to stakeholders or public? (Example:Customers 
+who have purchased bottles from the affected batch can return them to the point of purchase for a full 
+refund.)
+5. Who is the primary spokesperson or contact person from the company for this issue (Example: Jane Doe, Chief safety
+Officer of ClearWater Corp.)
+6. Do you have a website or link or more detailed information or updates about the situation? (Example: www.clearwater-update.com)
+
+
+PROMPT
+FOR IMMEDIATE RELEASE:
+
+Statement from {1} Regarding Recent Issue
+
+1 wishes to address the situation concerning Example:
+{2}. In our commitment to transparency and upholding the trust of our stakeholders, we have promptly taken 
+measures which include {3}. Further, {4}.
+For media inquiries or more detailed information about our ongoing response, please reach out to {5}.
+Regular updates will also be posted on our dedicated page at {6}.
+
+
+
+==========================================================================================================
+
+
+FORM STYLE: FINANCIAL OR EARNINGS PRESS RELEASE
+
+FORM QUESTION
+1. What is the name of the company issuing the financial/earnings report? (Example: TechFin Solutions)
+2. For which period or quarter is this financial report? (Example: Q3 2024)
+3. What is the reported revenue for the specified period? (Example: $150 million)
+4. What is the reported net income or profut for the specified period? (Example: $45 million)
+5. Can you provide key highlights or significant factors contributing to the financial results? (Example: 
+Our growth in the Asian markets contributed significantly to our revenue.)
+6. Who is the primary spokesperson or contact person fo ths financial report? (Example: Jane Smith, Chief 
+Financial Officer)
+7. Do you have a link to the detailed earnings report or announcement? (Example: www.techfin-earnings.com/q3)
+ 
+
+PROMPT
+FOR IMMEDIATE RELEASE:
+
+{1} Announces Financial Results for {2}
+
+1, a leading name in the industry, is pleased to announce financial results for 2. The company reported 
+revenues of {3} and a net income of {4}. One of the notable factors contributing to this performance is {5}.
+
+For a more detailed breakdown of our financial results and further insights, interested parties are 
+directed to our full report available at 7. For media inquiries or further clarification, please contact {6}.
+
+==========================================================================================================
+
+FORM STYLE: STAFF OR EXECUTIVE ANNOUNCEMENT PRESS RELEASE
+
+FORM QUESTION
+1. What is the name of he company making the staff or executive announcement? (Example: TechFin Solutions)
+2. Who is the individual being announced (name of the staff or executive)? (Example:Jane Smith)
+3. What is the new or current position/title of the individual? (Chief Financial Officer)
+4. What type of instrument is it? (Example: New Hire, Promotion)
+5. Who is the primary spokesperson or authority announcing the change? (Example: John Doe, CEO of TechFin Solutions)
+6. Can you Provide some background or significant accomplishments of the individual being announced? 
+(Example: Jane Smith has over 15 years of experience in financial management and played a crucial role in 
+our European expansion.)
+7. Do you have a link or webpage dedicated to the announced individual's profile or achievement? (Example: 
+www.techfin-executive/jane-smith)
+
+
+PROMPT
+FOR IMMEDIATE RELEASE:
+
+{1} Announces New Hire of {2} as {3}
+
+1 is excited to share the {4} of 2 to the role of 3. {6} This strategic move aligns with our company's 
+growth and vision for the future.
+
+For a more detailed profile and achievements of 2, interested parties are directed to {7}. For media 
+inquiries or further details, please contact {5}.
+
+==========================================================================================================
+
+
+FORM STYLE: CHARITY OR COMMUNITY INVOLVEMENT PRESS RELEASE
+
+FORM QUESTION
+1. What is the name of the company involved in the charitable or community activity? (Example: TechFin Solutions)
+2. What is the name of the charity or Organization the company is partnering with or supporting? (Example: 
+Save the Oceans Foundation)
+3. What is the specific charitable or community activity/event being highlighted? (Example: Ocean cleanup drive)
+4. Where will the activity or event take place (Location)? (Example: San Francisco Bay Area)
+5. When will th activity or event take place (date): (Example: April 25, 2023)
+6. Can you provide more details on the company's involvement or contribution? (Example: TechFin Solutions 
+has pledged to donate $1 million to the cause and will also be sending a team of volunteers.)
+7. Who is the primary spokesperson or authority from the company speaking about the involvement? (Example: 
+John Doe, CEO of TechFin Solutions)
+8. Do you have a link or webpage dedicated to the activity or event details? (Example: www.techfin-charity.com/ocean-drive)
+
+
+PROMPT
+FOR IMMEDIATE RELEASE:
+
+{1} Teams Up with {2} for {3}
+
+1 is proud to announce its collaboration with 2 for the upcoming 3 scheduled to take place in {4} on {5}. 
+{6} This initiative underscores our commitment to giving back to the community and promoting positive change.
+For more details about the event and our involvement, interested parties can visit {8}. For media 
+inquiries or further details, please contact {7}.
+
+
+==========================================================================================================
+
+FORM STYLE: LEGALOR REGULATORY PRESS RELEASE
+
+FORM QUESTION
+1. What is the name of the company affected by the legal or regulatory matter? (Example: TechGiant Corp)
+2. Which legal or regulatory body is involved? (Example: U.S. Securities and Exchange Commission)
+3. Can you provide a brief description of the legal or regulatory matter? (Example: TechGiant Corp has 
+reached a settlement agreement regarding data privacy concerns.)
+4. Who is the primary spokesperson or authority from the company addressing the matter? (Example: Jane Doe, 
+Chief Legal Officer at TechGiant Corp)
+5. When was the official decision or announcement made (date)? (Example: May 15, 2023)
+6. Can you provide more details or the company's response/actions regarding the matter? (Example: As part 
+of the agreement, the company will enhance its data protection mechanisms and undergo periodic audits.)
+7. Is there a link or webpage where more detailed information about the matter can be found? (Example: 
+www.techgiant.com/legal-notice)
+
+PROMPT
+FOR IMMEDIATE RELEASE:
+
+{1} Addresses Legal Matter with {2}
+
+1 wishes to inform its stakeholders about a recent legal matter involving 2. The matter pertains to: {3}.
+In response to this, {6} We remain committed to upholding the highest standards of transparency and 
+accountability.
+For more detailed information on this matter, please refer to our official notice at {7}. For media 
+inquiries or further details, please contact {4}.
+
+
+==========================================================================================================
+
+
+
+
+
+
+
+
+

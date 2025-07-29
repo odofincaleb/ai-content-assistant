@@ -1,0 +1,334 @@
+FORM TYPE: CREATE CHAPTERS AND TOC
+
+FORM QUESTION
+1. What is the title of your book? (Example: Mastering Mindfulness: A Journey to Inner peace)
+2. What is the main topic or niche of your ebook? (Example: Health and wellness)
+3. Who is your target audience? (Example: Beginners looking to practice mindfulness)
+4. How many chapters do you want in your ebook? (Example: 8)
+5. What are the key points or subjects you'd like to cover in your ebook? (Example: Introduction to Mindfulness, Techniques, and Exercise)
+
+
+PROMPT
+Create a table of contents (TOC) for the ebook titled {1}, which focuses on the {2} topic and is tailored to 
+the target audience of {3}. The TOC should include {4} chapters, and each chapter should be based on the 
+key points or subjects provided: {5}. Organize the chapters in a logical sequence to create a comprehensive 
+and engaging ebook that covers the main topic effectively.
+
+
+==========================================================================================================
+
+FORM TYPE: CREATE CHAPTERS
+
+FORM QUESTION
+1. What is the title of your ebook? (Example: Mastering Mindfulness: A Journey to Inner Peace)
+2. What is the main topic or niche of your ebook? (Health and wellness)
+3. Who is your target audience? (Example: Beginners looking to practice mindfulness)
+4. How many chapters do you want in your ebook? (Example: 8)
+5. Please provide a brief description of each chapter or section in your book. (Example:Introduction: A Beginner's Guide to Mindfulness
+Chapter 1: The Science Behind Mindfulness
+Chapter 2: Techniques for Practicing Mindfulness
+Chapter 3: Incorporating Mindfulness into Daily Life
+Chapter 4: Mindfulness for Stress Reduction
+Chapter 5: Mindfulness and Emotional Well-being
+Chapter 6: Mindfulness for Improved Focus and Concentration
+Chapter 7: The Future of Mindfulness)
+
+
+PROMPT
+Create detailed chapters or sections for the ebook titled {1}, which focuses on the {2} topic and is tailored 
+to the target audience of {3}. The ebook should consist of {4} chapters or sections. Use the brief 
+descriptions provided for each chapter or section: {5}. Write engaging and informative content that covers 
+the main topic effectively and caters to the needs of the target audience.
+
+
+
+==========================================================================================================
+
+FORM TYPE: EBOOK CONCLUSION
+
+FORM QUESTION
+1. Ebook Summary (Example: Provide a brief summary of your ebook content including the main points discussed throughout the book)
+2. Main Message (Example: What is the main message or takeaway you want your readers to remember after reading your book)
+3. Tone (Casual, Creative)
+
+PROMPT
+Write a powerful conclusion for your ebook, summarizing the content and main points discussed throughout 
+the book: {1}. Ensure the conclusion emphasizes the main message or takeaway, {2}, and leaves the reader 
+with a lasting impression. Adopt a {3} tone to make the conclusion engaging and memorable for your 
+readers.
+
+==========================================================================================================
+
+FORM TYPE: CREATE A DISCLAIMER
+
+FORM QUESTION
+1. Ebook Title (Example: What is the title of your ebook?)
+2. Author Name (Example: What is your name or the name of the author?) 
+3. Information Type (General, Legal)
+4. Limitations/Exclusions (Example: Do you want to include any specific limitations or exclusions in your disclaimer? If not, leave this blank)
+
+
+PROMPT
+Create a strong disclaimer for the ebook titled "{1}" by {2}. The disclaimer should address the type of 
+information provided in the ebook, which is {3} in nature. Make sure to clarify that the ebook is 
+for informational purposes only and is not a substitute for professional advice. If any specific 
+limitations or exclusions should be included, mention them: {4}. The disclaimer should protect the author 
+from potential legal issues related to the content of the ebook.
+
+
+==========================================================================================================
+
+FORM TYPE: EBOOK CALL TO ACTION
+
+FORM QUESTION
+1. Ebook Topic (Example: What is the main topic of your ebook?)
+2. Desired Action (example: What specific action do you want your readers to take after reading your ebook?)
+3. Number of CTAs (Example: How many call-to-actions do you want throughout your ebook?)
+4. Tone of voice (Casual, Creative)
+
+
+PROMPT
+Generate {3} call-to-action ideas for an ebook on the topic of {1}. The call-to-actions should be designed 
+to encourage readers to take the specific action of {2} after reading the ebook. Use a {4} tone of 
+voice to make the call-to-actions engaging and persuasive. The call-to-actions should be placed 
+strategically throughout the ebook, aligning with the content and the desired reader journey.
+
+
+==========================================================================================================
+
+FORM TYPE: EBOOK AUTHOR BIO
+
+FORM QUESTION
+1. Author's Name (Example: What is the author's name?)
+2. Author's Background (Example: What is the author's background or expertise related to the ebook's topic?)
+3. Personal Interests (Example: What are some personal interests or hobbies of the author?)
+4. Tone of Voice (Casual, Creative)
+
+
+PROMPT
+Write an author bio for {1}, the author of an ebook. The bio should highlight the author's background and 
+expertise in the ebook's topic, which is {2}. Include some personal interests or hobbies of the author, 
+such as {3}. Use a {4} tone of voice to make the author bio engaging and memorable, while showcasing 
+the author's personality and expertise.
+
+
+==========================================================================================================
+
+FORM TYPE: SEO META TAGS
+
+FORM QUESTION
+1. What is the title of the page? (Example: Best Travel Tips for Solo Travelers)
+2. What are the target keywords for the page? (Example: travel tips, solo travel, travel guide)
+3. What type of page is it? (e.g., Blog post, Homepage, Product page, Services page)
+
+PROMPT
+Create SEO meta tags for a {3} titled "{1}". The tags should be optimized for the target keywords: {2}. Ensure 
+that the meta tags are relevant and specific to the page content, helping to improve the page's search 
+engine rankings and visibility.
+
+
+==========================================================================================================
+
+FORM TYPE:SEO META DESCRIPTIONS
+
+FORM QUESTION
+1. What is the title of the page? (Best Travel Tips for Solo Travelers)
+2. What is a brief description of the page's content? (Discover the best travel tips for solotravelers, 
+including safety advice, packing tips, and destination recommendations.)
+3. What are the target keywords for the page?, (Example: travel tips, solo travel, travel guide)
+4. What type of page is it? (e.g., Blog post, Homepage, Product page, Services page)
+
+PROMPT
+Write an engaging SEO meta description for a {4} titled "{1}". The description should provide a brief 
+overview of the page's content: {2}. Make sure to include the target keywords {3} in the description, 
+optimizing it for search engines and enticing users to click through to the page.
+
+
+==========================================================================================================
+
+FORM TYPE: PODCAST SCRIPT 
+
+FORM QUESTION
+1. What is the title of your podcast? (Example: The Solo Traveler's Guide)
+2. What is the main theme or topic of your podcast? (Example: Travel)
+3. How many main talking points or segments do you want in the script? (Example: 3)
+4. What tone of voice do you want in the script? (Example: 3)
+
+PROMPT
+Create a captivating podcast script for "{1}", a podcast focused on the theme of {2}. The script should 
+include {3} main talking points or segments and adopt a {4} tone of voice. The script should engage the 
+listeners and maintain their interest throughout the podcast, leading them to eagerly anticipate the 
+next episode.
+
+==========================================================================================================
+
+FORM TYPE: PODCAST INTERVIEW QUESTIONS
+
+FORM QUESTION
+1. What is the title of your podcast? (Example: The Solo Traveler's Guide)
+2. Who is the guest you will be interviewing? (Example: John Smith, experienced solo traveler and author)
+3. What is the main theme or topic of your podcast? (Example: Travel)
+4. How many interview questions do you want? (Example: 5)
+
+
+PROMPT
+Create {4} engaging and thought-provoking interview questions for "{1}", a podcast focused on the theme 
+of {3}. The guest for this interview is {2}. The questions should be designed to elicit interesting and 
+informative responses from the guest, providing listeners with valuable insights and keeping them hooked 
+on the conversation.
+
+
+==========================================================================================================
+
+FORM TYPE: DIGITAL PRODUCT REVIEW
+
+FORM QUESTION
+1. What is the name of the digital product you want to review? (Example: Super E-commerce Mastery Course)
+2. What type of digital product is it (e.g., online course, ebook, software, etc.)? (Example: online course)
+3. Who is the creator or author of the digital product? (Example: John Smith)
+4. On a scale of 1-5, how would you rate the digital product (1, 2, 3)
+5 . What are the key strength and weaknesses of the digital product? (Example: I really like the content,
+and the way it was structured, but i think it could use more real-life examples.)
+
+
+PROMPT
+Write a comprehensive review of the digital product "{1}", a {2} created by {3}. In the review, discuss the 
+key strengths and weaknesses of the product as mentioned in {5}. Rate the product on a scale of 1 to 5, 
+with 1 being the lowest and 5 being the highest, based on your evaluation of its overall quality, 
+usefulness, and value. The final rating for the product is {4}.
+
+
+==========================================================================================================
+
+
+FORM TYPE: PHYSICAL PRODUCT REVIEW
+
+FORM QUESTION
+1. What is the name of the physical product you want to review? (Example:XYZ Wireless Headphones)
+2. In which category does the physical product belong? (Example: Electronics)
+3. Who is the manufacturer of the physical product? (Example: XYZ Company)
+4. On a scale of 1-5, how would you rate the physical product? (1, 2)
+5. What are the key strengths and weaknesses of the physical product? (Example:The sound quality is 
+excellent, but the battery life could be improved.)
+
+
+PROMPT
+Write a comprehensive review of the physical product "{1}", which belongs to the {2} category and is 
+manufactured by {3}. In the review, discuss the key strengths and weaknesses of the product as mentioned 
+in {5}. Rate the product on a scale of 1 to 5, with 1 being the lowest and 5 being the highest, based on 
+your evaluation of its overall quality, performance, and value. The final rating for the product is {4}.
+
+
+==========================================================================================================
+
+FORM TYPE: MINI-VSL (VIDEO SALES LETTER)
+
+FORM QUESTION
+1. What is the name of the product or service you are promoting? (Example: E-commerce Mastery Course)
+2. What type of product or service is it (e.g., online course, ebook, software, etc.)? (Example: Online course)
+3. Who is the creator or author of the product or service? (Example: John Smith)
+4. What is the main benefit or result that the product or service delivers? (Example: Helps you build a 
+successful e-commerce business from scratch)
+5. What is the website or URL where the product or services can be found? (Example: www.super-ecommerce-
+mastery.com)
+6. How long should the video sales letter be, in seconds (between 60 and 90)? (Example: 60)
+
+
+PROMPT
+Write a captivating 60-90 second video sales letter script for "{1}", a {2} created by {3}". The script 
+should highlight the main benefit of the product or service: {4}. At the end of the script, direct viewers 
+to visit {5} to learn more or make a purchase. The video sales letter should be {6} seconds long and create 
+curiosity and excitement for the offer.
+
+
+==========================================================================================================
+
+FORM TYPE: YOUTUBE SCRIPT
+
+FORM QUESTION
+1. What is the title or topic of the youtube video? (Example: 10 ways to improve your Productivity)
+2. How many main points or sections do you want to cover in the script? (Example: 5)
+3. What is the main purpose or tone of the video? (confident, Creative)
+4. Approximately how many minutes should the video be? (Example: 10)
+5. Please provide a brief outline or structure for the video script. (Example:
+Introduce the topic, explain the importance of productivity, list the 10 ways, provide examples for each,
+ and summarize the main points)
+
+PROMPT
+Write a captivating YouTube script based on the title or topic "{1}". The script should cover {2} main 
+points or sections, and its main purpose or tone should be {3}. The video should be approximately 
+{4} minutes long. Follow the provided outline or structure: {5}. Make sure the script is engaging and keeps 
+the viewers' attention throughout the video.
+
+
+==========================================================================================================
+
+FORM TYPE: YOUTUBE TITLES
+
+FORM QUESTION
+1. What is the main topic or theme of the YouTube videos? (Example: Productivity)
+2. How many video titles would you like to generate? (Example: 5)
+3. What is the main purpose or tone of the videos? (Casual, creative)
+4. What keywords or phrases would you like to include in the titles? (Example: working from home, time 
+management)
+
+
+PROMPT
+Generate {2} click-magnet YouTube video titles for videos focusing on the topic of {1}. The main purpose or 
+tone of the videos should be {3}. Make sure to include the keywords or phrases {4} in the titles to help
+ them rank higher on YouTube. The titles should be engaging, attention-grabbing, and encourage viewers 
+to click on the videos.
+
+
+==========================================================================================================
+
+
+FORM TYPE: YOUTUBE HASTAGS
+
+FORM QUESTION
+1. What is the main topic or theme of the youtube video? (Example: Fitness)
+2. How many hashtags would you like to generate? (Example: 10)
+
+
+PROMPT
+Generate {2} relevant and effective hashtags for a YouTube video with the main topic or theme of {1}. These 
+hashtags should help the video gain more visibility and reach a larger audience when added to the video 
+description. Make sure the hashtags are closely related to the content of the video and resonate with the target audience.
+
+
+==========================================================================================================
+
+FORM TYPE: YOUTUBE TAGS
+
+FORM QUESTION
+1. What is the main topic or theme of the YouTube video? (Example: Travel vlog)
+2. How many tags would you like to generate? (Example: 15)
+
+
+PROMPT
+Generate {2} relevant and effective tags for a YouTube video with the main topic or theme of {1}. These tags 
+should help the video rank higher in search results and reach a larger audience. Make sure the tags are 
+closely related to the content of the video and resonate with the target audience. Consider using a mix 
+of broad and specific tags to increase the video's chances of being discovered by viewers with different 
+interests.
+
+
+=========================================================================================================
+
+
+FORM TYPE: YOUTUBE DESCRIPTIONS
+
+FORM QUESTION
+1. What is the title of your YouTube video? (Example: Top 10 Travel Destinations)
+2. What is the main topic or theme of your YouTube? (Example: Travel)
+3. What are some key points or highlights from the video? (Example: Travel tips, vacation spots, must-visit places)
+4. What call-to-action would you like to include in the description? (Example: Subscribe, like, and share) 
+
+PROMPT
+Create a captivating and search-optimized YouTube description for the video titled "{1}", which focuses on 
+the topic of {2}. The description should provide a brief overview of the content, including key points or 
+highlights such as {3}. Don't forget to include call-to-actions like {4} to encourage viewers to engage with 
+the video and channel. Make sure the description is well-written and effectively communicates the value 
+of the video to potential viewers, increasing the likelihood of clicks and watch time.
+
+
