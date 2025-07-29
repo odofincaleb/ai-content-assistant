@@ -61,6 +61,22 @@
   border-color: #1976d2;
 }
 
+.form-input-error {
+  border-color: #d32f2f !important;
+  background-color: #ffebee !important;
+}
+
+.form-input-error:focus {
+  border-color: #d32f2f !important;
+}
+
+.error-message {
+  color: #d32f2f;
+  font-size: 0.75rem;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
 .button-row {
   display: flex;
   gap: 18px;

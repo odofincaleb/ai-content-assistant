@@ -2322,14 +2322,100 @@ function PromptForm({ formTypeFilter }) {
     )
   );
   const [prompt, setPrompt] = useState('');
+  
+  // Validation state management
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
+
+  // Smart function to detect if a field should be a number input
+  const isNumberField = (question, fieldIndex) => {
+    const questionLower = question.toLowerCase();
+    const numberKeywords = [
+      'how many', 'number of', 'count', 'amount', 'quantity', 'length', 'duration',
+      'seconds', 'minutes', 'hours', 'days', 'weeks', 'months', 'years',
+      'words', 'characters', 'sentences', 'paragraphs', 'sections', 'chapters',
+      'verses', 'lines', 'bullet points', 'features', 'benefits', 'ideas',
+      'keywords', 'hashtags', 'tweets', 'emails', 'questions', 'answers',
+      'bedrooms', 'bathrooms', 'square feet', 'price', 'cost', 'percentage',
+      'rating', 'stars', 'score', 'grade', 'level', 'experience'
+    ];
+    
+    // Check if question contains number-related keywords
+    const hasNumberKeyword = numberKeywords.some(keyword => 
+      questionLower.includes(keyword)
+    );
+    
+    // Also check if it's explicitly marked as a number field
+    const isExplicitNumber = config.numberQuestionIndex !== undefined && config.numberQuestionIndex === fieldIndex;
+    
+    return hasNumberKeyword || isExplicitNumber;
+  };
+
+  // Validation functions
+  const validateField = (value, fieldIndex) => {
+    if (!value || value.trim() === '') {
+      return 'This field is required';
+    }
+    
+    // Skip length validation for tone dropdowns since they have predefined values
+    if (config.tones && config.toneQuestionIndex === fieldIndex) {
+      return '';
+    }
+    
+    // Check if this is a number field
+    const question = config.questions[fieldIndex];
+    if (question && isNumberField(question, fieldIndex)) {
+      // For number fields, validate that it's a positive number
+      const numValue = parseFloat(value);
+      if (isNaN(numValue) || numValue <= 0) {
+        return 'Must be a positive number';
+      }
+      return '';
+    }
+    
+    // For text fields, apply minimum length validation
+    if (value.trim().length < 3) {
+      return 'Must be at least 3 characters';
+    }
+    
+    return '';
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    config.questions.forEach((question, index) => {
+      const error = validateField(fields[index], index);
+      if (error) {
+        newErrors[index] = error;
+      }
+    });
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleChange = (i, value) => {
     const newFields = [...fields];
     newFields[i] = value;
     setFields(newFields);
+    
+    // Clear error when user starts typing
+    if (errors[i]) {
+      setErrors(prev => ({ ...prev, [i]: '' }));
+    }
+  };
+
+  const handleBlur = (i) => {
+    setTouched(prev => ({ ...prev, [i]: true }));
+    const error = validateField(fields[i], i);
+    setErrors(prev => ({ ...prev, [i]: error }));
   };
 
   const generatePrompt = () => {
+    // Validate form before generating prompt
+    if (!validateForm()) {
+      return;
+    }
+    
     // Replace {1}..{5} in template with answers
     let result = config.template;
     for (let i = 0; i < config.questions.length; i++) {
@@ -2359,6 +2445,8 @@ function PromptForm({ formTypeFilter }) {
 
   const clearFields = () => {
     setPrompt('');
+    setErrors({});
+    setTouched({});
   };
 
   // Reset fields if form type changes (future-proof)
@@ -2371,6 +2459,8 @@ function PromptForm({ formTypeFilter }) {
       )
     );
     setPrompt('');
+    setErrors({});
+    setTouched({});
   }, [formType, config]);
 
   return (
@@ -2383,31 +2473,38 @@ function PromptForm({ formTypeFilter }) {
       <form className="prompt-form" onSubmit={e => e.preventDefault()}>
         {config.questions.map((q, i) => (
           <div className="form-group" key={i}>
-            <label className="form-label">{i + 1}. {q}</label>
+            <label className="form-label">{i + 1}. {q} *</label>
             {config.tones && config.toneQuestionIndex === i ? (
               <select
-                className="form-input"
+                className={`form-input ${errors[i] && touched[i] ? 'form-input-error' : ''}`}
                 value={fields[i] || config.tones[0]}
                 onChange={e => handleChange(i, e.target.value)}
+                onBlur={() => handleBlur(i)}
               >
                 {config.tones.map(tone => <option key={tone}>{tone}</option>)}
               </select>
-            ) : config.numberQuestionIndex !== undefined && config.numberQuestionIndex === i ? (
+            ) : (config.questions[i] && isNumberField(config.questions[i], i)) ? (
               <input
-                className="form-input"
+                className={`form-input ${errors[i] && touched[i] ? 'form-input-error' : ''}`}
                 type="number"
+                min="1"
                 placeholder={config.examples[i]}
                 value={fields[i]}
                 onChange={e => handleChange(i, e.target.value)}
+                onBlur={() => handleBlur(i)}
               />
             ) : (
               <input
-                className="form-input"
+                className={`form-input ${errors[i] && touched[i] ? 'form-input-error' : ''}`}
                 type="text"
                 placeholder={config.examples[i]}
                 value={fields[i]}
                 onChange={e => handleChange(i, e.target.value)}
+                onBlur={() => handleBlur(i)}
               />
+            )}
+            {errors[i] && touched[i] && (
+              <div className="error-message">{errors[i]}</div>
             )}
           </div>
         ))}
