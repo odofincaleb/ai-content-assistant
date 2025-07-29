@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Home.css';
 
 // Categories and their form types (all 132 forms with engaging descriptions)
@@ -320,6 +320,10 @@ function Home({ onFormTypeSelect }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(12); // Show 12 items per page
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [searchHistory, setSearchHistory] = useState([]);
+  const [isSearchingAllCategories, setIsSearchingAllCategories] = useState(false);
+  const searchInputRef = useRef(null);
 
   const handleFormTypeClick = (formType) => {
     if (onFormTypeSelect) {
@@ -327,10 +331,97 @@ function Home({ onFormTypeSelect }) {
     }
   };
 
-  const filteredFormTypes = categories[activeCategory].filter(form =>
-    form.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    form.description.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // Get all form types across all categories for global search
+  const getAllFormTypes = () => {
+    const allForms = [];
+    Object.keys(categories).forEach(category => {
+      categories[category].forEach(form => {
+        allForms.push({
+          ...form,
+          category: category
+        });
+      });
+    });
+    return allForms;
+  };
+
+  // Generate search suggestions
+  const getSearchSuggestions = (query) => {
+    if (!query.trim()) return [];
+    
+    const allForms = getAllFormTypes();
+    const suggestions = allForms
+      .filter(form => 
+        form.type.toLowerCase().includes(query.toLowerCase()) ||
+        form.description.toLowerCase().includes(query.toLowerCase()) ||
+        form.category.toLowerCase().includes(query.toLowerCase())
+      )
+      .slice(0, 8); // Limit to 8 suggestions
+    
+    return suggestions;
+  };
+
+  // Handle search input change
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+    setShowSuggestions(value.length > 0);
+    setIsSearchingAllCategories(value.length > 0);
+    
+    // Reset to first page when search changes
+    setCurrentPage(1);
+  };
+
+  // Handle suggestion click
+  const handleSuggestionClick = (suggestion) => {
+    setSearchTerm(suggestion.type);
+    setShowSuggestions(false);
+    setActiveCategory(suggestion.category);
+    setIsSearchingAllCategories(false);
+    setCurrentPage(1);
+    
+    // Add to search history
+    if (!searchHistory.includes(suggestion.type)) {
+      setSearchHistory(prev => [suggestion.type, ...prev.slice(0, 4)]);
+    }
+  };
+
+  // Handle search history click
+  const handleHistoryClick = (historyItem) => {
+    setSearchTerm(historyItem);
+    setShowSuggestions(false);
+    setIsSearchingAllCategories(false);
+    setCurrentPage(1);
+  };
+
+  // Clear search
+  const clearSearch = () => {
+    setSearchTerm('');
+    setShowSuggestions(false);
+    setIsSearchingAllCategories(false);
+    setCurrentPage(1);
+  };
+
+  // Filter form types based on search
+  const getFilteredFormTypes = () => {
+    if (isSearchingAllCategories) {
+      // Search across all categories
+      return getAllFormTypes().filter(form =>
+        form.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        form.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        form.category.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    } else {
+      // Search within active category only
+      return categories[activeCategory].filter(form =>
+        form.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        form.description.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+  };
+
+  const filteredFormTypes = getFilteredFormTypes();
+  const suggestions = getSearchSuggestions(searchTerm);
 
   // Calculate pagination
   const totalPages = Math.ceil(filteredFormTypes.length / itemsPerPage);
@@ -339,14 +430,40 @@ function Home({ onFormTypeSelect }) {
   const currentFormTypes = filteredFormTypes.slice(startIndex, endIndex);
 
   // Reset to first page when category or search changes
-  React.useEffect(() => {
+  useEffect(() => {
     setCurrentPage(1);
   }, [activeCategory, searchTerm]);
+
+  // Handle click outside to close suggestions
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (searchInputRef.current && !searchInputRef.current.contains(event.target)) {
+        setShowSuggestions(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
     // Scroll to top when page changes
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Highlight search terms in text
+  const highlightText = (text, searchTerm) => {
+    if (!searchTerm.trim()) return text;
+    
+    const regex = new RegExp(`(${searchTerm})`, 'gi');
+    const parts = text.split(regex);
+    
+    return parts.map((part, index) => 
+      regex.test(part) ? (
+        <span key={index} className="search-highlight">{part}</span>
+      ) : part
+    );
   };
 
   const renderPaginationButtons = () => {
@@ -417,18 +534,92 @@ function Home({ onFormTypeSelect }) {
 
   return (
     <div className="home-container">
-      {/* Search Bar */}
+      {/* Enhanced Search Bar */}
       <div className="search-container">
-        <div className="search-bar">
+        <div className="search-bar" ref={searchInputRef}>
           <span className="search-icon">🔍</span>
           <input
             type="text"
-            placeholder="What script do you want to create?"
+            placeholder="Search all scripts, categories, or descriptions..."
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={handleSearchChange}
             className="search-input"
+            onFocus={() => setShowSuggestions(searchTerm.length > 0)}
           />
+          {searchTerm && (
+            <button 
+              className="clear-search-btn"
+              onClick={clearSearch}
+              title="Clear search"
+            >
+              ✕
+            </button>
+          )}
+          
+          {/* Search Suggestions Dropdown */}
+          {showSuggestions && (
+            <div className="search-suggestions">
+              {/* Search History */}
+              {searchHistory.length > 0 && (
+                <div className="suggestion-section">
+                  <div className="suggestion-title">Recent Searches</div>
+                  {searchHistory.map((item, index) => (
+                    <div 
+                      key={`history-${index}`}
+                      className="suggestion-item history-item"
+                      onClick={() => handleHistoryClick(item)}
+                    >
+                      <span className="suggestion-icon">🕒</span>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              )}
+              
+              {/* Search Suggestions */}
+              {suggestions.length > 0 && (
+                <div className="suggestion-section">
+                  <div className="suggestion-title">Suggestions</div>
+                  {suggestions.map((suggestion, index) => (
+                    <div 
+                      key={`suggestion-${index}`}
+                      className="suggestion-item"
+                      onClick={() => handleSuggestionClick(suggestion)}
+                    >
+                      <div className="suggestion-content">
+                        <div className="suggestion-title-text">
+                          {highlightText(suggestion.type, searchTerm)}
+                        </div>
+                        <div className="suggestion-category">
+                          {suggestion.category}
+                        </div>
+                        <div className="suggestion-description">
+                          {suggestion.description.substring(0, 80)}...
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+              
+              {/* No Results */}
+              {suggestions.length === 0 && searchHistory.length === 0 && (
+                <div className="suggestion-section">
+                  <div className="no-suggestions">
+                    No results found for "{searchTerm}"
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
         </div>
+        
+        {/* Search Mode Indicator */}
+        {isSearchingAllCategories && (
+          <div className="search-mode-indicator">
+            🔍 Searching across all categories
+          </div>
+        )}
       </div>
 
       {/* Category Tabs */}
@@ -437,7 +628,11 @@ function Home({ onFormTypeSelect }) {
           <button
             key={category}
             className={`category-tab ${activeCategory === category ? 'active' : ''}`}
-            onClick={() => setActiveCategory(category)}
+            onClick={() => {
+              setActiveCategory(category);
+              setIsSearchingAllCategories(false);
+              setCurrentPage(1);
+            }}
           >
             {category}
           </button>
@@ -446,7 +641,14 @@ function Home({ onFormTypeSelect }) {
 
       {/* Category Title */}
       <div className="category-title">
-        <h1>{activeCategory}</h1>
+        <h1>
+          {isSearchingAllCategories ? 'Search Results' : activeCategory}
+          {searchTerm && (
+            <span className="search-term-display">
+              for "{searchTerm}"
+            </span>
+          )}
+        </h1>
         <p className="results-count">
           Showing {startIndex + 1}-{Math.min(endIndex, filteredFormTypes.length)} of {filteredFormTypes.length} results
         </p>
@@ -456,8 +658,17 @@ function Home({ onFormTypeSelect }) {
       <div className="form-grid">
         {currentFormTypes.map((form, index) => (
           <div key={index} className="form-card">
-            <h3 className="form-type">{form.type}</h3>
-            <p className="form-description">{form.description}</p>
+            <h3 className="form-type">
+              {highlightText(form.type, searchTerm)}
+            </h3>
+            <p className="form-description">
+              {highlightText(form.description, searchTerm)}
+            </p>
+            {isSearchingAllCategories && (
+              <div className="form-category">
+                📁 {form.category}
+              </div>
+            )}
             <button
               className="continue-button"
               onClick={() => handleFormTypeClick(form.type)}
