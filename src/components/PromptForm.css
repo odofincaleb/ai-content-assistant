@@ -98,4 +98,23 @@
 
 .button-row button:hover {
   background: #125ea7;
+}
+
+
+
+.form-note {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+  margin-top: 8px;
+}
+
+.form-note p {
+  color: #856404;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.4;
 } 

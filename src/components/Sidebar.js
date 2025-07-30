@@ -57,6 +57,7 @@ function Sidebar({ activeMenu, onMenuSelect }) {
     { label: 'Emails', icon: '📧' },
     { label: 'Letters', icon: '✉️' },
     { label: 'Marketing', icon: '📈' },
+    { label: 'Other', icon: '🔧' },
     { label: 'Podcasts', icon: '🎙️' },
     { label: 'Press Releases', icon: '📰' },
     { label: 'Research', icon: '🔍' },

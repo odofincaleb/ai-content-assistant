@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { formStorageService } from '../utils/storageService';
 import './PromptForm.css';
 
 const toneOptions = [
@@ -2197,7 +2198,7 @@ const formConfigs = {
       ],
       template: 'Create a captivating and search-optimized YouTube description for the video titled "{1}", which focuses on the topic of {2}. The description should provide a brief overview of the content, including key points or highlights such as {3}. Don\'t forget to include call-to-actions like {4} to encourage viewers to engage with the video and channel. Make sure the description is well-written and effectively communicates the value of the video to potential viewers, increasing the likelihood of clicks and watch time.'
     },
-    'YOUTUBE HASTAGS': {
+    'YOUTUBE HASHTAGS': {
       questions: [
         'What is the main topic or theme of the YouTube video?',
         'How many hashtags would you like to generate?'
@@ -2298,15 +2299,427 @@ const formConfigs = {
       ],
       template: 'Create a {3}-second video script to promote the physical product {1}, targeted at the audience of {2}. The script should adopt a {4} tone of voice and incorporate the keywords or phrases {5} to effectively showcase the benefits and features of the physical product. The video should be engaging, attention-grabbing, and clearly demonstrate how the product can improve the user\'s experience or solve a specific problem. Use a compelling call-to-action to encourage viewers to explore the product further or make a purchase.'
     },
+    'PHYSICAL PRODUCT TEXT TO VIDEO': {
+      questions: [
+        'What is the name of the Product?',
+        'Describe your Product?'
+      ],
+      examples: [
+        'Example: under eye cream, Terry Crunchy Cakes',
+        'Example: a snack good for children and adults of all ages'
+      ],
+      template: 'Position yourself as a professional video advert producer and a senior prompt engineer with 33 years of experience. I want you to create a text to video prompt for my {1} product. The video should be an hype video with affirmative tone. My product description: {2}.',
+      note: 'Note: Attach a clear picture of your product in the chat along with the prompt'
+    },
+    'PHYSICAL PRODUCT PROMOTION VIDEO WITH VEO 3': {
+      questions: [
+        'What is your Product name?',
+        'What is the Physical Product video description?',
+        'What is the Total Video Duration?',
+        'How many characters do you need in the video (multiple, 1, 2)?',
+        'What Language should the voice over be?',
+        'What Accent should the voice over have?',
+        'How long should each character in video talk for?'
+      ],
+      examples: [
+        'Example: Grace Luxury Necklace',
+        'Example: A luxurious and ornate jewelry... -Get from physical product text to video',
+        'Example: 24 seconds',
+        'Example: multiple, 1, 2',
+        'Example: English, French',
+        'Example: Nigerian, Cowboy, Yoruba, Telugu',
+        'Example: 5 seconds'
+      ],
+      template: 'Here is the description of the product image\n\n{2}\n\nI want the video to be a {3} video but each should be segmented to scenes of 8 seconds each because I want to use google veo3 and you know veo3 only produces 8 seconds video.\n\nMake it a continuous scene but splited so I can merge them together with a video editor. For example where a character ends its action and 8 seconds video elapsed, the next scene should continue with that story line without breaking the scene.\n\nI need like {4} characters interactive scene with each voice over speaking {5} of {6} accent and for each scene make sure you specify each character voice over to use but the voice over must correlate and flow with what will be in the other scenes. Make sure you utilise the entire 8 seconds video for each. but make sure for each scene, each character only use {7}.\n\nI need you to craft an award winning promotional marketing video script that will sell my {1} product. I do not need any text overlay on screen.\n\nMake the video and craft it based on your experience\n\nMake sure the video is hyped with hyper active characters',
+      numberQuestionIndex: 3 // index of the number input for video duration
+    },
+    'PHYSICAL PRODUCT SCENE-BY-SCENE NARRATIVE PROMOTION VIDEO WITH VEO 3': {
+      questions: [
+        'What is the Physical Product video description?',
+        'What is the Total Video Duration?',
+        'What Language should the voice over be?',
+        'What Accent should the voice over have?',
+        'How many Scenes do you want?',
+        'Describe each Scene'
+      ],
+      examples: [
+        'Example: A luxurious and ornate jewelry... -Get from physical product text to video',
+        'Example: 24 seconds',
+        'Example: English, French',
+        'Example: Nigerian, Cowboy, Yoruba, Telugu',
+        'Example: 3',
+        'Example: [0–2s] A cozy, well-lit Chinese home kitchen in the morning. A mother in her early 30s'
+      ],
+      template: 'Scene Description ({2} total):\n\n{6}\n\nNarrator Voice-over (with {3} and a {4} accent, entire 8 seconds):\n\n{7}\n\nStyle & Mood Notes (for Veo3 engine):\nUse soft, natural daylight with warm tones.\n\nFamily-friendly atmosphere—clean, relatable, homely.\n\nSmooth transitions to keep pace with narration.\n\nEmphasize joy, health, and trust.\n\nImage description:\n{1}',
+      numberQuestionIndex: 2, // index of the number input for video duration
+      dynamicFields: {
+        triggerFieldIndex: 4, // Question 5 (How many Scenes do you want?)
+        targetFieldIndex: 5,  // Question 6 (Describe each Scene)
+        fieldPrefix: 'Scene',
+        fieldSuffix: 'Description'
+      }
+    },
   };
 
 const formTypes = Object.keys(formConfigs);
 
 function PromptForm({ formTypeFilter }) {
-  // Filter formTypes if a filter is provided
-  const filteredFormTypes = formTypeFilter
-    ? formTypes.filter(type => formTypeFilter.includes(type))
-    : formTypes;
+  // Define advertisement form types
+  const advertisementFormTypes = [
+    'FACEBOOK ADS',
+    'Linkedin ads', 
+    'GOOGLE ADS',
+    'GENERAL ADVERTISEMENT',
+    'Apps and SMS Notification'
+  ];
+
+  // Define articles & blogs form types
+  const articlesBlogsFormTypes = [
+    'Blog/Article Titles',
+    'Paragraph Script',
+    'BLOG/ARTICLE IDEAS',
+    'BLOG/ARTICLE OUTLINES',
+    'SHORT BLOG/ARTICLE',
+    'BLOG/ARTICLE INTRO',
+    'CONCLUSION SCRIPT'
+  ];
+
+  // Define customer service form types
+  const customerServiceFormTypes = [
+    'GENERAL SUPPORT SCRIPT',
+    'PRODUCT/SERVICE ACCESS',
+    'SUPPORT SOLUTION FOR A PROBLEM',
+    'SUPPORT AUTORESPONDER MESSAGE'
+  ];
+
+  // Define ebook form types
+  const ebookFormTypes = [
+    'FIND A NICHE',
+    'GET AN EBOOK IDEA',
+    'CREATE CHAPTERS AND TOC',
+    'CREATE CHAPTERS',
+    'EBOOK CONCLUSION',
+    'CREATE A DISCLAIMER',
+    'EBOOK CALL TO ACTION',
+    'EBOOK AUTHOR BIO'
+  ];
+
+  // Define ecommerce form types
+  const ecommerceFormTypes = [
+    'PRODUCT DESCRIPTION',
+    'PRODUCT TITLES',
+    'PRODUCT FEATURES/ BULLETS',
+    'AMAZON SPONSORED BRAND ADS HEADLINE',
+    'AMAZON PRODUCT TITLES'
+  ];
+
+  // Define emails form types
+  const emailsFormTypes = [
+    'EMAIL SUBJECT LINES',
+    'PRODUCT OR SERVICE PROMOTION',
+    'NEWS ANNOUNCEMENT EMAIL',
+    'PRODUCT UPDATES EMAIL',
+    'INFORMATIONAL EMAIL',
+    'COLD OUTREACH EMAILS',
+    'AUTORESPONDER SERIES'
+  ];
+
+  // Define letter form types
+  const letterFormTypes = [
+    'PERSONAL LETTER',
+    'BUSINESS LETTER',
+    'COVER LETTER',
+    'REFERENCE/RECOMMENDATION LETTER',
+    'RESIGNATION LETTER',
+    'THANK YOU LETTER',
+    'APOLOGY LETTER',
+    'COMPLAINT LETTER',
+    'INVITATION LETTER',
+    'Paragraph Script',
+    'CONCLUSION SCRIPT'
+  ];
+
+  // Define marketing form types
+  const marketingFormTypes = [
+    'Blog/Article Titles',
+    'Paragraph Script',
+    'SHORT BLOG/ARTICLE',
+    'BLOG/ARTICLE INTRO',
+    'CONCLUSION SCRIPT',
+    'FACEBOOK ADS',
+    'Linkedin ads',
+    'GOOGLE ADS',
+    'GENERAL ADVERTISEMENT',
+    'Apps and SMS Notification',
+    'Social Media Content Plan',
+    'LinkedIn Post',
+    'INSTAGRAM CAPTION',
+    'INSTAGRAM REELS',
+    'TWITTER TWEET',
+    'TWITTER SERIES',
+    'TRENDING INSTAGRAM HASHTAGS',
+    'TRENDING TWITTER HASHTAGS',
+    'PINTEREST PIN TITLE AND DESCRIPTION',
+    'QUORA ANSWERS',
+    'LONG SALES COPY',
+    'SHORT SALES COPY',
+    'OPTIN PAGES',
+    'CALL TO ACTIONS',
+    'FEATURE/BENEFIT LIST',
+    'HEADLINES',
+    'SUBHEADLINES',
+    'UNIQUE VALUE PROPOSITION',
+    'PRODUCT DESCRIPTION',
+    'PRODUCT TITLES',
+    'PRODUCT FEATURES/ BULLETS',
+    'AMAZON SPONSORED BRAND ADS HEADLINE',
+    'AMAZON PRODUCT TITLES',
+    'CONTENT REWRITER',
+    'REWRITE WITH KEYWORDS',
+    'NICHE IDEAS',
+    'INVESTIGATE A PARTICULAR NICHE',
+    'GENERATE BUSINESS IDEAS',
+    'GENERATE DIGITAL PRODUCT IDEAS',
+    'GENERATE PHYSICAL PRODUCT IDEAS',
+    'GENERATE DOMAIN NAME IDEAS',
+    'KEYWORD RESEARCH',
+    'GENERATE A BUSINESS PLAN',
+    'FIND A NICHE',
+    'EBOOK CALL TO ACTION',
+    'SEO META TAGS',
+    'SEO META DESCRIPTIONS',
+    'PODCAST SCRIPT',
+    'PODCAST INTERVIEW QUESTIONS',
+    'DIGITAL PRODUCT REVIEW',
+    'PHYSICAL PRODUCT REVIEW',
+    'YOUTUBE SCRIPT',
+    'YOUTUBE TITLES',
+    'YOUTUBE HASHTAGS',
+    'YOUTUBE TAGS',
+    'YOUTUBE DESCRIPTIONS',
+    'YOUTUBE HOOKS',
+    'YOUTUBE OUTLINES',
+    'YOUTUBE SHORTS',
+    'TIKTOK VIDEO SCRIPT',
+    'TIKTOK VIDEO HOOKS',
+    'TIKTOK VIDEO IDEAS',
+    'DIGITAL PRODUCT VIDEO',
+    'PHYSICAL PRODUCT VIDEO',
+    'PHYSICAL PRODUCT TEXT TO VIDEO',
+    'PHYSICAL PRODUCT PROMOTION VIDEO WITH VEO 3',
+    'PHYSICAL PRODUCT SCENE-BY-SCENE NARRATIVE PROMOTION VIDEO WITH VEO 3',
+    'SHORT AD VIDEO',
+    'INFORMATIONAL VIDEO',
+    'ANNOUNCEMENT VIDEO',
+    'FACEBOOK AD VIDEO',
+    'EMAIL SUBJECT LINES',
+    'PRODUCT OR SERVICE PROMOTION',
+    'NEWS ANNOUNCEMENT EMAIL',
+    'PRODUCT UPDATES EMAIL',
+    'INFORMATIONAL EMAIL',
+    'COLD OUTREACH EMAILS',
+    'AUTORESPONDER SERIES',
+    'GENERAL SUPPORT SCRIPT',
+    'REAL ESTATE LISTING DESCRIPTIONS',
+    'PAS FRAMEWORK',
+    'AIDA FRAMEWORK',
+    'PRODUCT NAMES',
+    'STARTUP IDEAS'
+  ];
+
+  // Define podcast form types
+  const podcastFormTypes = [
+    'PODCAST SCRIPT',
+    'PODCAST INTERVIEW QUESTIONS'
+  ];
+
+  // Define press release form types
+  const pressReleaseFormTypes = [
+    // Note: All press release form types are not found in formConfigs
+    // This array is empty but kept for future implementation
+  ];
+
+  // Define research form types
+  const researchFormTypes = [
+    'NICHE IDEAS',
+    'ANALYZE GIVEN CONTENT',
+    'INVESTIGATE A PARTICULAR NICHE',
+    'GENERATE BUSINESS IDEAS',
+    'GENERATE DIGITAL PRODUCT IDEAS',
+    'GENERATE PHYSICAL PRODUCT IDEAS',
+    'GENERATE DOMAIN NAME IDEAS',
+    'KEYWORD RESEARCH',
+    'GENERATE A BUSINESS PLAN'
+  ];
+
+  // Define reviews form types
+  const reviewsFormTypes = [
+    'DIGITAL PRODUCT REVIEW',
+    'PHYSICAL PRODUCT REVIEW',
+    'REVIEW RESPONDER'
+  ];
+
+  // Define rewriter form types
+  const rewriterFormTypes = [
+    'CONTENT REWRITER',
+    'REWRITE WITH KEYWORDS'
+  ];
+
+  // Define SEO form types
+  const seoFormTypes = [
+    'KEYWORD RESEARCH',
+    'SEO META TAGS',
+    'SEO META DESCRIPTIONS'
+  ];
+
+  // Define social media form types
+  const socialMediaFormTypes = [
+    'Social Media Content Plan',
+    'LinkedIn Post',
+    'INSTAGRAM CAPTION',
+    'INSTAGRAM REELS',
+    'TWITTER TWEET',
+    'TWITTER SERIES',
+    'TRENDING INSTAGRAM HASHTAGS',
+    'TRENDING TWITTER HASHTAGS',
+    'PINTEREST PIN TITLE AND DESCRIPTION',
+    'QUORA ANSWERS',
+    'PERSONAL BIO'
+  ];
+
+  // Define video scripts form types
+  const videoScriptsFormTypes = [
+    'YOUTUBE SCRIPT',
+    'YOUTUBE TITLES',
+    'YOUTUBE HASHTAGS',
+    'YOUTUBE TAGS',
+    'YOUTUBE DESCRIPTIONS',
+    'YOUTUBE HOOKS',
+    'YOUTUBE OUTLINES',
+    'YOUTUBE SHORTS',
+    'TIKTOK VIDEO SCRIPT',
+    'TIKTOK VIDEO HOOKS',
+    'TIKTOK VIDEO IDEAS',
+    'DIGITAL PRODUCT VIDEO',
+    'PHYSICAL PRODUCT VIDEO',
+    'PHYSICAL PRODUCT TEXT TO VIDEO',
+    'PHYSICAL PRODUCT PROMOTION VIDEO WITH VEO 3',
+    'PHYSICAL PRODUCT SCENE-BY-SCENE NARRATIVE PROMOTION VIDEO WITH VEO 3',
+    'SHORT AD VIDEO',
+    'TUTORIAL VIDEO',
+    'INFORMATIONAL VIDEO',
+    'ANNOUNCEMENT VIDEO',
+    'FACEBOOK AD VIDEO'
+  ];
+
+  // Define website copy form types
+  const websiteCopyFormTypes = [
+    'Paragraph Script',
+    'LONG SALES COPY',
+    'SHORT SALES COPY',
+    'OPTIN PAGES',
+    'CALL TO ACTIONS',
+    'FEATURE/BENEFIT LIST',
+    'HEADLINES',
+    'SUBHEADLINES',
+    'GUARANTEES',
+    'COMPANY BIO',
+    'UNIQUE VALUE PROPOSITION',
+    'FAQ GENERATOR'
+  ];
+
+  // Define other form types
+  const otherFormTypes = [
+    'Paragraph Script',
+    'CONCLUSION SCRIPT',
+    'Apps and SMS Notification',
+    'CONTENT REWRITER',
+    'REWRITE WITH KEYWORDS',
+    'ENGAGING QUESTIONS',
+    'CREATIVE STORY',
+    'SUMMARIZE TEXT',
+    'CITATIONS GENERATOR',
+    'QUOTES GENERATOR',
+    'TONE CHANGER',
+    'SONG LYRICS',
+    'REAL ESTATE LISTING DESCRIPTIONS',
+    'PAS FRAMEWORK',
+    'REVIEW RESPONDER',
+    'AIDA FRAMEWORK',
+    'PRODUCT NAMES',
+    'ANALOGY MAKER',
+    'GROWTH IDEAS',
+    'KEYWORD EXTRACTOR',
+    'LISTICLE IDEAS',
+    'STARTUP IDEAS',
+    'TRANSLATE',
+    'MAKE IT EASY-TO-READ',
+    'POEM GENERATOR'
+  ];
+
+  // Filter formTypes based on context
+  let filteredFormTypes;
+  if (formTypeFilter === 'advertisement') {
+    // Show only advertisement form types
+    filteredFormTypes = advertisementFormTypes;
+  } else if (formTypeFilter === 'articles-blogs') {
+    // Show only articles & blogs form types
+    filteredFormTypes = articlesBlogsFormTypes;
+  } else if (formTypeFilter === 'customer-service') {
+    // Show only customer service form types
+    filteredFormTypes = customerServiceFormTypes;
+  } else if (formTypeFilter === 'ebook') {
+    // Show only ebook form types
+    filteredFormTypes = ebookFormTypes;
+  } else if (formTypeFilter === 'ecommerce') {
+    // Show only ecommerce form types
+    filteredFormTypes = ecommerceFormTypes;
+  } else if (formTypeFilter === 'emails') {
+    // Show only emails form types
+    filteredFormTypes = emailsFormTypes;
+  } else if (formTypeFilter === 'letter') {
+    // Show only letter form types
+    filteredFormTypes = letterFormTypes;
+  } else if (formTypeFilter === 'marketing') {
+    // Show only marketing form types
+    filteredFormTypes = marketingFormTypes;
+  } else if (formTypeFilter === 'podcast') {
+    // Show only podcast form types
+    filteredFormTypes = podcastFormTypes;
+  } else if (formTypeFilter === 'press-release') {
+    // Show only press release form types
+    filteredFormTypes = pressReleaseFormTypes;
+  } else if (formTypeFilter === 'research') {
+    // Show only research form types
+    filteredFormTypes = researchFormTypes;
+  } else if (formTypeFilter === 'reviews') {
+    // Show only reviews form types
+    filteredFormTypes = reviewsFormTypes;
+  } else if (formTypeFilter === 'rewriter') {
+    // Show only rewriter form types
+    filteredFormTypes = rewriterFormTypes;
+  } else if (formTypeFilter === 'seo') {
+    // Show only SEO form types
+    filteredFormTypes = seoFormTypes;
+  } else if (formTypeFilter === 'social-media') {
+    // Show only social media form types
+    filteredFormTypes = socialMediaFormTypes;
+  } else if (formTypeFilter === 'video-scripts') {
+    // Show only video scripts form types
+    filteredFormTypes = videoScriptsFormTypes;
+  } else if (formTypeFilter === 'website-copy') {
+    // Show only website copy form types
+    filteredFormTypes = websiteCopyFormTypes;
+  } else if (formTypeFilter === 'other') {
+    // Show only other form types
+    filteredFormTypes = otherFormTypes;
+  } else if (formTypeFilter && Array.isArray(formTypeFilter)) {
+    // Use custom filter array
+    filteredFormTypes = formTypes.filter(type => formTypeFilter.includes(type));
+  } else {
+    // Show all form types
+    filteredFormTypes = formTypes;
+  }
 
   const [formType, setFormType] = useState(filteredFormTypes[0]);
   const config = formConfigs[formType];
@@ -2326,6 +2739,9 @@ function PromptForm({ formTypeFilter }) {
   // Validation state management
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
+
+  // Dynamic fields state
+  const [dynamicFields, setDynamicFields] = useState({});
 
   // Smart function to detect if a field should be a number input
   const isNumberField = (question, fieldIndex) => {
@@ -2402,6 +2818,36 @@ function PromptForm({ formTypeFilter }) {
     if (errors[i]) {
       setErrors(prev => ({ ...prev, [i]: '' }));
     }
+
+    // Handle dynamic field generation
+    if (config.dynamicFields && i === config.dynamicFields.triggerFieldIndex) {
+      const sceneCount = parseInt(value) || 0;
+      const newDynamicFields = {};
+      
+      for (let j = 0; j < sceneCount; j++) {
+        newDynamicFields[j] = '';
+      }
+      
+      setDynamicFields(newDynamicFields);
+      
+      // Update fields array to accommodate dynamic fields
+      const updatedFields = [...newFields];
+      // Remove any existing dynamic fields beyond the base questions
+      updatedFields.splice(config.dynamicFields.targetFieldIndex + 1);
+      // Add empty values for dynamic fields
+      for (let j = 0; j < sceneCount; j++) {
+        updatedFields[config.dynamicFields.targetFieldIndex + 1 + j] = '';
+      }
+      setFields(updatedFields);
+    }
+    
+    // Auto-save form data
+    setTimeout(() => {
+      formStorageService.saveFormData(formType, {
+        fields: newFields,
+        prompt: prompt
+      });
+    }, 500); // Debounce auto-save
   };
 
   const handleBlur = (i) => {
@@ -2418,11 +2864,31 @@ function PromptForm({ formTypeFilter }) {
     
     // Replace {1}..{5} in template with answers
     let result = config.template;
+    
+    // Handle dynamic fields for scene descriptions
+    if (config.dynamicFields && Object.keys(dynamicFields).length > 0) {
+      const sceneDescriptions = Object.keys(dynamicFields).map((dynamicIndex) => {
+        const fieldIndex = config.dynamicFields.targetFieldIndex + 1 + parseInt(dynamicIndex);
+        return fields[fieldIndex] || '';
+      }).filter(desc => desc.trim() !== '').join('\n\n');
+      
+      // Replace the dynamic field placeholder with all scene descriptions
+      result = result.replace(new RegExp(`\\{${config.dynamicFields.targetFieldIndex + 1}\\}`, 'g'), sceneDescriptions);
+    }
+    
+    // Replace regular field placeholders
     for (let i = 0; i < config.questions.length; i++) {
       const value = fields[i] || '';
       result = result.replace(new RegExp(`\\{${i + 1}\\}`, 'g'), value);
     }
+    
     setPrompt(result);
+    
+    // Auto-save form data after generating prompt
+    formStorageService.saveFormData(formType, {
+      fields: fields,
+      prompt: result
+    });
   };
 
   const copyPrompt = () => {
@@ -2447,18 +2913,33 @@ function PromptForm({ formTypeFilter }) {
     setPrompt('');
     setErrors({});
     setTouched({});
+    setDynamicFields({});
+    // Clear saved form data
+    formStorageService.clearFormData(formType);
   };
 
-  // Reset fields if form type changes (future-proof)
+
+
+  // Load saved form data when form type changes
   React.useEffect(() => {
-    setFields(
-      config.questions.map((q, i) =>
+    const savedData = formStorageService.loadFormData(formType);
+    if (savedData) {
+      setFields(savedData.fields || config.questions.map((q, i) =>
         config.tones && config.toneQuestionIndex === i
           ? config.tones[0]
           : ''
-      )
-    );
-    setPrompt('');
+      ));
+      setPrompt(savedData.prompt || '');
+    } else {
+      setFields(
+        config.questions.map((q, i) =>
+          config.tones && config.toneQuestionIndex === i
+            ? config.tones[0]
+            : ''
+        )
+      );
+      setPrompt('');
+    }
     setErrors({});
     setTouched({});
   }, [formType, config]);
@@ -2508,9 +2989,47 @@ function PromptForm({ formTypeFilter }) {
             )}
           </div>
         ))}
+        
+        {/* Display Note if exists */}
+        {config.note && (
+          <div className="form-note">
+            <p>{config.note}</p>
+          </div>
+        )}
+        
+        {/* Dynamic Fields Rendering */}
+        {config.dynamicFields && Object.keys(dynamicFields).length > 0 && 
+          Object.keys(dynamicFields).map((dynamicIndex) => {
+            const fieldIndex = config.dynamicFields.targetFieldIndex + 1 + parseInt(dynamicIndex);
+            const sceneNumber = parseInt(dynamicIndex) + 1;
+            return (
+              <div className="form-group" key={`dynamic-${dynamicIndex}`}>
+                <label className="form-label">
+                  {config.dynamicFields.targetFieldIndex + 1}. {config.dynamicFields.fieldPrefix} {sceneNumber} {config.dynamicFields.fieldSuffix} *
+                </label>
+                <input
+                  className={`form-input ${errors[fieldIndex] && touched[fieldIndex] ? 'form-input-error' : ''}`}
+                  type="text"
+                  placeholder={`Example: [${(sceneNumber-1)*8}–${sceneNumber*8}s] Scene ${sceneNumber} description`}
+                  value={fields[fieldIndex] || ''}
+                  onChange={e => handleChange(fieldIndex, e.target.value)}
+                  onBlur={() => handleBlur(fieldIndex)}
+                />
+                {errors[fieldIndex] && touched[fieldIndex] && (
+                  <div className="error-message">{errors[fieldIndex]}</div>
+                )}
+              </div>
+            );
+          })
+        }
         <div className="form-group">
           <label className="form-label">Prompt:</label>
-          <textarea className="form-input" value={prompt} onChange={e => setPrompt(e.target.value)} rows={3} />
+          <textarea 
+            className="form-input" 
+            value={prompt} 
+            onChange={e => setPrompt(e.target.value)} 
+            rows={3} 
+          />
         </div>
         <div className="button-row">
           <button type="button" onClick={generatePrompt}>Generate Prompt</button>
