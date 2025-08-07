@@ -2,9 +2,9 @@
   "name": "feedback-api-heroku",
   "version": "1.0.0",
   "description": "Production Feedback API Server with S3 Backups",
-  "main": "server.heroku.js",
+  "main": "server.js",
   "scripts": {
-    "start": "NODE_ENV=production node server.heroku.js",
+    "start": "NODE_ENV=production node server.js",
     "dev": "NODE_ENV=development node server.js",
     "test": "jest",
     "lint": "eslint .",
