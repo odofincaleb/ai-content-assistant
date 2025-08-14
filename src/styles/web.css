@@ -1,0 +1,60 @@
+/* Web-specific styles for better touch and scroll handling */
+
+/* Fix scroll issues */
+* {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Fix touch issues */
+button, 
+[role="button"],
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Fix TouchableOpacity issues */
+[data-testid*="TouchableOpacity"],
+[class*="TouchableOpacity"] {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Fix ScrollView issues */
+[data-testid*="ScrollView"],
+[class*="ScrollView"] {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Fix text selection issues */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection in inputs */
+input, textarea {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Fix focus issues */
+*:focus {
+  outline: none;
+}
+
+/* Fix hover states */
+button:hover,
+[role="button"]:hover {
+  opacity: 0.8;
+}
+
