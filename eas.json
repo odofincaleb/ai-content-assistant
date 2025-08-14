@@ -2,18 +2,10 @@
   "cli": { "version": ">= 3.0.0" },
   "build": {
     "preview": {
-      "android": { "buildType": "apk" }
-    },
-    "production": {
       "android": { 
-        "buildType": "app-bundle",
-        "credentialsSource": "remote"
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleDebug"
       }
-    }
-  },
-  "submit": {
-    "production": {
-      "android": { "track": "internal" }
     }
   }
 }
