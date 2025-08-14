@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "License Manager Mobile",
+    "slug": "license-manager-mobile",
+    "version": "1.0.0",
+    "scheme": "licensemanager",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": false
+    },
+    "android": {
+      "package": "com.fiddyscript.licensemanager",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "extra": {
+      "apiBase": "https://feedback-api-production-fd15.up.railway.app",
+      "eas": {
+        "projectId": "license-manager-mobile"
+      }
+    }
+  }
+}
