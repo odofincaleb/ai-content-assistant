@@ -2,7 +2,7 @@
   "expo": {
     "owner": "fiddyboss",
     "name": "License Manager Mobile",
-    "slug": "license-manager-mobile",
+    "slug": "FiddyscriptMobile",
     "version": "1.1.6",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -50,7 +50,7 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "license-manager-mobile"
+        "projectId": "da6ebc84-306d-43de-ac87-9195548e1b8d"
       }
     },
     "owner": "fiddyboss"
