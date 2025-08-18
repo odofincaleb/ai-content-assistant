@@ -1,0 +1,58 @@
+# Node modules (will be installed during build)
+node_modules/
+
+# Build artifacts
+android/app/build/
+android/build/
+android/.gradle/
+android/gradle/
+android/local.properties
+
+# iOS build artifacts
+ios/build/
+ios/Pods/
+ios/Podfile.lock
+
+# Development files
+.git/
+.gitignore
+README.md
+*.log
+.env.local
+.env.development
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test files
+__tests__/
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+
+# Documentation
+docs/
+*.md
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Large media files (if any)
+*.mp4
+*.avi
+*.mov
+*.wmv
+
+# Backup files
+*.bak
+*.backup
