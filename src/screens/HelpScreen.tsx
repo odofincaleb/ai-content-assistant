@@ -147,21 +147,31 @@ const HelpScreen: React.FC = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-         try {
-       // Send feedback to the API server
-                       // Try multiple API URLs
-        const response = await tryApiUrls('/api/feedback', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name: feedbackForm.name.trim(),
-            email: feedbackForm.email.trim(),
-            type: feedbackForm.type,
-            message: feedbackForm.message.trim()
-          })
-        });
+    try {
+      // Use the correct production API endpoint
+      const config = getEnvironmentConfig();
+      const apiUrl = config.apiUrls[0]; // Use the first (production) URL
+      
+      console.log('Submitting feedback to:', `${apiUrl}/api/feedback`);
+      
+      const response = await fetch(`${apiUrl}/api/feedback`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: feedbackForm.name.trim(),
+          email: feedbackForm.email.trim(),
+          type: feedbackForm.type,
+          message: feedbackForm.message.trim(),
+          date: new Date().toISOString()
+        })
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`API request failed: ${response.status} - ${errorText}`);
+      }
 
       const savedFeedback = await response.json();
       console.log('Feedback submitted successfully:', savedFeedback);
@@ -183,7 +193,8 @@ const HelpScreen: React.FC = () => {
       console.error('Error submitting feedback:', error);
       setSubmitStatus('error');
       
-      Alert.alert('Error', 'Failed to send feedback. Please try again.');
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      Alert.alert('Error', `Failed to send feedback: ${errorMessage}`);
       
       // Reset status after 5 seconds
       setTimeout(() => setSubmitStatus(null), 5000);

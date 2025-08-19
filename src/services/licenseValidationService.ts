@@ -38,41 +38,9 @@ class LicenseValidationService {
     UNLIMITED_LICENSE: 'fiddyscript_unlimited_license',
   };
 
-  // Test license for immediate functionality
-  private readonly TEST_LICENSE_KEY = 'FD-TEST-MOBILE-2024';
-
-  // Mock license data for testing (fallback)
+  // Mock license data for testing (fallback) - only for development
   private readonly MOCK_LICENSES: LicenseData = {
-    licenses: [
-      {
-        licenseKey: this.TEST_LICENSE_KEY,
-        isActive: true,
-        expiryDate: '2026-12-31T23:59:59.999Z',
-        maxSystems: 999999, // Unlimited
-        systems: []
-      },
-      {
-        licenseKey: 'FD-59E2EC25-E5DB-33D3',
-        isActive: true,
-        expiryDate: '2026-12-31T23:59:59.999Z',
-        maxSystems: 999999, // Unlimited
-        systems: []
-      },
-      {
-        licenseKey: 'FD-TEST-UNLIMITED',
-        isActive: true,
-        expiryDate: '2026-12-31T23:59:59.999Z',
-        maxSystems: -1, // Unlimited
-        systems: []
-      },
-      {
-        licenseKey: 'FD-TEST-LIMITED',
-        isActive: true,
-        expiryDate: '2026-12-31T23:59:59.999Z',
-        maxSystems: 5,
-        systems: []
-      }
-    ]
+    licenses: []
   };
 
   constructor() {
@@ -122,20 +90,24 @@ class LicenseValidationService {
       // Save the license key
       await AsyncStorage.setItem(this.STORAGE_KEYS.LICENSE_KEY, licenseKey);
 
-      // First, try to validate with the API server
+      // Always try to validate with the API server first
       const apiResult = await this.validateLicenseWithAPI(licenseKey);
       if (apiResult.success) {
         return apiResult;
       }
 
-      // If API fails, fall back to mock validation
-      console.log('API validation failed, falling back to mock validation');
-      return await this.validateLicenseWithMock(licenseKey);
+      // If API fails, return the error (no fallback to mock)
+      console.log('API validation failed:', apiResult.error);
+      return apiResult;
     } catch (error) {
       console.error('License validation error:', error);
       
-      // Fall back to mock validation
-      return await this.validateLicenseWithMock(licenseKey);
+      return {
+        success: false,
+        isValid: false,
+        needsValidation: false,
+        error: error instanceof Error ? error.message : 'Network error or invalid license'
+      };
     }
   }
 
@@ -145,7 +117,35 @@ class LicenseValidationService {
       const systemId = await this.getSystemId();
       const fingerprint = await this.getSystemFingerprint();
 
-      // Try to activate the device with the API
+      // First, check if the license exists and is active
+      const statusResponse = await fetch(`${config.apiUrls[0]}/api/licenses/status?licenseKey=${licenseKey}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+
+      if (!statusResponse.ok) {
+        return {
+          success: false,
+          isValid: false,
+          needsValidation: false,
+          error: `License not found or invalid (${statusResponse.status})`
+        };
+      }
+
+      const statusResult = await statusResponse.json();
+      
+      if (!statusResult.isActive) {
+        return {
+          success: false,
+          isValid: false,
+          needsValidation: false,
+          error: 'License is inactive or suspended'
+        };
+      }
+
+      // Now try to activate the device with the API
       const response = await fetch(`${config.apiUrls[0]}/api/licenses/activate`, {
         method: 'POST',
         headers: {
@@ -161,7 +161,13 @@ class LicenseValidationService {
       });
 
       if (!response.ok) {
-        throw new Error(`API request failed: ${response.status}`);
+        const errorText = await response.text();
+        return {
+          success: false,
+          isValid: false,
+          needsValidation: false,
+          error: `Device activation failed: ${response.status} - ${errorText}`
+        };
       }
 
       const result = await response.json();
@@ -188,7 +194,12 @@ class LicenseValidationService {
       }
     } catch (error) {
       console.error('API validation error:', error);
-      throw error; // Let the caller handle the fallback
+      return {
+        success: false,
+        isValid: false,
+        needsValidation: false,
+        error: error instanceof Error ? error.message : 'Network error during validation'
+      };
     }
   }
 
@@ -391,25 +402,9 @@ class LicenseValidationService {
     try {
       console.log('Performing quick license check');
       
-      const systemId = await this.getSystemId();
-      
       // Check if we have a stored license key
       const storedLicenseKey = await AsyncStorage.getItem(this.STORAGE_KEYS.LICENSE_KEY);
       if (!storedLicenseKey || storedLicenseKey !== licenseKey) {
-        // For testing, auto-validate the test license
-        if (licenseKey === this.TEST_LICENSE_KEY) {
-          console.log('Auto-validating test license for quick check');
-          await AsyncStorage.setItem(this.STORAGE_KEYS.LICENSE_KEY, this.TEST_LICENSE_KEY);
-          await AsyncStorage.setItem(this.STORAGE_KEYS.UNLIMITED_LICENSE, 'true');
-          this.setLastValidationTime();
-          return {
-            success: true,
-            isValid: true,
-            needsValidation: false,
-            reason: 'Test license auto-validated'
-          };
-        }
-        
         return {
           success: false,
           isValid: false,
@@ -418,21 +413,8 @@ class LicenseValidationService {
         };
       }
 
-      // Check if license is unlimited - if so, allow without strict validation
-      const unlimitedFlag = await AsyncStorage.getItem(this.STORAGE_KEYS.UNLIMITED_LICENSE);
-      if (unlimitedFlag === 'true') {
-        console.log('Quick check: Unlimited license detected');
-        this.setLastValidationTime();
-        return { 
-          success: true, 
-          isValid: true, 
-          needsValidation: false, 
-          reason: 'Unlimited license validated' 
-        };
-      }
-      
-      // Only if system is not registered and license is limited, perform full validation
-      console.log('System not registered and license is limited, performing full validation');
+      // Always validate with the backend to ensure license is still active
+      console.log('Quick check: Validating with backend');
       const result = await this.validateLicense(licenseKey);
       if (result.success) {
         this.setLastValidationTime();

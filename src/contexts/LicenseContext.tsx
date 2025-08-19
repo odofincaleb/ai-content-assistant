@@ -108,8 +108,8 @@ export const LicenseProvider: React.FC<LicenseProviderProps> = ({ children }) =>
       if (storedLicenseKey) {
         setLicenseKeyState(storedLicenseKey);
         
-        // Try to validate the license
-        const result = await licenseValidationService.quickLicenseCheck(storedLicenseKey);
+        // Try to validate the license with the backend
+        const result = await licenseValidationService.validateLicense(storedLicenseKey);
         
         if (result.success && result.isValid) {
           setIsLicenseValid(true);
@@ -120,24 +120,16 @@ export const LicenseProvider: React.FC<LicenseProviderProps> = ({ children }) =>
             await loadUserPermissions();
           }
         } else {
+          // License is invalid - clear it from storage
           setIsLicenseValid(false);
           setError(result.error || 'License validation failed');
+          await AsyncStorage.removeItem('fiddyscript_license_key');
+          setLicenseKeyState(null);
         }
       } else {
-        // For testing, auto-load the test license
-        const testLicenseKey = 'FD-TEST-MOBILE-2024';
-        setLicenseKeyState(testLicenseKey);
-        
-        // Auto-validate the test license
-        const result = await licenseValidationService.quickLicenseCheck(testLicenseKey);
-        
-        if (result.success && result.isValid) {
-          setIsLicenseValid(true);
-          setError(null);
-        } else {
-          setIsLicenseValid(false);
-          setError('Failed to auto-validate test license');
-        }
+        // No stored license key found - user needs to enter one
+        setIsLicenseValid(false);
+        setError(null);
       }
     } catch (error) {
       console.error('Error loading license from storage:', error);
@@ -179,6 +171,11 @@ export const LicenseProvider: React.FC<LicenseProviderProps> = ({ children }) =>
       } else {
         setIsLicenseValid(false);
         setError(result.error || 'License validation failed');
+        
+        // Clear invalid license from storage
+        await AsyncStorage.removeItem('fiddyscript_license_key');
+        setLicenseKeyState(null);
+        
         return {
           success: false,
           isValid: false,
