@@ -145,6 +145,20 @@ class LicenseValidationService {
         };
       }
 
+      // Check if this device is already registered
+      const isDeviceRegistered = statusResult.thisDeviceActive;
+      console.log('Device already registered:', isDeviceRegistered);
+      
+      // If device is already registered, just return success
+      if (isDeviceRegistered) {
+        return {
+          success: true,
+          isValid: true,
+          needsValidation: false,
+          reason: 'Device already registered, license validated successfully'
+        };
+      }
+
       // Now try to activate the device with the API
       const response = await fetch(`${config.apiUrls[0]}/api/licenses/activate`, {
         method: 'POST',
@@ -162,6 +176,18 @@ class LicenseValidationService {
 
       if (!response.ok) {
         const errorText = await response.text();
+        console.log('Activation failed:', response.status, errorText);
+        
+        // Handle device limit reached (409)
+        if (response.status === 409) {
+          return {
+            success: false,
+            isValid: false,
+            needsValidation: false,
+            error: 'Device limit reached. Maximum number of devices already registered for this license.'
+          };
+        }
+        
         return {
           success: false,
           isValid: false,
@@ -172,7 +198,7 @@ class LicenseValidationService {
 
       const result = await response.json();
       
-      if (result.success) {
+      if (result.ok) {
         // Set unlimited license flag if needed
         if (result.maxDevices >= 999999) {
           await AsyncStorage.setItem(this.STORAGE_KEYS.UNLIMITED_LICENSE, 'true');
