@@ -136,7 +136,7 @@ class LicenseValidationService {
 
       const statusResult = await statusResponse.json();
       
-      if (!statusResult.isActive) {
+      if (!statusResult.valid) {
         return {
           success: false,
           isValid: false,
